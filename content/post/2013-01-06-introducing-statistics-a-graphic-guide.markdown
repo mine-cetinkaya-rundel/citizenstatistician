@@ -11,7 +11,7 @@ categories:
 - Book review
 ---
 
-[caption id="attachment_354" align="alignleft" width="187"][![Source: introducingbooks.com](http://citizen-statistician.org/wp-content/uploads/2013/01/introducing_stats-208x300.png)](http://citizen-statistician.org/2013/01/06/introducing-statistics-a-graphic-guide/introducing_stats/) Source: introducingbooks.com[/caption]
+[![Source: introducingbooks.com](http://citizen-statistician.org/wp-content/uploads/2013/01/introducing_stats-208x300.png)](http://citizen-statistician.org/2013/01/06/introducing-statistics-a-graphic-guide/introducing_stats/) Source: introducingbooks.com
 
 Over the winter break I was travelling in the UK and I came across this little book called "[Introducing Statistics: A Graphic Guide](http://www.introducingbooks.com/book/view/statistics)" by Ellen Magnello and Borin Van Loon at the gift shop in the Tate Modern museum in London. The book is published in 2009, and Significance magazine already reviewed it [here](http://www.significancemagazine.org/details/review/874191/Introducing-Statistics-A-Graphic-Guide-by-Eileen-Magnello-illustrated-by-Borin-V.html), so I won't repeat their comments. I hadn't heard about the book before, so I picked it up, along with a copy of Introducing Post-Modernism (they were 2 for £10, I had to get two, obviously).
 

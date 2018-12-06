@@ -21,4 +21,4 @@ I'm in Alexandria, VA, in town for a meeting of an ASA/NCTM education committee.
 
 When I get there, I'll let you know if it was worth the wait.
 
-[caption id="attachment_438" align="alignnone" width="300"][![Number of People Ahead of me in line, as of Feb 28.](http://citizen-statistician.org/wp-content/uploads/2013/03/tempo-wait-2-300x195.jpeg)](http://citizen-statistician.org/wp-content/uploads/2013/03/tempo-wait-2.jpeg) Number of People Ahead of me in line, as of Feb 28.[/caption]
+[![Number of People Ahead of me in line, as of Feb 28.](http://citizen-statistician.org/wp-content/uploads/2013/03/tempo-wait-2-300x195.jpeg)](http://citizen-statistician.org/wp-content/uploads/2013/03/tempo-wait-2.jpeg) Number of People Ahead of me in line, as of Feb 28.

@@ -21,7 +21,7 @@ In a nutshell, feedreaders scan websites for new information and then present th
 
 There are several [options available for a feedreader](http://en.wikipedia.org/wiki/Comparison_of_feed_aggregators) depending on the device/computer system that you use. While I don't endorse one over any other, I will tell you what I use. (If I don't there will be questions, and it may give you a place to start if this kind of tool is new to you.) On my Mac, I use the program [Vienna](http://www.vienna-rss.org). On my iPad, which is where I do most of my browsing and blog reading, I use [Flipboard](http://flipboard.com).
 
-[caption id="attachment_537" align="aligncenter" width="2545"][![Screen Shot 2013-04-22 at 8.06.55 AM](http://citizen-statistician.org/wp-content/uploads/2013/04/Screen-Shot-2013-04-22-at-8.06.55-AM.jpg)](http://citizen-statistician.org/wp-content/uploads/2013/04/Screen-Shot-2013-04-22-at-8.06.55-AM.jpg) A screenshot of Vienna running on my Mac.[/caption]
+[![Screen Shot 2013-04-22 at 8.06.55 AM](http://citizen-statistician.org/wp-content/uploads/2013/04/Screen-Shot-2013-04-22-at-8.06.55-AM.jpg)](http://citizen-statistician.org/wp-content/uploads/2013/04/Screen-Shot-2013-04-22-at-8.06.55-AM.jpg) A screenshot of Vienna running on my Mac.
 
 
 

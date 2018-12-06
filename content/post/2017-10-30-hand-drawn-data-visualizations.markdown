@@ -24,7 +24,7 @@ Every time I see these visualizations I am amazed—they are gorgeous and the de
 
 This summer I read [My Ideal Bookshelf](https://www.goodreads.com/book/show/13528388-my-ideal-bookshelf), a book of hand-drawn illustrations depicting well-known cultural icons' bookshelves. Each person was asked to identify a small shelf of books that represented her/him. These could be books that "changed your life, that have made you who you are today, your favorite favorites."
 
-[caption id="" align="aligncenter" width="318"]![](https://images.gr-assets.com/books/1408743049l/13528388.jpg) My Ideal Bookshelf[/caption]
+![](https://images.gr-assets.com/books/1408743049l/13528388.jpg) My Ideal Bookshelf
 
 I really enjoyed looking at the illustrations of the books, recognizing several that sat on my bookshelf. The accompanying text also told the back-story of why these books were chosen. Although this isn't data visualization, per se (at least in the traditional sense), the hand-drawn illustrations were what drew me to the book in the first place.
 
@@ -40,7 +40,7 @@ Giorgia Lupi and Stefanie Posavec also created hand-drawn data visualizations f
 
 They ultimately turned their visualizations into a book. You can learn more at [their website](http://www.dear-data.com/theproject) or from the [Data Stories podcast related to the project](http://datastori.es/?s=dear+data).
 
-[caption id="" align="alignnone" width="1500"]![](https://static1.squarespace.com/static/54eec73ee4b0ae0904da0e94/t/579771ba9f7456e1da08976b/1469542868806/?format=1500w) Postcards from the Dear Data project[/caption]
+![](https://static1.squarespace.com/static/54eec73ee4b0ae0904da0e94/t/579771ba9f7456e1da08976b/1469542868806/?format=1500w) Postcards from the Dear Data project
 
 
 ## Mapping Manhattan
@@ -48,7 +48,7 @@ They ultimately turned their visualizations into a book. You can learn more at [
 
 Another project, that was also turned into a book, was [Mapping Manhattan: A Love (and Sometimes Hate) Story in Maps by 75 New Yorkers](https://www.goodreads.com/book/show/15842664-mapping-manhattan?from_search=true). Becky Cooper, the project's creator, passed out blank maps (with return postage) of Manhattan to strangers she met walking around the city and asked them to "map their Manhattan." (Read more [here](https://www.brainpickings.org/2013/04/02/mapping-manhattan-becky-cooper/).)
 
-[caption id="" align="aligncenter" width="1200"]![](https://s-i.huffpost.com/gadgets/slideshows/290093/slide_290093_2298218_free.jpg) Map drawn by New Yorker staff writer Patricia Marx[/caption]
+![](https://s-i.huffpost.com/gadgets/slideshows/290093/slide_290093_2298218_free.jpg) Map drawn by New Yorker staff writer Patricia Marx
 
 The hand-drawn maps conveyed the personal story of each person's map in a way that a computer drawn image never could. This was so compelling, we have thought about including a similar assignment in our Data Visualization course. (Although people don't connect to Minneapolis as much as they do to New York.)
 

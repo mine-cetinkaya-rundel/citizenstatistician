@@ -19,11 +19,11 @@ For various reasons, I decided to walk this weekend from my house to Venice Beac
 
 I decided I would take just one picture, so that I would be forced to exercise some editorial decision making. That way, the data would reflect my own state of mind, in some sense.  Later in the walk, I cheated, because it's easier to take many pictures than to decide on one.  I also sometimes cheated by taking pictures of things when it wasn't the right time.  Here's the last picture I decided to take, at the end of my walk (I took a cab home. I am that lazy) on Abbot Kinney.
 
-[caption id="attachment_364" align="alignnone" width="224"][![mural.](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1376-224x300.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1376/) Brick mural, on Abbot Kinney[/caption]
+[![mural.](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1376-224x300.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1376/) Brick mural, on Abbot Kinney
 
 This exercise brought up a dilemma I often encounter when touristing--do you take intimate, close-up pictures of interesting features, like the above, or do you take pictures of the environment, to give people an idea of the surroundings?  This latter is almost always a bad idea, particularly if all you've got is an iPhone 4; it really is difficult to improve on Google Street View.  It is, however, extremely tempting, despite the fact that it leads to pictures like this:
 
-[caption id="attachment_373" align="alignnone" width="300"][![Lincoln Blvd (Pacific Coast Hwy) and Venice Blvd, looking North](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1355-300x224.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1355/) Lincoln Blvd (Pacific Coast Hwy) and Venice Blvd, looking North[/caption]
+[![Lincoln Blvd (Pacific Coast Hwy) and Venice Blvd, looking North](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1355-300x224.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1355/) Lincoln Blvd (Pacific Coast Hwy) and Venice Blvd, looking North
 
 But my subject-matter choices were also limited in other ways.  For one, it was fairly hot, as this temperature plot ([http://www.friendlyforecast.com/usa/archive](http://www.friendlyforecast.com/usa/archive)) shows.
 
@@ -35,15 +35,15 @@ The heat kept me on the shady side of the street, and the sun meant that I usual
 
 During the walk I stopped at a farmer's market and at a used book sale at the Mar Vista Library (bought an Everyman's Library book about Beethoven and the score to Bach's Cantata #4.) I watched toddler-aged girls fight and cry and dance outside a ballet studio, drank a too-expensive cup of coffee at Intelligentia coffee (but it was good), and bought my sister, for her birthday,  a terrarium at a make-your-own terrarium shop.
 
-[caption id="attachment_374" align="alignnone" width="150"][![Books.](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1342-150x150.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1342/) Books.[/caption]
+[![Books.](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1342-150x150.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1342/) Books.
 
 What to do with these data?  One challenge is to see what can be gleaned  from the photos.  The only trend that jumped out at me, while reviewing these, was the fact that I was in line at that coffee shop for a very long time, as this series of photos (taken every 5 minutes, remember), attest:
 
 [![IMG_1369](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1369-300x224.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1369/)
 
-[caption id="attachment_369" align="alignnone" width="300"][![Closer](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1371-300x224.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1371/) Closer[/caption]
+[![Closer](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_1371-300x224.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1371/) Closer
 
-[caption id="attachment_371" align="alignnone" width="300"][![waiting for the hand-pour-briewed coffee to actually be poured](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_13731-300x224.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1373-2/) waiting for the hand-pour-briewed coffee to actually be poured[/caption]
+[![waiting for the hand-pour-briewed coffee to actually be poured](http://citizen-statistician.org/wp-content/uploads/2013/01/IMG_13731-300x224.jpg)](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/img_1373-2/) waiting for the hand-pour-briewed coffee to actually be poured
 
 So at the risk of overthinking this post, I'll just come right to the point (finally):  how do we provide tools to make it easier for people to make sense of these data?
 

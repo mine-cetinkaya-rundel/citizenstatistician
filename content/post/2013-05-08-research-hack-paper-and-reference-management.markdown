@@ -17,11 +17,11 @@ When one summer I realized that I had 11 copies of a paper on covariational reas
 
 Papers (now in its second version—Papers2) is a management system for a person's "research library" (as they refer to it). It is sort of like iTunes for PDF files. You have a "library" of files (only one place on your computer) and these are displayed in the Papers application (just like iTunes). You can then have "playlists" in which you put these files, but without creating multiple copies! For example, you could have "playlists" containing the references for each paper you are currently writing.
 
-[caption id="" align="alignnone" width="750"]![](http://www.papersapp.com/images/papers2/papers_citations.jpg) Screenshot of the Papers2 application[/caption]
+![](http://www.papersapp.com/images/papers2/papers_citations.jpg) Screenshot of the Papers2 application
 
 The search feature is great. If you are an organization nut like myself, you can also input all sorts of meta-data (publication type, tag words, photos, links to supplementary material, etc.). Papers can also output references for [BibTeX](http://www.bibtex.org) or [Endnote](http://endnote.com/) and has integration with [Scrivener](http://literatureandlatte.com) and Word. There are limited annotation tools within Papers (although more in v2.1) at this point, but rumor has it that is a big part of the future. There are also several workarounds using Dropbox, Skim, etc. Lastly there are iPhone and iPad apps for Papers that I think are beautiful. Reading articles on the iPad is one of the coolest things ever.
 
-[caption id="" align="alignnone" width="520"]![](http://www.papersapp.com/images/ipad/ipad_retina.jpg) Papers on the iPad[/caption]
+![](http://www.papersapp.com/images/ipad/ipad_retina.jpg) Papers on the iPad
 
 Unfortunately Papers is not free (but there is a substantial discount for students). Also, as far as I know, it is only available for Mac users. There are several other management and reference systems available as well. Two of those are [Zotero](https://www.zotero.org) and [Mendeley](http://www.mendeley.com).
 

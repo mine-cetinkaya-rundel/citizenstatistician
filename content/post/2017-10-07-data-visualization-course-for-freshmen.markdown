@@ -16,7 +16,7 @@ categories:
 
 A little over a year ago, we decided to propose a data visualization course at the first-year level. We had been thinking about this for awhile, but never had the time to teach it given the scheduling constraints we had. When one of the other departments on campus was shut down and the faculty merged in with other departments, we felt that the time was ripe to make this proposal.
 
-[caption id="attachment_1227" align="aligncenter" width="1518"][![](http://citizen-statistician.org/wp-content/uploads/2017/10/Screen-Shot-2017-10-07-at-10.24.51-AM.png)](http://citizen-statistician.org/2017/10/07/data-visualization-course-for-freshmen/screen-shot-2017-10-07-at-10-24-51-am/) Course description of the EPsy 1261 data visualization course[/caption]
+[![](http://citizen-statistician.org/wp-content/uploads/2017/10/Screen-Shot-2017-10-07-at-10.24.51-AM.png)](http://citizen-statistician.org/2017/10/07/data-visualization-course-for-freshmen/screen-shot-2017-10-07-at-10-24-51-am/) Course description of the EPsy 1261 data visualization course
 
 In putting together the proposal, we knew that:
 
@@ -74,7 +74,7 @@ Once we settled on using R, we had to decide between using the suite of **base p
 
 One thing that the teaching team completely agreed on (and was mentioned by almost everyone who we talked to who taught data visualization) was that we wanted students to be producing graphs very early in the course; giving them a sense of power and the reenforcement that they could be successful. We felt this might be difficult for students with the ggplot syntax. To ameliorate this, we wrote a course-specific R package ([epsy1261; available on github](https://github.com/zief0002/epsy1261)) that allows students to create a few simple plots interactively by employing functionality from the manipulate package. (We could have also done this via Shiny, but I am not as well-versed in Shiny and only had a few hours to devote to this over the summer given other responsibilities.)
 
-[caption id="attachment_1226" align="aligncenter" width="2124"][![](http://citizen-statistician.org/wp-content/uploads/2017/10/Screen-Shot-2017-10-07-at-10.16.24-AM.png)](http://citizen-statistician.org/2017/10/07/data-visualization-course-for-freshmen/screen-shot-2017-10-07-at-10-16-24-am/) Interactive creation of the bar chart using the **epsy1261** package. This allows students to input  minimal syntax, barchart(data), and then use interaction to create plots.[/caption]
+[![](http://citizen-statistician.org/wp-content/uploads/2017/10/Screen-Shot-2017-10-07-at-10.16.24-AM.png)](http://citizen-statistician.org/2017/10/07/data-visualization-course-for-freshmen/screen-shot-2017-10-07-at-10-16-24-am/) Interactive creation of the bar chart using the **epsy1261** package. This allows students to input  minimal syntax, barchart(data), and then use interaction to create plots.
 
 
 ## Course Content

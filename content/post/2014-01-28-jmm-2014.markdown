@@ -15,11 +15,11 @@ The JMM are a great place to educate and work with mathematics teachers at the c
 
 This year, aside from the perennial [_Teaching introductory statistics (for instructors new to teaching intro stats_](http://jointmathematicsmeetings.org/meetings/national/jmm2014/2160_minicourses#sthash.GiQRJpux.dpuf) minicourse, the SIGMAA also endorsed two minicourses aimed at using randomization/bootstrapping in the introductory course, _[CATALST: Introductory statistics using randomization and bootstrap methods](http://jointmathematicsmeetings.org/meetings/national/jmm2014/2160_minicourses#sthash.GiQRJpux.dpuf)_ and [_Using randomization methods to build conceptual understanding of statistical inference_](http://jointmathematicsmeetings.org/meetings/national/jmm2014/2160_minicourses#sthash.GiQRJpux.dpuf). Both mini courses were well attended and will likely be offered again next January.
 
-[caption id="attachment_778" align="aligncenter" width="2285"][![JMM-2014-Minicourse-Nicola](http://citizen-statistician.org/wp-content/uploads/2014/01/JMM-2014-Minicourse-Nicola.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/JMM-2014-Minicourse-Nicola.jpg) Nicola during the CATALST minicourse.[/caption]
+[![JMM-2014-Minicourse-Nicola](http://citizen-statistician.org/wp-content/uploads/2014/01/JMM-2014-Minicourse-Nicola.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/JMM-2014-Minicourse-Nicola.jpg) Nicola during the CATALST minicourse.
 
 The SIGMAA also sponsored a Contributed Paper Session entitled, _[Data, Modeling, and Computing in the Introductory Statistics Course](http://jointmathematicsmeetings.org/meetings/national/jmm2014/2160_program_friday.html#sthash.KLl5c64o.dpuf)_. The marathon session, running from 1:00pm–6:00pm, was very well attended and included 15 presentations.
 
-[caption id="attachment_779" align="aligncenter" width="2285"][![Nick-Horton](http://citizen-statistician.org/wp-content/uploads/2014/01/Nick-Horton.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/Nick-Horton.jpg) Nick Horton gives the paper, Big Data in the Intro Stats Class: Use of the Airline Delays Dataset to Expose Students to a Real-World, Complex Dataset by himself, Ben Baumer, and Hadley Wickham.[/caption]
+[![Nick-Horton](http://citizen-statistician.org/wp-content/uploads/2014/01/Nick-Horton.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/Nick-Horton.jpg) Nick Horton gives the paper, Big Data in the Intro Stats Class: Use of the Airline Delays Dataset to Expose Students to a Real-World, Complex Dataset by himself, Ben Baumer, and Hadley Wickham.
 
 One of my favorite things at JMM is attending the SIGMAA Stat-Ed Business Meeting. This took place immediately following the CPS, so we were able to capitalize on inviting many of the attendees to join us. After eating what might have been the best spread of food I have encountered at one of these meetings, we had our meeting.
 
@@ -29,9 +29,9 @@ The **Dex Whittinghill Award** is presented to the first author of the paper tha
 
 The [Robert V. Hogg Award](http://sigmaa.maa.org/stat-ed/) for excellence in teaching introductory statistics was presented to Johanna Hardin of Pomona College. Johanna's colleague, Gizem Karaali, gave a heartwarming talk when presenting Johanna the award.
 
-[caption id="attachment_776" align="aligncenter" width="2554"][![IMG_3772](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3772.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3772.jpg) Scott Albers, SIGMAA chair, congratulates Johanna Hardin on winning the Robert V. Hogg Award[/caption]
+[![IMG_3772](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3772.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3772.jpg) Scott Albers, SIGMAA chair, congratulates Johanna Hardin on winning the Robert V. Hogg Award
 
-[caption id="attachment_777" align="aligncenter" width="2554"][![IMG_3776](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3776.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3776.jpg) Gizem Karaali reads a heartwarming note from the Johanna's colleagues.[/caption]
+[![IMG_3776](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3776.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3776.jpg) Gizem Karaali reads a heartwarming note from the Johanna's colleagues.
 
 
 

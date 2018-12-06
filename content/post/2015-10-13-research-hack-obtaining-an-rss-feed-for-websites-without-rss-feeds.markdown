@@ -15,7 +15,7 @@ In one of our older posts, I wrote about using [feedreaders and aggregators](htt
 
 Many sites have an RSS feed and make the process of adding the content to your feedreader fairly painless. In general the process works something like this...look for the RSS icon, click it, and choose the reader you want to send the content to, and click subscribe.
 
-[caption id="attachment_969" align="aligncenter" width="1070"][![Subscribing to an RSS Feed](http://citizen-statistician.org/wp-content/uploads/2015/10/RSS.png)](http://citizen-statistician.org/wp-content/uploads/2015/10/RSS.png) Subscribing to an RSS Feed[/caption]
+[![Subscribing to an RSS Feed](http://citizen-statistician.org/wp-content/uploads/2015/10/RSS.png)](http://citizen-statistician.org/wp-content/uploads/2015/10/RSS.png) Subscribing to an RSS Feed
 
 But what about sites that do not have an RSS feed explicitly in place? It turns out that there are third-party applications that can piece together an RSS feed for these sites as well. There are several of these applications available online. I have used [Page2RSS](http://page2rss.com/) and had pretty good luck.
 
