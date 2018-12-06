@@ -1,0 +1,133 @@
+---
+author: andy
+comments: true
+date: 2012-10-02 14:03:56+00:00
+layout: post
+link: http://citizen-statistician.org/2012/10/02/yelp-data/
+slug: yelp-data
+title: Yelp Data
+wordpress_id: 33
+categories:
+- Data
+- hunting and gathering
+---
+
+[![Yelp Logo](http://www.rossvincentdesign.com/img/yelp_logo.png)](http://www.yelp.com)Yelp is a website on which people review local businesses. In their own words, Yelp describes themselves as an "online urban city guide that helps people find cool places to eat, shop, drink, relax and play, based on the informed opinions of a vibrant and active community of locals in the know."
+
+Earlier this year, Yelp released [a subset of their data to be used for academic use](http://www.yelp.com/academic_dataset). The dataset includes business data (e.g., address, longitude, latitude), review data (e.g., number of 'cool' votes) and user data (e.g., name of user, number of reviews). Yelp provided these data for the following 30 colleges and universities (the nearest 250 businesses to these campuses):
+
+
+
+	
+  * Brown University
+
+	
+  * California Institute of Technology
+
+	
+  * California Polytechnic State University
+
+	
+  * Carnegie Mellon University
+
+	
+  * Columbia University
+
+	
+  * Cornell University
+
+	
+  * Georgia Institute of Technology
+
+	
+  * Harvard University
+
+	
+  * Harvey Mudd College
+
+	
+  * Massachusetts Institute of Technology
+
+	
+  * Princeton University
+
+	
+  * Purdue University
+
+	
+  * Rensselaer Polytechnic Institute
+
+	
+  * Rice University
+
+	
+  * Stanford University
+
+	
+  * University of California - Los Angeles
+
+	
+  * University of California - San Diego
+
+	
+  * University of California at Berkeley
+
+	
+  * University of Illinois - Urbana-Champaign
+
+	
+  * University of Maryland - College Park
+
+	
+  * University of Massachusetts - Amherst
+
+	
+  * University of Michigan - Ann Arbor
+
+	
+  * University of North Carolina - Chapel Hill
+
+	
+  * University of Pennsylvania
+
+	
+  * University of Southern California
+
+	
+  * University of Texas - Austin
+
+	
+  * University of Washington
+
+	
+  * University of Waterloo
+
+	
+  * University of Wisconsin - Madison
+
+	
+  * Virginia Tech
+
+
+*Yelp claims that you can email them to add other campuses, but when I did that to request the University of Minnesota, they responded that they were not adding other campuses at the time. Perhaps if more requests come in they will update the dataset.
+
+The data is in the [JSON format](http://en.wikipedia.org/wiki/JSON), which makes [d3 a good candidate](http://d3js.org) for visualization work. R can also read JSON formatted data using the [rjson](http://cran.r-project.org/web/packages/rjson/) package. [[See the StackOverflow post here.](http://stackoverflow.com/questions/2617600/importing-data-from-a-json-file-into-r)] You need to install Yelp's Python framework to obtain the data, but instructions are on the webpage. They also provide a [GitHub page](https://github.com/Yelp/dataset-examples) to inspire you.
+
+What questions can you answer with this dataset? Here are some examples?
+
+
+
+	
+  * Which review or reviews have the most number of unique words (i.e., words not seen in any other review)? [[see here](http://engineeringblog.yelp.com/2012/05/datamining-and-visualization-with-the-academic-dataset.html)]
+
+	
+  * Can you predict which businesses will close based on reviews?
+
+	
+  * Are there businesses that users tend to rate highly when they rate other businesses highly (i.e., are there associations between businesses that owners should/could take advantage of)?
+
+	
+  * Are there differences in the reviews of `new' and `old' businesses? How do these changes play out over time?
+
+
+There are many others that I am sure people can come up with, most probably more interesting than those. If anyone has worked with this dataset and produced something, link to it in the comments.

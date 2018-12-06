@@ -1,0 +1,17 @@
+---
+author: citizenstat
+comments: true
+date: 2014-06-28 03:22:09+00:00
+layout: post
+link: http://citizen-statistician.org/2014/06/28/lively-r/
+slug: lively-r
+title: Lively R
+wordpress_id: 816
+categories:
+- R Project
+- Teaching
+---
+
+Next week, the [UseR](http://user2014.stat.ucla.edu) conference comes to UCLA.  And in anticipation, I thought a little foreshadowing would be nice.  Amelia McNamara, UCLA Stats grad student and rising stats ed star, shared with me a new tool that has the potential to do some wonderful things.[  LivelyR](http://vimeo.com/93535802) is a work-in-progress that is, in the words of its creators, a "mashup of R with packages of Rstudio." The result is a highly interactive.  I was particularly struck by and intrigued by the 'sweeping' function, which visually smears graphics across several parameter values.  The demonstration shows how this can help understand the effects of bin-width and off-set changes on a histogram so that a more robust sense of the sample distribution shines through.
+
+R is beginning to become a formidable educational tool, and I'm looking forward to learning more at UseR next week. For those of you in L.A. who can attend, Aron Lunzer will be talking about LivelyR at 4pm on Tuesday, July 1.

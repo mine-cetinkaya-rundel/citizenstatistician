@@ -1,0 +1,68 @@
+---
+author: mine
+comments: true
+date: 2013-08-07 05:02:34+00:00
+layout: post
+link: http://citizen-statistician.org/2013/08/07/jsm-2013-day-3/
+slug: jsm-2013-day-3
+title: JSM 2013 - Day 3
+wordpress_id: 636
+categories:
+- Events
+tags:
+- jsm2013
+---
+
+Tuesday was a slightly shorter day for me in terms of talks as I had a couple meetings to attend. The first talk I attended was my colleague Kari Lock Morgan's talk titled "Teaching PhD Students How to Teach" (in the "Teaching Outside the Box, Ever So Slightly (# 358)" session). The talk was about a class on teaching that she took as a grad student and now teaches at Duke. She actually started off by saying that she thought the title of her talk was misleading, as the talk wasn't about teaching PhD students a particular way to teach, but instead about getting these students to think about teaching, which, especially in research universities, can take a backseat to research. This course features role playing office hours, video-taped teaching sessions which students then watch and critique themselves and each other, as well as writing and revising teaching statements. If you're interested in creating a similar course, you can find her materials on her [course webpage](http://stat.duke.edu/courses/Fall12/sta790.04/).
+
+In the afternoon I attended part of the "The 'Third' Course in Applied Statistics for Undergraduates  (#414)" session. The first talk titled "Statistics Without the Normal Distribution" by Monnie McGee started off by listing three "lies" and corresponding "truths":
+
+
+
+	
+  * Lie: T-intervals are appropriate for n>30.
+
+	
+  * Truth: It's time to retire the n>30 rule. (She referenced [this paper](https://78462f86-a-3bb57111-s-sites.googlegroups.com/a/timhesterberg.net/www/articles/JSM08-n30.pdf?attachauth=ANoY7coDFeZwzm8oYNWOctKMFNi-o2PHYCLAFgcfxYOWiTIjYtmuLZCB0BILw2T9D4VVDNiblw9xqNH3DqIdH3sfvqEPv-R5qLJn_ZskYo65D0_RzVTpkVQ4Hex979QmNhHxr8p1Ip8YKSdxZoEGrzRE5388acfSGYcW7V3TfMYgLemOTKxN_F4s5nhHAnEj13Ed9E9MicmbhxmvH_GFPq3yWoCP4UO0DQ%3D%3D&attredirects=0) by Tim Hesterberg.)
+
+
+
+	
+  * Lie: Use the t-distribution for small data sets.
+
+	
+  * Truth: Permutation distributions give exact p-values for small data sets.
+
+
+
+	
+  * Lie: If a linear regression doesn't work, try a transformation.
+
+	
+  * Truth: The world is nonlinear and multivariate and dynamic. (I don't think "try a transformation" should be considered a lie, perhaps a "lie" would be "If a linear regression doesn't work, a transformation will always work.")
+
+
+McGee talked about how they've reorganized the curriculum at Southern Methodist University so that statistics students take a class on non-parametrics before their sampling course. This class covers rank and EDF-based procedures such as the Wilcoxon, signed rank, and Mann-Whitney tests as well as resampling methods which are especially useful for estimation of numerous features of a distribution, like the median, independently of the population distribution. The course uses the text by Higgins ([Introduction to Modern Nonparametric Statistics](http://www.amazon.com/dp/0534387756)) as well as a series of supplements (which I didn't take notes on, but I'm sure she'd be happy to share the list with you if you're interested). However she also mentioned that she is looking for an alternative textbook for the course. Pedagogically, the class uses just in time teaching methods -- students read the material and complete warm up exercises before class each week, and class time is tailored to concepts that students appear to be struggling with based on their performance on the warm up exercises.
+
+The second talk in the session titled "Nonlinear, Non-Normal, Non-Independent?" was given by Alison Gibbs. Gibbs also described a course that focuses on models for situations when classical regression assumptions aren't met. She gave examples from a case study on HPV vaccinations that she uses in this class (I believe the data come from [this paper](http://www.biomedcentral.com/1471-2334/11/13/)). She emphasized the importance of introducing datasets that are interesting, controversial, authentic, and that lend themselves to asking compelling questions. She also mentioned that she doesn't use a textbook for this class, and finds this liberating. While I can see how not being tied to a textbook would be liberating, I can't help but think some students might find it difficult to not have a reference -- especially those who are struggling in the class. However I presume this issue can be addressed by providing the students with lecture notes and other resources in a _very_ organized fashion. I have to admit that I was hoping that I would hear Gibbs talk about [her MOOC](https://www.coursera.org/course/introstats) at this conference as I am gearing up to teach a similar MOOC next year. Perhaps I should track her down and pick her brain a bit...
+
+At this point I ducked out of this session to see my husband Colin Rundel's talk in the "Statistical Computing: Software and Graphics (#430)" session. His talk was on a new R package that he is working on (RcppGP) to improve the performance of Gaussian process models using GPU computing. He started with a quote: "If the computing complexity is linear, you're OK; if quadratic, pray; if cubic, give up." Looks like he and other people working in this area are not willing to give up quite yet. If you're interested in his code and slides, you can find them at [his GitHub page](https://github.com/rundel).
+
+The sessions on my agenda for tomorrow are:
+
+
+
+	
+  * 8:30am: [The New Face of Statistics Education (#480)](http://www.amstat.org/meetings/jsm/2013/onlineprogram/AbstractDetails.cfm?abstractid=307702)
+
+
+	
+  * 10:30am: [Topics in Statistical Graphics (#543)](http://www.amstat.org/meetings/jsm/2013/onlineprogram/ActivityDetails.cfm?SessionID=209159) - specifically the talk on the [visreg](http://cran.r-project.org/web/packages/visreg/index.html) package as I'm looking for good (and simple) visualizations for simple and multiple regression that I can use in my introductory statistics course.
+
+	
+  * 2pm: [Assessing the Statistical Understanding and Reasoning in K-12: The LOCUS Project (#587)](http://www.amstat.org/meetings/jsm/2013/onlineprogram/ActivityDetails.cfm?SessionID=208866)
+
+	
+  * 4pm: COPSS Awards and Fisher Lecture: [From Fisher to Big Data: Continuities and Discontinuities (#612)](http://www.amstat.org/meetings/jsm/2013/onlineprogram/AbstractDetails.cfm?abstractid=310413)
+
+

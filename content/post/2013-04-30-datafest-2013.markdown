@@ -1,0 +1,23 @@
+---
+author: citizenstat
+comments: true
+date: 2013-04-30 16:57:15+00:00
+layout: post
+link: http://citizen-statistician.org/2013/04/30/datafest-2013/
+slug: datafest-2013
+title: DataFest 2013
+wordpress_id: 542
+categories:
+- Events
+- teaching
+---
+
+DataFest is growing larger and larger.  This year, we hosted an event at [Duke](http://stat.duke.edu/datafest) (Mine organized this) with teams from NCSU and UNC, and at [UCLA](http://datafest.stat.ucla.edu) (Rob organized) with teams from Pomona College, Cal State Long Beach, University of Southern California, and UC Riverside.  We are very grateful to Vaclav Petricek at eHarmony for providing us with the data, which consisted of roughly one million "user-candidate" pairs, and a couple of hundred variables including "words friends would use to describe you", ideal characteristics in a partner, the importance of those characteristics, and the all-important 'did she email him' and 'did he email her' variables.
+
+The students had a great time, and worked hard for 48 hours to prepare short presentations for the judges.  This is the third year we've done this, and I'm growing impressed with the growing technical skills of the students.  (Which makes our life a lot easier, as far as providing help goes.)  Or maybe it's just that I've been lucky enough to get more and more "VIP Consultants" (statisticians from off-campus) and talented and dedicated grad students to help out, so that I  can be comfortably oblivious to the technical struggles.  Or all of the above.
+
+One thing I noticed that will definitely require some adjustment to our curriculum:  Our students had a hard time generating interesting questions from these data.  Part of the challenge is to look at a large, rich dataset and think "What can I show the world that the world would like to know?"  Too many students went directly to model-fitting, without making visuals or engaging in the content of the materials (a surprise, since we thought they would find this material much more easily-engageable than last year's micro-lending transaction data), or strategizing around some Big Questions.  They managed to pull it off in the end, most of them, but would have done better to brainstorm some good questions to follow, and would have done much better to start with the visuals.
+
+One of the fun parts of DataFest is the presentations.  Students have only 5 minutes and 2 slides to convince the judges of their worthiness.  At UCLA, because we were concerned about having too many teams for the judges to endure, we had two rounds.  First, a "speed dating" round in which participants had only 60 seconds and one slide.  We surprised them by announcing, at the start, that to move onto the next round, they would have to merge their team with one other team, and so these 60-second presentations should be viewed as pitches to potential partners.  We had hoped that teams would match on similar-themes or something, and this did happen; but many matches were between teams of friends.  The "super teams" were then allowed to make a 5-minute presentation, and awards were given to these large teams. The judges gave two awards for Best Insight (one to a super-team from Pomona College and another to a super-team from UCLA) and a Best Visualization (to the super-team from USC).  We did have two inter-collegiate super-teams (UCLA/Cal State Long Beach and UCLA/UCR) make it to the final round.
+
+If you want to host your own DataFest, drop a line to Mine or me and we can give you lots of advice.  And if you sit on a large, interesting data set we can use for next year, definitely drop us a line!

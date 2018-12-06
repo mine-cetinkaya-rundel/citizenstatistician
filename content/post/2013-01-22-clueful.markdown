@@ -1,0 +1,21 @@
+---
+author: citizenstat
+comments: true
+date: 2013-01-22 00:43:22+00:00
+layout: post
+link: http://citizen-statistician.org/2013/01/22/clueful/
+slug: clueful
+title: Clueful
+wordpress_id: 358
+categories:
+- Data
+- privacy
+---
+
+Since [posting](http://wp.me/p2LFQG-4E) last month about data-sharing concerns with some popular apps, I've since learned about [Cluefulapp.com](http://www.cluefulapp.com) which, apparently, helps us see how are data are used by iOS apps. For instance, according to Cluefulapp, Google Maps can read my address book, uses my iPhone's unique ID, encruypts stored data, "could" track my location, and uses an anonymous identifier.
+
+Waze is somewhat similar.  It "could" track my location [quotes are because I wonder what they mean by could---does it?], connects to twitter and facebook, can read my address book (but does it?), and uses an anonymous identifier.
+
+Still, I wonder if it goes far enough.  Google Maps seems relatively safe, until you think about what might happen if a third-party could merge this data with another app and learn more.  Say a restaurant owner sees several anonymous identifiers at his restaurant.  A look at Facebook reveals a small number of people who 'checked in' at that restaurant---perhaps their identifiers are among them?  Some of those people checked in at other places after the restaurant, and sure enough, the same identifier appears elsewhere.  Now the restaurant knows who the person is.
+
+I'm not sure whether this is a likely scenario, but it seems the next step is a device that puts together a profile of how you might appear in public, if someone merged the data from all of the apps used in a day.  Or perhaps this already exists?

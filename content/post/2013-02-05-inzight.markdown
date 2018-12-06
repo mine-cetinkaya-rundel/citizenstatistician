@@ -1,0 +1,23 @@
+---
+author: citizenstat
+comments: true
+date: 2013-02-05 05:22:01+00:00
+layout: post
+link: http://citizen-statistician.org/2013/02/05/inzight/
+slug: inzight
+title: iNZight
+wordpress_id: 312
+categories:
+- statistical software
+- Teaching
+---
+
+We spend too much time musing about the Data Deluge, I fear, at the expense of talking about another component that has made citizen-statisticianship possible:  accessible statistical software.  "Accessible" in (at least) two senses:  affordable and ready-to-use.  This summer, Chris Wild demonstrated his group's software iNZight at the Census@ School workshop in San Diego. [iNZight](http://www.stat.auckland.ac.nz/~wild/iNZight/index.html) is produced out of the University of Auckland, and is intended for kids to use along with the Census@Schools data.  Alas, the software is greatly hampered on a Mac, but even there has many features which kids and teachers will appreciate.  Their homepage says it all "A simple data analysis system which encourages exploring what data is saying without the distractions of driving complex software."
+
+First, it's designed for easy-entry.  Kids can quickly upload data and see basic boxplots and summary statistics, without much effort. (There are some movies  on the homepage to help you get started, but it's pretty much an intuitive interface.) Students can even easily calculate confidence intervals using bootstrapping or traditional methods.  Below are summaries of FitBit data collected this Fall quarter, and separated into days I taught in a classrom (Lecture==1) and days I did not.  It's depressingly clear that teaching is good for me.  (It didn't hurt that my classroom was almost a half mile from my office.)
+
+Note that not only does the graphic look elegant, but it combines the dotplot with the boxplot, which helps cement the use of boxplots as summaries of distributions.  The green horizontal lines are 95% bootstrap confidence intervals for the medians.  [![stepsfitbitgraph](http://citizen-statistician.org/wp-content/uploads/2012/12/stepsfitbitgraph-300x217.jpg)](http://citizen-statistician.org/2013/02/05/inzight/stepsfitbitgraph/)
+
+iNZight also lets students easily subset data, even against numerical variables.  For example, if I wanted to see how this relationship between teaching and non-teaching days held up depending on the number of stairs I climbed, I could subset, and the software automatically bins the subsetting variable, displaying separate boxplot pairs for each bin category.  There's a slider that lets me move smoothly from bin to bin, although it's not always easy to compare one pair of boxplots to another.  (This sort of thing is easier if, instead of examining a numerical-categorical relationship as I've chosen here, you do a numerical-numerical relationship.)
+
+Advanced students can click on the "Advanced" tab and gain access to modeling features, time series, three-d rotating plots, and scatterplot matrices.  PC users can view some cool visualizations that emphasize the variability in re-sampling.

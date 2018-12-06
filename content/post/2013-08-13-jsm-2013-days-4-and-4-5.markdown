@@ -1,0 +1,30 @@
+---
+author: mine
+comments: true
+date: 2013-08-13 18:17:56+00:00
+layout: post
+link: http://citizen-statistician.org/2013/08/13/jsm-2013-days-4-and-4-5/
+slug: jsm-2013-days-4-and-4-5
+title: JSM 2013 - Days 4 and 4.5
+wordpress_id: 662
+categories:
+- Events
+tags:
+- jsm2013
+---
+
+I started off my Wednesday with the "[The New Face of Statistics Education (#480)](http://www.amstat.org/meetings/jsm/2013/onlineprogram/ActivityDetails.cfm?SessionID=208687)" session. Erin Blackenship from UNL talked about their second course in statistics, a math/stat course where students don't just learn how to calculate sufficient statistics and unbiased estimators but also learn what the values they're calculating mean in context of the data. The goal of the course is to bring together the kind of reasoning emphasized in intro stat courses with the mathematical rigor of a traditional math/stat course. Blackenship mentioned that almost 90% of the students taking the class are actuarial science students who need to pass the P exam (the first actuarial exam) therefore the probability theory must be a major component of the course. However UNL has been bridging the gap between these demands and the GAISE guidelines by introducing technology to the course (simulating empirical sampling distributions, checking distributional assumptions, numerical approximation) as well as using writing assessments to improve and evaluate student learning. For example, students are asked to explain in their own words the difference between a sufficient statistic and minimal sufficient statistic, and answers that put things in context instead of regurgitating differences are graded highly. This approach not only allows students who struggle with math to demonstrate understanding, but it also reveals shallow understanding of students who might be testing well in terms of the math by simply going through the mechanics.
+
+In my intro stat class I used to ask similar questions on exams, but have been doing so less and less lately in the interest of time spent on grading (they can be tedious to grade). However lately I've been trying to incorporate more activities into the class, and I'm thinking such exercises might be quite appropriate as class activities where students work in teams to perfect their answers and perhaps even teams then grading each others' answers.
+
+Anyway, back to the session... Another talk in the session given by Chris Malone from Winona State was about modernizing the undergraduate curriculum. Chris made the point that we need much more than just cosmetic changes as he believes the current undergraduate curriculum is disconnected from what graduates are doing when they get their first job. His claim was that the current curriculum is designed for the student who is going on to graduate school in statistics, but that that's only about a fifth of the students in undergraduate majors. (As an aside, I would have guessed the ratio to be even lower.) He advocated for more computing in the undergrad curriculum, a common thread among many of the education talks at JSM this year, and described a few new programs at Winona and other universities on data science. Another common thread was this discussion of "data science" vs. "statistics", but I'm not going to go there - at least not in this post. (If you're interested in this discussion, this Simply Statistician post initiated a good conversation on the topic in the comments section.) I started making a list of Data Science programs I found while searching online but [this post](http://datascience101.wordpress.com/2012/04/09/colleges-with-data-science-degrees/#comments) seems to have a pretty exhaustive list (original post dates back to 2012 but it seems to be updated regularly).
+
+Other notes from the day:
+- [R visreg package](http://cran.r-project.org/web/packages/visreg/index.html) looks pretty cool, though perhaps not necessarily very useful for an intro stat course where we don't cover interactions, non-linear regression, etc.
+- There is another DataFest like competition going on in the Midwest: [MUDAC](http://www.mudac.org/) - maybe we should do a contributed session at JSM next year where organizers share experiences with each other and the audience to solicit more interest in their events or inspire others.
+
+On Thursday I only attended one session: "[**Teaching the Fundamentals (#699)**](http://www.amstat.org/meetings/jsm/2013/onlineprogram/ActivityDetails.cfm?SessionID=209155)" (the very last session, mine). You can find my slides for my talk on using R Markdown to teach data analysis in R as well as to instill the importance of reproducible research early on [here](http://stat.duke.edu/~mc301/talks/Reproduce_JSM2013.pdf).
+
+One of the other speakers in my session was Robert Jernigan, who I recognize from [this video](http://www.youtube.com/watch?v=sScArppyv_g). He talked about how students confuse "diversity" and "variability" and hence have a difficult time understanding why a dataset like [60,60,60,10,10,10] has a higher standard deviation than a dataset like [10,20,30,40,50,60]. He also mentioned his blog statpics.com, which seems to have some interesting examples of images like the ones in his video on distributions.
+
+John Walker from Cal Poly San Luis Obispo discussed his experiment on how well students can recognize normal and non-normal distributions using normal probability plots -- a standard approach for checking conditions for many statistical methods. He showed that faculty do significantly better than students, which I suppose means that you do get better at this with more exposure. However the results aren't final, and he is considering some changes to his design. I'm eager to see the final results of his experiment, especially if they come with some evidence/suggestions for what the best method to teach this skill is.

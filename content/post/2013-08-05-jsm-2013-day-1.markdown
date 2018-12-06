@@ -1,0 +1,57 @@
+---
+author: mine
+comments: true
+date: 2013-08-05 05:21:35+00:00
+layout: post
+link: http://citizen-statistician.org/2013/08/05/jsm-2013-day-1/
+slug: jsm-2013-day-1
+title: JSM 2013 - Day 1
+wordpress_id: 617
+categories:
+- Events
+tags:
+- jsm2013
+---
+
+Bonjour de Montréal!
+
+I'm at JSM 2013, and thought it might be nice to give a brief summary of highlights of each day. Given the size of the event, any session that I attend means I'm missing at least ten others. So this is in no way an exhaustive overview of the day at the conference, more tidbits from _my_ day here. I'll make a public commitment to post daily throughout the conference, hoping that the guilt of not living up to my promise helps me not lose steam after a couple days.
+
+The first session I attended today had a not so exciting title -- "Various Topics in Statistics Education (#43)" -- but turned out to be quite the opposite. The first three talks of the session were about the case of Diederik Stapel - a former professor of social psychology in the Netherlands who was suspended from Tilburg University for research fraud. Stapel published widely publicized studies, some of which included results that purport to show that a trash-filled environment tended to bring out racist tendencies in individuals or that eating meat made people selfish and less social. As the speakers at the session (Ruud Koning, Marijtje van Duijn, and Wendy Post from the University of Groningen, and Don van Ravenzwaaij from the University of New South Wales) put it today, the data and the results were "too good to be true".
+
+First, Koning gave an overview of the case - unfortunately I walked in a little late. If you're not familiar with it, I would recommend this [NYTimes article](http://www.nytimes.com/2013/04/28/magazine/diederik-stapels-audacious-academic-fraud.html) as well as this [paper by Pieter Drenth](http://pieterdrenth.wordpress.com/2013/05/20/what-lessons-can-we-learn-from-the-stapel-case/).
+
+Next, van Duijn discussed best practices for reviewers so that fraud can be caught early on. For example, some indicators of mistakes in Stapel's papers were impossible means and effect sizes (compared to previous literature), impossible combinations of sample size and degrees of freedom, and incorrect p-values. These could, and should, have been caught by reviewers but this is easier said than done. van Dujin and van Ravenzwaaij suggest that journals should encourage sharing data and reproducibility (a view shared by many in the statistics community). However the responsibility of ensuring thorough reviews should also be shared by universities, science foundations, and policy makers. For example, an interesting suggestion was universities rewarding good peer reviews, as well as good data collection, archiving, and sharing.
+
+The last talk in the series given by Post focused on what to do in education to prevent fraud. Two points that resonated with me were the need for teaching data management, as early as possible in the curriculum, and focusing on descriptive statistics before p-values. Post also advocates for putting emphasis on teaching philosophy of science.
+
+Not only was this discussion very informative and interesting to listen to, it also provided me with a good case study to incorporate into my Statistical Consulting course which has a research ethics component. In the past year we've discussed [the Potti case](http://www.economist.com/node/21528593), so this will be a nice addition from a different field (and a different university!).
+
+The other session that I attended today was the "Introductory Overview Lecture: Celebrating the History of Statistics (#47)" by Xiao-Li Meng, Alan Agresti, and Stephen Stigler. If you are interested in history of statistics departments, Agresti and Meng's book _[Strength in Numbers: The Rising of Academic Statistics Departments in the US](http://link.springer.com/book/10.1007/978-1-4614-3649-2/page/1)_ sounds like a promising read. The session wrapped up with Stigler's history of statistics review, titled "How Statistics Saved the Human Race". He was a delight to listen to as usual. I hope that in the future such sessions are recorded and posted online for all to see, as they should be of interest to a wide audience of statisticians and non-statisticians alike. I don't think the ASA does this yet, but correct me if I'm wrong.
+
+Three other sessions that I would like to have attended today were
+
+
+
+	
+  * "Teaching Ethics in Statistics and Biostatistics: What Works, What Doesn't Work, and Lessons Learned (#55)",
+
+	
+  * "The Interplay Between Consulting and Teaching (#68)", and
+
+	
+  * "Teaching Online on a Budget (#75)".
+
+
+If you've been to any of these, and have notes to share, please comment below!
+
+On a separate note, unrelated to JSM --
+
+	
+  * If you're here in Montréal, and especially if you live in a city without good bagels (Durham, I love you, but you don't deliver on this account), I strongly recommend a trip up to [Fairmount Bagel](http://fairmountbagel.com/). They're open 24 hours, and the bagels are great, but the matzoh bread is to die for. Also, apparently in Quebec "everything" bagels are called "all dressed".
+
+	
+  * It turns out that not everything is good with maple syrup. I strongly advise against trying the Lay's Maple Moose chips. Trust me on this one.
+
+
+[![lays_maple](http://citizen-statistician.org/wp-content/uploads/2013/08/lays_maple-e1375679211954-213x300.jpg)](http://citizen-statistician.org/wp-content/uploads/2013/08/lays_maple-e1375679211954.jpg)

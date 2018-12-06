@@ -1,0 +1,20 @@
+---
+author: citizenstat
+comments: true
+date: 2013-06-22 04:40:39+00:00
+layout: post
+link: http://citizen-statistician.org/2013/06/22/578/
+slug: '578'
+title: No Content Found
+wordpress_id: 578
+---
+
+It just seems to me that this is what data science was meant to do:  give us fun toys.  This particular "toy", called [Every Noise at Once](http://furia.com/misc/genremaps/engenremap.html),  lets you explore the musical universe.  Ours may be the last blog to comment on it--I think I stumbled upon this too late.  But it provides a great example for our students about the power of data analysis.
+
+The data come from the company [EchoNest](http://the.echonest.com), and the visualization (although that's a weak word for this---its visual and aural,  maybe "visauralization"?) from their chief engineer  Glenn McDonald.  According to McDonald's blog (via www.furia.com, on May 31 2013), songs are depicted in a 10-dimensional space, reduced to two dimensions here.  The dimension are: vertical:  "organic" (on the bottom) to "mechanical" on top.  I love the designation of "organic", which says so much more than "acoustic".  The horizontal axis is a what McDonald calls "bounciness", with songs on the right being bouncier than songs on the left.
+
+The joy of this visuaralization is that it is interactive.  Click on a genre and hear a representative sample. Click on the ">>" symbol next to the genre label, and it expands to show you practitioners of the genre.
+
+I suppose part of me feels that music has too many labels.  This graph gives this point of view some support.  And yet, I confess, it was quite satisfying to learn that there is a difference between "indie pop" and "indie rock".  (Both are roughly equally bouncy, but pop is more mechanical.)  "String Quartet" is its own genre, and if you double click, you see the names of actual string quartets.   The Takacs Quartet is apparently more mechanical than the borodin quartet.  The only recording of Takacs I have is of the Bartok quartets, and so I guess this makes sense.  Still, string quartets consist of four stringed instruments, and so I suppose the scale of the variation here must be quite small.  A mechanical string quartet is, I suppose, one that amps its strings:  I couldn't find the Kronos Quartet, which I looked for somewhere in the upper-right quadrant.  Nor could I find my LA-based favorites the [Calder Quartet](http://calderquartet.com), which I would expect to fall somewhere in the center-right of the graph.
+
+Dimension reduction in all its many forms is an important part of the visualization world.  Which raises the question: when do we teach this to our students?  Can it be taught, in some form, in introductory statistics?  These questions seem related to one of my pet peeves, namely that we don't teach statistics students how to interpret maps.  Maps are, today, summaries of data.  Most are quite crude, but students should learn to be critical (in the constructive sense) of data maps.  Is there a data-mapping framework that would allow us to teach how to be critical of heat maps, google-type maps, traffic maps, and maps of musical genres?

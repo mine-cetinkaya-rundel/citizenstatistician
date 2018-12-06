@@ -1,0 +1,24 @@
+---
+author: andy
+comments: true
+date: 2017-05-20 12:58:26+00:00
+layout: post
+link: http://citizen-statistician.org/2017/05/20/uscots-2017/
+slug: uscots-2017
+title: USCOTS 2017
+wordpress_id: 1128
+---
+
+Citizen Statistician's very own Mine Çetinkaya-Rundel gave one of the keynote addresses at USCOTS 2017.
+
+[![](http://citizen-statistician.org/wp-content/uploads/2017/05/IMG_2086.jpg)](http://citizen-statistician.org/2017/05/20/uscots-2017/img_2086/)
+
+The abstract for her talk, _Teaching Data Science and Statistical Computation to Undergraduates_, is given below.
+
+What draws students to statistics? For some, the answer is mathematics, and for those a course in probability theory might be an attractive entry point. For others, their first exposure to statistics might be an applied introductory statistics course that focuses on methodology. This talk presents an alternative focus for a gateway to statistics: an introductory data science course focusing on data wrangling, exploratory data analysis, data visualization, and effective communication and approaching statistics from a model-based, instead of an inference-based, perspective. A heavy emphasis is placed on best practices for statistical computation, such as reproducibility and collaborative computing through literate programming and version control. I will discuss specific details of this course and how it fits into a modern undergraduate statistics curriculum as well as the success of the course in recruiting students to a statistics major.
+
+You can view her slides at [bit.ly/uscots2017](http://bit.ly/uscots2017)
+
+
+
+

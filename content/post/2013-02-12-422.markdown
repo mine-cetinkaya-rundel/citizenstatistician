@@ -1,0 +1,38 @@
+---
+author: citizenstat
+comments: true
+date: 2013-02-12 17:19:34+00:00
+layout: post
+link: http://citizen-statistician.org/2013/02/12/422/
+slug: '422'
+title: Your Flowing Data Defended
+wordpress_id: 422
+categories:
+- Data
+- personal
+---
+
+I had the privilege last week of listening to the dissertation defense of UCLA Stat's newest PhD: Nathan Yau.  Congratulations, Nathan!
+
+Nathan runs the very popular and fantastic blog [Flowing Data](http://flowingdata.com), and his dissertation is about, in part, the creation of his app [Your Flowing Data](http://your.flowingdata.com).  Essentially, this is a tool for collecting and analyzing personal data--data about you and your life.
+
+One aspect of the thesis I really liked is a description of types of insight he found from a paper by Pousman, Stasko and Mateas (2007): Casual information visualization: Depictions of Data in every day life. (IEEE Transactions on Visualization and Computer Graphics, 13(6): 1145-1152.)  Nathan quotes four types of insights:
+
+
+
+	
+  * Analytic Insight.  Nathan describes these as 'traditional' statistical insights obtained from statistical models.
+
+	
+  * Awareness insight. "...remaining aware of data streams such as the weather, news..." People are simply aware that these everyday streams exist and so know to seek them for information when needed
+
+	
+  * Social Insight. Involvement in social networks help people define a place for themselves in relation to particular social contexts.
+
+	
+  * Reflective Insight.  Viewers take a step back from data and can reflect on something they were perhaps unaware of, or have an emotional reaction.
+
+
+With respect to my [Walk to Venice Beach](http://citizen-statistician.org/2013/01/24/a-walk-in-venice-beach/), I think it would be interesting to see how experiences such as that can be leveraged into insights in these categories.  Although these insights are not hierarchical, it would also be interesting to see how these fit into understandings of statistical thinking and reasoning.  For example, some stats ed researchers are grappling with the role of 'informal' vs. 'formal' statistical inference, and I see the last three insights as supporting informal inference (when inference is called for at all.)
+
+Nathan has lots to say about the role that developers can play in assisting people in gaining insight from data.  Our job, I believe, is to think carefully about the role that educators can play in strengthening these insights.  We spend too much time on the first insight, I think, and not enough time on the others.  But the others are what students will remember and use from their stats class.

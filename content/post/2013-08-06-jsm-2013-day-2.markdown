@@ -1,0 +1,127 @@
+---
+author: mine
+comments: true
+date: 2013-08-06 15:26:12+00:00
+layout: post
+link: http://citizen-statistician.org/2013/08/06/jsm-2013-day-2/
+slug: jsm-2013-day-2
+title: JSM 2013 - Day 2
+wordpress_id: 628
+categories:
+- Events
+tags:
+- jsm2013
+---
+
+My Monday at JSM started with the "The Profession of Statistics and Its Impact on the Media (#102)" session. The first speaker in the session, Mark Hansen, was a professor of mine at UCLA, so it was nice to see a familiar face (or more like hear a familiar voice - the room was so jam packed that I couldn't really "see" him) and catch up on what he has been working on at his new position at Columbia University as a Professor of Journalism and the Director of [David and Helen Gurley Brown Institute for Media Innovation](http://brown.stanford.edu/). The main theme of the talk was the interaction between journalists and statisticians -- he discussed how journalism can provide much needed perspective, language, and practices necessary to describe the forces that data exert in our worlds, to help even statisticians gain fresh perspective on their practice. He pointed out a difference between how journalists and statisticians work with data: journalists work with data to tell a story in the context of a dataset, while statisticians tend to tell a story of the dataset. Hansen also discussed Columbia's new two-year [dual degree Master's in journalism and computer science](http://www.journalism.columbia.edu/page/276-dualdegree-journalism-computer-science/279). The Brown Institute also awards seed funding to students for developing media technologies that could transform how news content is produced, delivered and consumed. I've listed a few of the projects that Hansen discussed below, and a detailed post on these grants can be found [here](http://news.stanford.edu/news/2013/june/magic-grant-awards-062013.html).
+
+
+
+	
+  * [Dispatch](http://dispatchapp.tumblr.com/): a mobile application that provides secure, authenticated, anonymous instant publishing.
+
+	
+  * [Personalized Television News](http://www.ee.columbia.edu/ln/dvmm/PTVNews/): a project that seeks to develop and demonstrate a platform for personalized television news to replace the traditional one-broadcast-fits-all model.
+
+
+	
+  * CityBeat: a project that looks for newsworthy events in the patterns of real-time, geotagged social media feeds.
+
+	
+  * [The Declassification Engine](http://www.declassification-engine.org/): An engine that uses machine learning to declassify documents.
+
+	
+  * Bushwig: Telling the story of a drag renaissance taking place in Bushwick, Brooklyn, that is enlisting and extending social media platforms for the “identity curation” that happens in the drag community. I had no idea that Facebook does not allow, or at least takes down when found out, two profiles for the same person, which, as you can imagine, can be an issue for people who live their lives in two identities.
+
+
+Hansen also discussed a recent project where he collaborated with the NYTimes' R&D lab, working on projects such as [Project Cascade](http://nytlabs.com/projects/cascade.html), which is a tool that constructs "a detailed picture of how information propagates through the social media space", like Twitter.
+
+The next talk in the session by Don Berry discussed fundamental issues in statistics that are difficult to convey to journalists, and hence the rest of the public, such as Simpson's paradox, results that are "too good to be true" (e.g. [dogs sniffing cancer](http://www.nytimes.com/2006/01/17/health/17dog.html?_r=0)), regression to the mean, multiple comparisons, etc. He also discussed at length prosecutor's fallacy, within the context of the case of nurse Lucia de Berk who was convicted in was convicted in 2004 of a number of murders and attempted murders of patients in her care, but then was freed in 2010. I don't discuss prosecutor's fallacy in my introductory statistics class, but I'm thinking that I should... Berry recommended this [NYTimes article](http://buchanan.blogs.nytimes.com/2007/05/16/the-prosecutors-fallacy/) on the topic, as well as [this TED talk](http://www.ted.com/talks/peter_donnelly_shows_how_stats_fool_juries.html) on prosecutor's fallacy in general). Berry, who is often quoted in newspaper articles as an expert, also discussed what statisticians (and other scientists) should and should not do when interacting with journalists. Some of the key points were:
+
+
+
+	
+  * Simplify, short of lying
+
+	
+  * Be pithy
+
+	
+  * Avoid questions that you don't want to answer - He mentioned that he avoids questions like "What are the economic implications?"
+
+	
+  * Use going off the record sparingly
+
+	
+  * Prefer email over telephone - so that you can edit your own words
+
+	
+  * Don't diss anyone
+
+
+The last one seems obvious, but see this  [this Washington Post article](http://articles.washingtonpost.com/2009-11-17/news/36877178_1_annual-mammograms-biopsies-and-unneeded-treatment-routine-mammograms) on the 2009 breast cancer screening frequency controversy. In the article, a radiology professor from Harvard is quoted saying "Tens of thousands of lives are being saved by mammography screening, and these idiots want to do away with it". Wow!
+
+The next speaker was Howard Wainer (whose article titled "[The Most Dangerous Equation: Ignorance of how sample size affects statistical variation has created havoc for nearly a millennium](http://nsmn1.uh.edu/dgraur/niv/TheMostDangerousEquation.pdf)" is a good read, by the way). I am excited to take a peek at his recently published book [Medical Illuminations](http://www.amazon.com/Medical-Illuminations-Visualization-Statistical-Healthcare/dp/0199668795) at the Expo later today.
+
+The last speaker in the session was Alan Schwarz, the Pulitzer-prize nominated reporter at the NYTimes who did an expose on current and retired football players suffering from post-concussion syndrome and early-onset dementia, more specifically Chronic Traumatic Encephalopathy. A journalist talking about using data and statistics to uncover a story was a nice complement to the earlier talks by statisticians talking about working with journalists.
+
+In the afternoon I attended the "Toward Big Data in Teaching Statistics (#210)" session. Nicholas Chamandy from Google talked about how big data requires novel solutions to old problems and gave examples from some of the algorithms Google uses to solve problems in predictive modeling.
+
+Randall Pruim's talk focused on the efforts of the Computation and Visualization Consortium that has started working on identifying key skills that students need to work with big data and ways to teach them. It was quite eye opening to hear about a survey he conducted asking faculty members from science departments such as physics and chemistry what kind/size of data their students work with - turns out for many the answer is no data at all! He also gave an overview of efforts at Macalester, Smith, and Calvin Colleges for introducing big data skills into their curriculum. I will be looking into the [syllabus](http://rstudio-pubs-static.s3.amazonaws.com/4592_cf97a449c7054a128ede41d560232cdd.html) for the class being taught at Macalester by Danny Kaplan, as I'm also currently brainstorming how best to teach core computational skills to our students.
+
+Nick Horton also discussed his vision for accomplishing this, which is to start in the first course, to build on it in the second course, to provide more opportunities for students to apply their knowledge in practice (internships, collaborative research, teaching assistants), and to introduce new courses focused on data science into the curriculum. He also discussed exposing students to reproducible research using RStudio and R Markdown. I've previously written a blog post about this, and will be talking about it on Thursday at my own talk as well. It was nice to see a similar approach being used by others in the statistics education field. What especially resonated with me was Nick's comment on how using R Markdown facilitates appropriate and correct statistical workflow for students.
+
+The last talk of the day I attended was Nate Silver's President's Invited Address, along with just about everyone else attending JSM. The turnout was great, and his talk was highly enjoyable, as expected. Gregory Matthews (Stats in the Wild) already posted a list of his talking points, so instead of listing them here again, [I'll just link to that post](http://statsinthewild.com/2013/08/05/nate-silvers-talk-a-summary-of-his-points/). The Q&A was just as interesting as the talk itself, below are a few notes I jotted down:
+
+
+
+	
+  * Q: What can statisticians learn from journalists?
+
+	
+  * A: Clarity of expression - results are only useful when you can explain them.
+
+
+
+	
+  * Q: How can ASA and statisticians do more on advocacy?
+
+	
+  * A: Blog! Researchers should do their own communication.
+
+
+
+	
+  * Q: Any career advice for young statisticians?
+
+	
+  * A: Do something practical and applied first, theory is easier to learn as needed.
+
+
+
+	
+  * Q: Favorite journalist/writer?
+
+	
+  * A: Bill James
+
+
+
+	
+  * Q: Data scientist vs. statistician?
+
+	
+  * A: Call yourself whatever you want, just do good work. (One of the better answers I've heard on this topic. Though his earlier answer "data science is just a sexed up term for statistics" seemed to resonate well with some in the room and not so much with others.)
+
+
+
+	
+  * Q: What is the future of sports statistics?
+
+	
+  * A: More data being collected on soccer, so there is more to be done there. (This means that finally there may be sports statistics that I actually care about and can get excited by!)
+
+
+After the talks I stopped by the UCLA mixer, it was nice to see some old faces. And I finished up the evening at the Duke dinner, with great company and lots of wine...
+
+Now on to Day 3...

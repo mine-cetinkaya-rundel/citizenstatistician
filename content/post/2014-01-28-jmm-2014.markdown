@@ -1,0 +1,40 @@
+---
+author: andy
+comments: true
+date: 2014-01-28 15:01:03+00:00
+layout: post
+link: http://citizen-statistician.org/2014/01/28/jmm-2014/
+slug: jmm-2014
+title: JMM 2014
+wordpress_id: 775
+---
+
+Two weeks ago I traveled to Baltimore to the Joint Mathematics Meetings. These meetings are very much like the Joint Statistics Meetings except for mathematicians. "Now, um, usually I don't do this but uh....Go head' on and break em off wit a lil' preview of the remix…." (Kelly, 2003).
+
+The JMM are a great place to educate and work with mathematics teachers at the collegiate level who are teaching introductory statistics courses. One group that is quite active in this community is the Statistics Education Special Interest Group of the Mathematical Association of America (SIGMAA). If you are a member of the MAA, let me put in a plug to join this SIGMAA. Each year they sponsor at least one contributed paper session and often several minicourses.
+
+This year, aside from the perennial [_Teaching introductory statistics (for instructors new to teaching intro stats_](http://jointmathematicsmeetings.org/meetings/national/jmm2014/2160_minicourses#sthash.GiQRJpux.dpuf) minicourse, the SIGMAA also endorsed two minicourses aimed at using randomization/bootstrapping in the introductory course, _[CATALST: Introductory statistics using randomization and bootstrap methods](http://jointmathematicsmeetings.org/meetings/national/jmm2014/2160_minicourses#sthash.GiQRJpux.dpuf)_ and [_Using randomization methods to build conceptual understanding of statistical inference_](http://jointmathematicsmeetings.org/meetings/national/jmm2014/2160_minicourses#sthash.GiQRJpux.dpuf). Both mini courses were well attended and will likely be offered again next January.
+
+[caption id="attachment_778" align="aligncenter" width="2285"][![JMM-2014-Minicourse-Nicola](http://citizen-statistician.org/wp-content/uploads/2014/01/JMM-2014-Minicourse-Nicola.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/JMM-2014-Minicourse-Nicola.jpg) Nicola during the CATALST minicourse.[/caption]
+
+The SIGMAA also sponsored a Contributed Paper Session entitled, _[Data, Modeling, and Computing in the Introductory Statistics Course](http://jointmathematicsmeetings.org/meetings/national/jmm2014/2160_program_friday.html#sthash.KLl5c64o.dpuf)_. The marathon session, running from 1:00pm–6:00pm, was very well attended and included 15 presentations.
+
+[caption id="attachment_779" align="aligncenter" width="2285"][![Nick-Horton](http://citizen-statistician.org/wp-content/uploads/2014/01/Nick-Horton.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/Nick-Horton.jpg) Nick Horton gives the paper, Big Data in the Intro Stats Class: Use of the Airline Delays Dataset to Expose Students to a Real-World, Complex Dataset by himself, Ben Baumer, and Hadley Wickham.[/caption]
+
+One of my favorite things at JMM is attending the SIGMAA Stat-Ed Business Meeting. This took place immediately following the CPS, so we were able to capitalize on inviting many of the attendees to join us. After eating what might have been the best spread of food I have encountered at one of these meetings, we had our meeting.
+
+The SIGMAA presents two awards during these meetings.
+
+The **Dex Whittinghill Award** is presented to the first author of the paper that receives the highest evaluations during the CPS session from the previous JMM. This year, it was presented to Kari Lock-Morgan of Duke University (who was unable to be there, but sent her heartfelt thanks via her parents).
+
+The [Robert V. Hogg Award](http://sigmaa.maa.org/stat-ed/) for excellence in teaching introductory statistics was presented to Johanna Hardin of Pomona College. Johanna's colleague, Gizem Karaali, gave a heartwarming talk when presenting Johanna the award.
+
+[caption id="attachment_776" align="aligncenter" width="2554"][![IMG_3772](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3772.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3772.jpg) Scott Albers, SIGMAA chair, congratulates Johanna Hardin on winning the Robert V. Hogg Award[/caption]
+
+[caption id="attachment_777" align="aligncenter" width="2554"][![IMG_3776](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3776.jpg)](http://citizen-statistician.org/wp-content/uploads/2014/01/IMG_3776.jpg) Gizem Karaali reads a heartwarming note from the Johanna's colleagues.[/caption]
+
+
+
+**References**
+
+Kelly, R. (2003). Ignition (remix). On _Chocolate factory_. Chicago: Jive, Sony.
