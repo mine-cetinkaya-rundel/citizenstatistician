@@ -33,9 +33,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [author]
   name = "Citizen Statistician"
-  bio = "Hello"
-  job = "Mello"
-  location = "US"
+  bio = "Rob + Mine + Andy"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   # gravatarEmail = "admin@citizenstat.org"
   # Your profile picture
@@ -76,7 +74,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   identifier = "about"
   name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-users\"></i>"
-  url = "/#about"
+  url = "/about"
 
 [[menu.links]]
   weight = 1
