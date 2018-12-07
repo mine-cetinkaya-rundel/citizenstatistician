@@ -14,12 +14,9 @@ New academic year has started for most of us. I try to do a range of activities 
 
 _Generate a random number between 1 and 5, and introduce yourself to that many people sitting around you:_
 
-
-
-
-[sourcecode language="r"]
+```
 sample(1:5, size = 1)
-[/sourcecode]
+```
 
 It's a good opportunity to have students access RStudio once, talk about random sampling, and break up the class session and have them introduce themselves to their fellow classmates. I usually do the activity too, and use it as an opportunity to personally introduce myself to a few students and to meet them.
 

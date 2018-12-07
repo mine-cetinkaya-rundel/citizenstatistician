@@ -32,8 +32,8 @@ I have also made the spreadsheet data (from both 2011 and 2012) available public
 
 Here is the R code to access that data.
 
-[sourcecode language="r"]
+```
 library(RCurl)
 myCsv <- getURL("https://docs.google.com/spreadsheet/pub?key=0AvanLJO1M39wdENZajR0RHJMSmZTWWtLNzhHMi1ySUE&single=true&gid=0&output=csv")
 books <- read.csv(textConnection(myCsv))
-[/sourcecode]
+```

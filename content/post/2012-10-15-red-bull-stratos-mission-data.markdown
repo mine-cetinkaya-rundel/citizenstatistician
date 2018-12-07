@@ -24,22 +24,22 @@ Yesterday (October 14, 2012), Felix Baumgartner made history by becoming the fi
 
 Well anyway, after the craziness ensued, It was suggested on Facebook that, "I think this data should be on someone's blog!". Rising to the bait, I immediately looked at the mission page,  but the data was no longer there. Thank goodness for Wikipedia [[Red Bull Stratos Mission Data](http://en.wikipedia.org/wiki/Red_Bull_Stratos/Mission_data)]. The data can be copied and pasted into an Excel sheet, or read in to R using the readHTMLTable() function from the **XML** package.
 
-[sourcecode language="r"]
+```
 mission <- readHTMLTable(
   doc = "http://en.wikipedia.org/wiki/Red_Bull_Stratos/Mission_data",
   header = TRUE
   )
-[/sourcecode]
+```
 
-We can then write it to an external file, I called it _Mission.csv_ and put it on my desktop, using the read.csv() function.
+We can then write it to an external file, I called it _Mission.csv_ and put it on my desktop, using the `read.csv()` function.
 
-[sourcecode language="r"]
+```
 write.csv(mission,
   file = "/Users/andrewz/Desktop/Mission.csv",
   row.names = FALSE,
   quote = FALSE
   )
-[/sourcecode]
+```
 
 Opening the new file in a text editor, we see some issues to deal with (these are also apparent from looking at the data on the Wikipedia page).
 
@@ -77,7 +77,7 @@ The file can be downloaded [here](http://citizen-statistician.org/?attachment_id
 
 Then you can plot (or analyze) away to your heart's content.
 
-[sourcecode language="r"]
+```
 # read in data to R
 mission <- read.csv(file = "/Users/andrewz/Desktop/Mission.csv")
 
@@ -91,7 +91,7 @@ ggplot(data = mission, aes(x = Time, y = Speed)) +
 # Plot elevation vs. time
 ggplot(data = mission, aes(x = Time, y = Elevation)) +
   geom_line()
-[/sourcecode]
+```
 
 [![](http://citizen-statistician.org/wp-content/uploads/2012/10/p1-1024x1024.jpg)](http://citizen-statistician.org/wp-content/uploads/2012/10/p1.jpg)
 

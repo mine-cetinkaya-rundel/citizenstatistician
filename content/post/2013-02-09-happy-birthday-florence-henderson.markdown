@@ -29,11 +29,9 @@ Below I will explain the how-to of creating this plot.
 
 First, I read the NELS data into R. These data and its codebook are available via my [regression course website](http://www.tc.umn.edu/~zief0002/8262.php).
 
-[sourcecode language="r"]
+```
 nels <- read.csv("http://www.tc.umn.edu/~zief0002/Data/NELS.csv")
-[/sourcecode]
-
-
+```
 
 # Using Hearts Instead of Points
 
@@ -44,18 +42,18 @@ Using GIMP, I also replaced the black color to the hexadecimal color "ad97c6" by
 
 I then used the **png** package to read the five PNG files into R. (Note: For anyone who doesn't want to go through the hassle of coloring the hearts and reformatting both them and Cupid, I have made those files available for download [here](https://github.com/zief0002/Public-Stuff/tree/master/Hearts%20and%20Cupid).)
 
-[sourcecode language="r"]
+```
 library(png)
 h1 <- readPNG("/Users/andrewz/Desktop/heart1.png", TRUE)
 h2 <- readPNG("/Users/andrewz/Desktop/heart2.png", TRUE)
 h3 <- readPNG("/Users/andrewz/Desktop/heart3.png", TRUE)
 h4 <- readPNG("/Users/andrewz/Desktop/heart4.png", TRUE)
 h5 <- readPNG("/Users/andrewz/Desktop/heart5.png", TRUE)
-[/sourcecode]
+```
 
 To randomly assign each observation to one of the five hearts (h1–h5), I used the `sample()` function inside the `paste()` function to concatenate the letter "h" and a random value from 1–5. I then used the `do()` function from the **mosaic** package to "do" this 200 times. Lastly, I appended this vector to the `nels` data frame, in the process, coercing it to characters (to be sure it isn't appended as a factor–which will be needed later for use in the `get()` function).
 
-[sourcecode language="r"]
+```
 library(mosaic)
 heart <- do(200) * paste("h", sample(1:5, size = 1), sep="")
 nels$Heart <- as.character(heart[, 1])
@@ -67,7 +65,7 @@ head(nels)
 #4  4  0.2059000 53.698    h1
 #5  5 -0.1177185 55.980    h5
 #6  6  0.1413540 65.331    h3
-[/sourcecode]
+```
 
 This is all that is needed until we get to actually creating the plot.
 
@@ -79,19 +77,16 @@ I obtained the image of Cupid by doing a Google search on "Cupid, Public Domain"
 
 I again used the readPNG() function to read the image file into R, but this time setting the native= argument to FALSE. This will represent the image as an array rather than rasterizing it. I chose to do this so that I could make the image more transparent before rasterizing it.
 
-[sourcecode language="r"]
+```
 cupid <- readPNG("/Users/andrewz/Desktop/cupid.png", FALSE)
 w <- matrix(rgb(cupid[ , , 1], cupid[ , , 2], cupid[ , , 3], cupid[ , , 4] * 0.2), nrow = dim(cupid)[1])
-[/sourcecode]
-
-
+```
 
 # Creating the Plot
 
-
 Finally, we are ready to create the plot. In the initial calls to ggplot, I use the rasterGrob() function from the grid package to rasterize Cupid which is placed in the plot using the annotation_custom() layer. The color= and fill= arguments to the geom_smooth() layer set the beautiful magenta/pink color for the regression smoother. The theme_valentine() layer sets ggplot's theme to use some specialized fonts (see the [Valentine package on GitHub](https://github.com/zief0002/Valentine)). The size of the points in the geom_point() layer is set to 0, to leave a blank canvas for us to add our hearts. This is assigned into the object p.
 
-[sourcecode language="r"]
+```
 library(ggplot2)
 library(grid)
 library(Valentine)
@@ -101,15 +96,15 @@ p <- ggplot(data = nels, aes(x = Homework, y = Math)) +
 	theme_valentine() +
 	geom_smooth(method = "lm", color = "#ec008c", fill = "#ec008c", lwd = 1.5) +
 	ggtitle("HAPPY BIRTHDAY FLORENCE HENDERSON")
-[/sourcecode]
+```
 
 The hearts (points) are now added to the plot by cycling through a for loop. Each time we are going to rasterize the heart and add it to the plot. The optional arguments in the annotation_custom() layer set the horizontal and vertical position of the hearts in the plot.
 
-[sourcecode language="r"]
+```
 for(i in 1:nrow(nels)){
     p <- p + annotation_custom(
       rasterGrob(get(nels$Heart[i])), 
       xmin = nels$Homework[i] - 0.5, xmax = nels$Homework[i] + 0.5, ymin = nels$Math[i] - 0.5, ymax = nels$Math[i] + 0.5
       ) 
     }
-[/sourcecode]
+```

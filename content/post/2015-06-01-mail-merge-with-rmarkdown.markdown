@@ -108,10 +108,7 @@ This is a 20 x 2 csv file, an excerpt is shown below. I got the names from [here
 
 # R script: mail_merge_script.R
 
-
-
-[sourcecode language="r"]
-
+```
 ## Packages
 library(knitr)
 library(rmarkdown)
@@ -126,20 +123,11 @@ for (i in 1:nrow(personalized_info)){
  output_file = paste("handout_", i, ".pdf", sep=''),
  output_dir = "handouts/")
 }
-[/sourcecode]
-
-
-
-# 
-
-
-
+```
 
 # RMarkdown: mail_merge_handout.Rmd
 
-
-
-[sourcecode language="r"]
+```
 ---
 output: pdf_document
 ---
@@ -155,7 +143,7 @@ Dear `r name`,
 Your meeting time is `r time`.
 
 See you then!
-[/sourcecode]
+```
 
 Save the Rmd file and the R script in the same folder (or specify the path to the Rmd file accordingly in the R script), and then run the R script. This will call the Rmd file within the loop and output 20 PDF files to the handouts directory. Each of these files look something like this
 

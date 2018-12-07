@@ -22,23 +22,23 @@ The data is available on the Twin Cities R User Group's [GitHub page](https://gi
 
 One option is to use the `getURL()` function from the **RCurl** library. The `text=` argument in the `read.csv()` function reads the data in using a text connection, and is necessary to not receive an error.
 
-[code language="r"]
+```
 library(RCurl)
 url = getURL("https://raw.github.com/tcrug/ranked-choice-vote-data/master/2013-mayor-cvr.csv")
 vote = read.csv(text = url)
-[/code]
+```
 
 A quick look at the data reveal that the three ranked choices for the 80,101 voters are in columns 2, 3, and 4. The values "undervote" and "overvote" are ballot also need to be converted to "NA" (missing). The syntax below reduces the data frame to the second, third and fourth columns and replaces "undervote" and "over vote' with NAs.
 
-[code language="r"]
+```
 vote = vote[ , 2:4]
 vote[vote == "undervote"] = NA
 vote[vote == "overvote"] = NA
-[/code]
+```
 
 The syntax below is the main idea of the vote counting algorithm. (You will need to load the **ggplot** library.) I will try to explain each line in turn.
 
-[code language="r"]
+```
 nonMissing = which(vote[ , 1] != "")
 candidates = vote[nonMissing, 1]
 #print(table(candidates))
@@ -57,7 +57,7 @@ p = ggplot(data = data.frame(candidates), aes(x = factor(candidates, levels = ma
 	coord_flip()
 
 ggsave(p, file = "~/Desktop/round1.png", width = 8, height = 6)
-[/code]
+```
 
 
 
@@ -88,14 +88,14 @@ ggsave(p, file = "~/Desktop/round1.png", width = 8, height = 6)
 
 Now, we will create an object to hold the round of counting (we just plotted the first round, so the next round is Round 2). We will also coerce the first column back to characters.
 
-[code language="r"]
+```
 j = 2
 vote[ , 1] = as.character(vote[ , 1])
-[/code]
+```
 
 The next part of the syntax is looped so that it repeats the remainder of the algorithm, which essentially is to determine the candidate with the fewest votes, remove him/her from all columns, take the second and third choices of anyone who voted for the removed candidate and make them the 'new' first and second choices, recount and continue.
 
-[code language="r"]
+```
 while( any(table(candidates) >= 0.5 * length(candidates) + 1) == FALSE ){
 	leastVotes = attr(sort(table(candidates))[1], "names")
 	vote[vote == leastVotes] = NA
@@ -118,7 +118,7 @@ while( any(table(candidates) >= 0.5 * length(candidates) + 1) == FALSE ){
 	candidates = as.character(candidates)
 	print(sort(table(candidates)))
 	}
-[/code]
+```
 
 The `while{}` loop continues to iterate until the criterion for winning the election is met. Within the loop:
 
@@ -161,9 +161,9 @@ There should now be 35 PNG files on your desktop (or wherever you saved them in 
 
 Then I opened _Terminal_ and used _ImageMagick_ to create the animated GIF. Note that in Line #1 I move into the folder where I saved the PNG files. In my case, the desktop.
 
-[code language="powershell"]
+```
 cd ~/Desktop
 convert -delay 50 round**.png animation.gif
-[/code]
+```
 
 The actual animated GIF appears on the [previous Citizen Statistician post](http://citizen-statistician.org/2013/11/25/ranked-choice-voting/).

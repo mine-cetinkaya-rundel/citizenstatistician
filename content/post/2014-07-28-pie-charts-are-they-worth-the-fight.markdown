@@ -35,7 +35,7 @@ So it is my argument, that rather than referring to a graph choice as good or ba
 
 **The ggplot2 syntax for the bar and donut plot are provided below. The syntax for the donut plot were adapted from [this blog post](http://stackoverflow.com/questions/13615562/ggplot-donut-chart).
 
-[code language="r"]
+```
 # Input the ad data
 ad = data.frame(
 	type = c("Poster", "Billboard", "Bus", "Digital"),
@@ -65,7 +65,7 @@ ggplot(data = ad, aes(fill = type, ymax = ymax, ymin = ymin, xmax = 4, xmin = 3)
      geom_text(aes(x = 3.5, y = ((ymin+ymax)/2), label = type)) +
      xlab("") +
      ylab("")
-[/code]
+```
 
 
 

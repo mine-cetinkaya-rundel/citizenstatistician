@@ -42,9 +42,7 @@ Why might this be of interest to you?
 	
   * The raw dataset has a feature I love -- it's been damaged due (most likely) to being opened in Excel! One of the variables in the dataset is age group of the biker (`BikeAge_gr`). Here is the age distribution of bikers as they appear in the original data:
 
-
-
-[sourcecode language="r"] 
+```
 ##    BikeAge_Gr crash_count
 ##    (chr)      (int)
 ## 1  0-5        60
@@ -59,16 +57,10 @@ Why might this be of interest to you?
 ## 10 60-69      274
 ## 11 70         12
 ## 12 70+        58
-[/sourcecode]
-
-
+```
 
 Obviously the age groups `10-Jun` and `15-Nov` don't make sense. This is a great opportunity to highlight the importance of exploring the data before modeling or doing something more advanced with it. It is also an opportunity to demonstrate how merely opening a file in Excel can result in unexpected issues. These age groups should instead be 6-10 (not June 10th) and 11-15 (not November 15th). Making these corrections also provides an opportunity to talk about text processing in R.
 
-
-
-
 I should admit that I don't have evidence of Excel causing this issue. However this is my best guess since "helping" the user by formatting date fields is standard Excel behaviour. There may be other software out there that also do this that I'm unaware of...
-
 
 If you're looking for a non-`diamonds` or non-`nycflights13` introduction to R / `ggplot2` / `dplyr` feel free to use materials from this workshop.
