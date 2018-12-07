@@ -1,5 +1,5 @@
 <header id="header" data-behavior="{{ .Scratch.Get "sidebarBehavior" }}">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <i id="btn-open-sidebar" class="fas fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
   </div>
@@ -12,7 +12,7 @@
          href="{{ .url | safeURL }}">
     {{ end }}
     {{ if .icon }}
-      <i class="fa fa-lg fa-{{ .icon }}"></i>
+      <i class="fab fa-lg fa-{{ .icon }}"></i>
     {{ end }}
     {{ if not $.Site.Params.header.rightLink.icon }}
       {{ with ($.Scratch.Get "authorPicture") }}
