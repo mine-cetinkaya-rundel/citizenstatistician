@@ -113,7 +113,7 @@ a,a:active,a:hover,a:visited{
     text-decoration:none
 }
 .archive .archive-posts .archive-post .archive-post-title:hover,.archive .archive-title:hover,a:hover{
-    text-decoration:underline
+    text-decoration:none
 }
 a:hover{
     color:#76acca
@@ -3238,7 +3238,7 @@ code{
     color:#0086b3
 }
 .codeblock.md .code .link,.codeblock.md .code .link_url,figure.highlight.md .code .link,figure.highlight.md .code .link_url{
-    text-decoration:underline
+    text-decoration:none
 }
 .codeblock.nginx .code .attribute,.codeblock.nginx .code .title,figure.highlight.nginx .code .attribute,figure.highlight.nginx .code .title{
     color:#a71d5d
