@@ -40,11 +40,17 @@
       {{ partial "post/meta" . }}
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      {{ if .Params.Summary }}
-        {{ .Params.Summary | markdownify }}
+      <!-- Add description for Rmd posts: https://www.r-bloggers.com/blogdown-part-i-launching-a-new-site/ -->
+      {{if .Params.Description }}
+        {{ printf "%s" .Params.Description }}
       {{ else }}
         {{ .Summary }}
       {{ end }}
+      <!--{{ if .Params.Summary }}
+        {{ .Params.Summary | markdownify }}
+      {{ else }}
+        {{ .Summary }}
+      {{ end }}-->
       <p>
         <a href="{{ .Permalink }}" class="postShorten-excerpt_link link">{{ i18n "post.read_more" }}</a>
         {{ with .Params.readingtime }}
