@@ -12,6 +12,8 @@ categories:
 - R Project
 - Teaching
 - Visualization
+thumbnailImage: "http://citizen-statistician.org/wp-content/uploads/2017/10/Screen-Shot-2017-10-07-at-10.16.24-AM.png"
+thumbnailImagePosition: left
 ---
 
 A little over a year ago, we decided to propose a data visualization course at the first-year level. We had been thinking about this for awhile, but never had the time to teach it given the scheduling constraints we had. When one of the other departments on campus was shut down and the faculty merged in with other departments, we felt that the time was ripe to make this proposal.

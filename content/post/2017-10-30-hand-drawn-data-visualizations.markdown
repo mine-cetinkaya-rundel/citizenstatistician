@@ -10,6 +10,8 @@ wordpress_id: 1232
 categories:
 - Musings
 - Visualization
+thumbnailImage: "https://images.gr-assets.com/books/1408743049l/13528388.jpg"
+thumbnailImagePosition: left
 ---
 
 Recently the blog [Brain Pickings](https://www.brainpickings.org/2017/10/09/w-e-b-du-bois-diagrams/) wrote about the set of hand-drawn visualizations that Civil Rights activist W.E.B. Du Bois commissioned for the1900 World's Fair in Paris. (In a [previous post,](http://citizen-statistician.org/2017/02/26/theaster-gates-w-e-b-du-bois-and-statistical-graphics/) Rob wrote about an art exhibit he saw that featured artistic interpretations of these plots.)

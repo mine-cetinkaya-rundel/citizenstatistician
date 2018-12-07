@@ -7,9 +7,11 @@ link: http://citizen-statistician.org/2017/11/13/the-birthday-problem-and-voter-
 slug: the-birthday-problem-and-voter-fraud
 title: The birthday problem and voter fraud
 wordpress_id: 1236
+thumbnailImage: "https://lh4.googleusercontent.com/V5jNsYBHS_ciZEhIO2eP5Cnm_M-fdmaVMgmV7ICrCa0muEq_jWZozQDS00_SAgjzU0mHhZP7Vx81HQ=w2758-h1484-rw"
+thumbnailImagePosition: left
 ---
 
-![](http://citizen-statistician.org/wp-content/uploads/2017/11/Screen-Shot-2017-11-13-at-12.02.16-PM-155x300.png)I was traveling at the end of last week, which means I had some time to listen to podcasts while in transit. This American Life is always a hit for me, though sometimes I can't listen to it in public because the stories can be too sad, and then I get all teary eyed in airports...
+I was traveling at the end of last week, which means I had some time to listen to podcasts while in transit. This American Life is always a hit for me, though sometimes I can't listen to it in public because the stories can be too sad, and then I get all teary eyed in airports...
 
 This past week's was both fun and informative though. I'm talking about [Episode 630: Things I Mean to Know](https://www.thisamericanlife.org/radio-archives/episode/630/things-i-mean-to-know). This post is about a specific segment of this episode: Fraud Complex. You can listen to it [here](https://www.thisamericanlife.org/radio-archives/episode/630/things-i-mean-to-know?act=1), and here is the description:
 
