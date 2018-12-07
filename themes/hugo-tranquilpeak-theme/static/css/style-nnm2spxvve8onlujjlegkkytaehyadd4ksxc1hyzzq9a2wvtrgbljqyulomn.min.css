@@ -109,14 +109,14 @@ dl,ol,ul{
 }
 a,a:active,a:hover,a:visited{
     cursor:pointer;
-    color:#349ef3;
+    color:#76acca;
     text-decoration:none
 }
 .archive .archive-posts .archive-post .archive-post-title:hover,.archive .archive-title:hover,a:hover{
     text-decoration:underline
 }
 a:hover{
-    color:#349ef3
+    color:#76acca
 }
 table{
     background:0 0;
@@ -1625,12 +1625,12 @@ pre.code-highlight>code{
     font-size:2.5rem
 }
 .alert.info{
-    border-color:#349ef3;
+    border-color:#76acca;
     background-color:#e6f3fe
 }
 .alert.info:not(.no-icon):before{
     content:"\f05a";
-    color:#349ef3
+    color:#76acca
 }
 .alert.success{
     border-color:#4dc657;
@@ -1720,8 +1720,8 @@ pre.code-highlight>code{
     border:1px solid #309639
 }
 .btn--primary{
-    color:#349ef3!important;
-    border:1px solid #349ef3
+    color:#76acca!important;
+    border:1px solid #76acca
 }
 .btn--primary:hover{
     color:#0c78ce!important;
@@ -2774,8 +2774,8 @@ a.fancybox{
     border:1px solid #309639
 }
 .tag--primary,a.tag--primary{
-    color:#349ef3!important;
-    border:1px solid #349ef3
+    color:#76acca!important;
+    border:1px solid #76acca
 }
 .tag--primary:hover,a.tag--primary:hover{
     color:#0c78ce!important;
@@ -2857,7 +2857,7 @@ a.fancybox{
     color:#9eabb3!important
 }
 .text-color-link{
-    color:#349ef3!important
+    color:#76acca!important
 }
 .font-merryweather{
     font-family:Merriweather,serif
@@ -3062,7 +3062,7 @@ code{
     background-color:#f7f8f8
 }
 .codeblock--tabbed figcaption .tab.active{
-    background:#349ef3;
+    background:#76acca;
     color:#fff
 }
 .codeblock,figure.highlight{
