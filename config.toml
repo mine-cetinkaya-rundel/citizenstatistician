@@ -80,7 +80,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   weight = 1
   identifier = "github"
   name = "GitHub"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
+  pre = "<i class=\"sidebar-button-icon fab fa-lg fa-github\"></i>"
   url = "https://github.com/mine-cetinkaya-rundel/citizenstatistician"
 
 [[menu.misc]]
