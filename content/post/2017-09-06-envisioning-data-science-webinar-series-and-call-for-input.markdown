@@ -10,6 +10,8 @@ wordpress_id: 1208
 categories:
 - Events
 - R Project
+thumbnailImage: https://lh4.googleusercontent.com/eLYP0t0-g9ISI6JfzpD5bNrwK_bFzL0HiktME_JcSKzboxeCjl9wdvRnznIUtYuOsB64M4zjWLy6cQUgewn2=w1379-h711
+thumbnailImagePosition: left
 ---
 
 **[![](http://citizen-statistician.org/wp-content/uploads/2017/09/unnamed.jpg)](http://citizen-statistician.org/2017/09/06/envisioning-data-science-webinar-series-and-call-for-input/unnamed/)Webinar Series: Data Science Undergraduate Education**

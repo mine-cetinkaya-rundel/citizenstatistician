@@ -12,6 +12,8 @@ categories:
 - Teaching
 - teaching
 - Visualization
+thumbnailImage: https://lh6.googleusercontent.com/oejNNn-B_2qu32dEg8YCBO4mQ22gN0DGdgJ7XOK-Z8R3nvKlZG_aoEXVX6kgNvrSKn0uOtUOWUriAFpFLQBM=w1379-h711-rw
+thumbnailImagePosition: top
 ---
 
 We're discussing data visualization nowadays in [my course](http://www2.stat.duke.edu/courses/Fall17/sta112.01/), and today's topic was supposed to be mapping. However late last night I realized I was going to run out of time and decided to table hands on mapping exercises till a bit later in the course (after we do some data manipulation as well, which I think will work better).
