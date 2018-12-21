@@ -9,7 +9,7 @@ title: Data Science Webinar Announcement
 wordpress_id: 1212
 categories:
 - Events
-thumbnailImage: https://lh3.googleusercontent.com/i1d-DW-AyHTkaspnOweYrVY_kQYXOuDUkAbIeuhK7IUpkv8bwNNlmvHXmVJQ5TN7U_sRvA0L-9oPVv85TFK8=w2482-h1420
+thumbnailImage: https://i.imgur.com/J4Pwufw.jpg
 thumbnailImagePosition: top
 ---
 

@@ -10,7 +10,7 @@ wordpress_id: 1208
 categories:
 - Events
 - rstats
-thumbnailImage: "https://lh6.googleusercontent.com/LmjzF29zATP-eaIH_Rmoz647MMtsNje3QjGk11cA2hNgkz8ZeKiTGDWpBCodkHUv4rRdE6PBGtomlu01oi0n=w2482-h1420"
+thumbnailImage: https://i.imgur.com/vr9zg7j.jpg
 thumbnailImagePosition: left
 ---
 

@@ -7,7 +7,7 @@ link: http://citizen-statistician.org/2017/11/13/the-birthday-problem-and-voter-
 slug: the-birthday-problem-and-voter-fraud
 title: The birthday problem and voter fraud
 wordpress_id: 1236
-thumbnailImage: "https://lh3.googleusercontent.com/tSq6pLbQyKZ3lI7fGXXseESzofX9Nt2DIPI_xay9NrWvbXfwnZH78Kp148I6v17vYi0MTrvQP-OdigrYBNdb=w2482-h1420-rw"
+thumbnailImage: https://i.imgur.com/RNdKn9f.jpg
 thumbnailImagePosition: left
 ---
 
