@@ -7,7 +7,7 @@ link: http://citizen-statistician.org/2017/11/13/the-birthday-problem-and-voter-
 slug: the-birthday-problem-and-voter-fraud
 title: The birthday problem and voter fraud
 wordpress_id: 1236
-thumbnailImage: "https://lh4.googleusercontent.com/V5jNsYBHS_ciZEhIO2eP5Cnm_M-fdmaVMgmV7ICrCa0muEq_jWZozQDS00_SAgjzU0mHhZP7Vx81HQ=w2758-h1484-rw"
+thumbnailImage: "https://lh3.googleusercontent.com/tSq6pLbQyKZ3lI7fGXXseESzofX9Nt2DIPI_xay9NrWvbXfwnZH78Kp148I6v17vYi0MTrvQP-OdigrYBNdb=w2482-h1420-rw"
 thumbnailImagePosition: left
 ---
 
@@ -16,7 +16,8 @@ I was traveling at the end of last week, which means I had some time to listen t
 This past week's was both fun and informative though. I'm talking about [Episode 630: Things I Mean to Know](https://www.thisamericanlife.org/radio-archives/episode/630/things-i-mean-to-know). This post is about a specific segment of this episode: Fraud Complex. You can listen to it [here](https://www.thisamericanlife.org/radio-archives/episode/630/things-i-mean-to-know?act=1), and here is the description:
 
 
-<blockquote> We’ve all heard reports that voter fraud isn’t real. But how do we know that’s true? David Kestenbaum went on a quest to find out if someone had actually put in the work—and run the numbers—to know for certain. (17 minutes)
+<blockquote>
+We’ve all heard reports that voter fraud isn’t real. But how do we know that’s true? David Kestenbaum went on a quest to find out if someone had actually put in the work—and run the numbers—to know for certain. (17 minutes)
 Source: TAL - Episode 630: Things I Mean to Know - [Act One - Fraud Complex](https://www.thisamericanlife.org/radio-archives/episode/630/things-i-mean-to-know?act=1)</blockquote>
 
 

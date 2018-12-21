@@ -10,7 +10,7 @@ wordpress_id: 1208
 categories:
 - Events
 - R Project
-thumbnailImage: https://lh4.googleusercontent.com/eLYP0t0-g9ISI6JfzpD5bNrwK_bFzL0HiktME_JcSKzboxeCjl9wdvRnznIUtYuOsB64M4zjWLy6cQUgewn2=w1379-h711
+thumbnailImage: "https://lh6.googleusercontent.com/LmjzF29zATP-eaIH_Rmoz647MMtsNje3QjGk11cA2hNgkz8ZeKiTGDWpBCodkHUv4rRdE6PBGtomlu01oi0n=w2482-h1420"
 thumbnailImagePosition: left
 ---
 

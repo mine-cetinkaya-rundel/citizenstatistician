@@ -12,7 +12,7 @@ categories:
 - Teaching
 - teaching
 - Visualization
-thumbnailImage: https://lh6.googleusercontent.com/oejNNn-B_2qu32dEg8YCBO4mQ22gN0DGdgJ7XOK-Z8R3nvKlZG_aoEXVX6kgNvrSKn0uOtUOWUriAFpFLQBM=w1379-h711-rw
+thumbnailImage: https://lh6.googleusercontent.com/V0idxOE_Qw8kGAZ1qYJpB-Z2SjByAKF86BlXL0CLR7iGHst6-Wb7J_fy123W3yh94Bc132O5apTgX5mHJvWv=w2482-h1420-rw
 thumbnailImagePosition: top
 ---
 
