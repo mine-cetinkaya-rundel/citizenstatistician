@@ -8,12 +8,13 @@ slug: planting-seeds-of-reproducibility-with-knitr-and-markdown
 title: Planting seeds of reproducibility with knitr and markdown
 wordpress_id: 47
 categories:
-- Computation
+- Computing
 - statistical software
 - Teaching
+- rstats
 tags:
 - knitr
-- R
+- rstats
 - reproducibility
 - RStudio
 - teaching

@@ -8,8 +8,8 @@ slug: data-visualization-course-for-freshmen
 title: Data Visualization Course for First-Year Students
 wordpress_id: 1225
 categories:
-- Computation
-- R Project
+- Computing
+- rstats
 - Teaching
 - Visualization
 thumbnailImage: "http://citizen-statistician.org/wp-content/uploads/2017/10/Screen-Shot-2017-10-07-at-10.16.24-AM.png"

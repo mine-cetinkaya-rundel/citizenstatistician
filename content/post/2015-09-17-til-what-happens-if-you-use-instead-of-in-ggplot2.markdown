@@ -8,8 +8,8 @@ slug: til-what-happens-if-you-use-instead-of-in-ggplot2
 title: TIL what happens if you use %>% instead of + in ggplot2
 wordpress_id: 953
 categories:
-- Computation
-- R Project
+- Computing
+- rstats
 ---
 
 This post is about `ggplot2` and `dplyr` packages, so let's start with loading them:

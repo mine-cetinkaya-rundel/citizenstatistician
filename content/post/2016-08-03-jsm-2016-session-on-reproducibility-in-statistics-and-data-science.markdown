@@ -8,7 +8,7 @@ slug: jsm-2016-session-on-reproducibility-in-statistics-and-data-science
 title: JSM 2016 session on Reproducibility in Statistics and Data Science
 wordpress_id: 1056
 categories:
-- Computation
+- Computing
 - Data
 - Events
 - Teaching

@@ -8,7 +8,7 @@ slug: happy-birthday-florence-henderson
 title: Happy Birthday Florence Henderson
 wordpress_id: 404
 categories:
-- R Project
+- rstats
 ---
 
 As a celebration of Florence Henderson's 79th birthday (on February 14), I have created this scatterplot to use in my regression course.

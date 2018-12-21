@@ -8,7 +8,7 @@ slug: fruit-plot-plotting-using-multiple-pngs
 title: 'Fruit Plot: Plotting Using Multiple PNGs'
 wordpress_id: 989
 categories:
-- R Project
+- rstats
 ---
 
 In one of our previous posts ([Halloween: An Excuse for Plotting with Icons](http://citizen-statistician.org/2015/10/27/halloween-an-excuse-for-plotting-with-icons/)), we gave a quick tutorial on how to plot using icons using ggplot. A reader, Dr. D. K. Samuel asked in a comment how to use multiple icons. His comment read,

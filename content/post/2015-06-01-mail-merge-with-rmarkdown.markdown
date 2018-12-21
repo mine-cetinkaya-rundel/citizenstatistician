@@ -9,7 +9,7 @@ title: '"Mail merge" with RMarkdown'
 wordpress_id: 904
 categories:
 - Musings
-- R Project
+- rstats
 ---
 
 The term "mail merge" might not be familiar to those who have not worked in an office setting, but here is the Wikipedia definition:

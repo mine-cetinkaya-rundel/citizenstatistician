@@ -8,7 +8,7 @@ slug: datasets-handpicked-by-students
 title: Datasets handpicked by students
 wordpress_id: 206
 categories:
-- R Project
+- rstats
 - teaching
 ---
 

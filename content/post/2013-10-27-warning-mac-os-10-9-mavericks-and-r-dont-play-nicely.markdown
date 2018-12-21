@@ -8,7 +8,7 @@ slug: warning-mac-os-10-9-mavericks-and-r-dont-play-nicely
 title: 'Warning: Mac OS 10.9 Mavericks and R Don''t Play Nicely'
 wordpress_id: 714
 categories:
-- R Project
+- rstats
 - Teaching
 ---
 

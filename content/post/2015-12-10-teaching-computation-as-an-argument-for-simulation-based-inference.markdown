@@ -8,7 +8,7 @@ slug: teaching-computation-as-an-argument-for-simulation-based-inference
 title: Teaching computation as an argument for simulation based inference
 wordpress_id: 1013
 categories:
-- Computation
+- Computing
 - repost
 - Teaching
 ---

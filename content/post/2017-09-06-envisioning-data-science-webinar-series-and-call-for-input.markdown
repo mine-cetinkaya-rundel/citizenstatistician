@@ -9,7 +9,7 @@ title: Envisioning Data Science Webinar Series and Call for Input
 wordpress_id: 1208
 categories:
 - Events
-- R Project
+- rstats
 thumbnailImage: "https://lh6.googleusercontent.com/LmjzF29zATP-eaIH_Rmoz647MMtsNje3QjGk11cA2hNgkz8ZeKiTGDWpBCodkHUv4rRdE6PBGtomlu01oi0n=w2482-h1420"
 thumbnailImagePosition: left
 ---

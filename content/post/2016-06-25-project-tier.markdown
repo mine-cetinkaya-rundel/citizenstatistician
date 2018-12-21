@@ -8,11 +8,11 @@ slug: project-tier
 title: Project TIER
 wordpress_id: 1034
 categories:
-- Computation
+- Computing
 - Events
-- R Project
+- rstats
 - statistical software
-- Teaching
+- teaching
 ---
 
 Last year I was awarded a Project TIER (Teaching Integrity in Empirical Research) fellowship, and last week my work on the fellowship wrapped up with a meeting with the project leads, [other fellows from last year](https://www.haverford.edu/project-tier/people/tier-faculty-fellows), as well as [new fellows for the next year](https://www.haverford.edu/sites/default/files/Office/TIER/2016-17-Fellows-List-2016-06-15.pdf). In a nutshell Project TIER focuses on reproducibility. Here is a brief summary of the project's focus from [their website](https://www.haverford.edu/project-tier/about):

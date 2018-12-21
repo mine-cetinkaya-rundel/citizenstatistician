@@ -8,8 +8,8 @@ slug: r-syntax-for-ranked-choice-voting
 title: R Syntax for Ranked Choice Voting
 wordpress_id: 744
 categories:
-- Computation
-- R Project
+- Computing
+- rstats
 ---
 
 I have gotten several requests for the R syntax I used to analyze the ranked-choice voting data and create the animated GIF. Rather than just posting the syntax, I thought I might write a detailed post describing the process.

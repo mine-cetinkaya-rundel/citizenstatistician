@@ -8,7 +8,7 @@ slug: halloween-an-excuse-for-plotting-with-icons
 title: 'Halloween: An Excuse for Plotting with Icons'
 wordpress_id: 979
 categories:
-- R Project
+- rstats
 - Teaching
 ---
 

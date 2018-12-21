@@ -8,9 +8,9 @@ slug: read-elsewhere-organizing-datafest-the-tidy-way
 title: 'Read elsewhere: Organizing DataFest the tidy way'
 wordpress_id: 1121
 categories:
-- Computation
+- Computing
 - Events
-- R Project
+- rstats
 - Teaching
 ---
 

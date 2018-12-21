@@ -8,10 +8,9 @@ slug: a-two-hour-introduction-to-r
 title: A two-hour introduction to data analysis in R
 wordpress_id: 999
 categories:
-- Computation
+- Computing
 - Data
-- R Project
-- Teaching
+- rstats
 - teaching
 ---
 

@@ -9,7 +9,7 @@ title: Pie Charts. Are they worth the Fight?
 wordpress_id: 833
 categories:
 - Musings
-- R Project
+- rstats
 - teaching
 ---
 

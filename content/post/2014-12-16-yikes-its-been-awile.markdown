@@ -9,7 +9,7 @@ title: Yikes...It's Been Awile
 wordpress_id: 847
 categories:
 - Musings
-- R Project
+- rstats
 - Reviews
 - Teaching
 ---

@@ -10,7 +10,7 @@ wordpress_id: 476
 categories:
 - Data
 - pret-a-porter
-- R Project
+- rstats
 ---
 
 It is time for the NCAA Basketball Tournament. Sixty-four teams dream big (er...I mean 68...well actually by now, 64) and schools like Iona and Florida Gulf Coast University (go Eagles!) are hoping that [Robert Morris astounding victory in the N.I.T.](http://www.washingtonpost.com/blogs/early-lead/wp/2013/03/20/robert-morris-drops-kentucky-in-nit-first-round/) isn't just a flash in the pan.

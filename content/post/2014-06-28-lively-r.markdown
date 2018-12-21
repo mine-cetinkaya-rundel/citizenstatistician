@@ -8,7 +8,7 @@ slug: lively-r
 title: Lively R
 wordpress_id: 816
 categories:
-- R Project
+- rstats
 - Teaching
 ---
 

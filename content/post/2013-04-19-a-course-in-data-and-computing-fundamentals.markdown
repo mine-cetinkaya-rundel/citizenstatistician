@@ -8,9 +8,9 @@ slug: a-course-in-data-and-computing-fundamentals
 title: 'A Course in Data and Computing Fundamentals '
 wordpress_id: 529
 categories:
-- Computation
-- R Project
-- Teaching
+- Computing
+- rstats
+- teaching
 ---
 
 [![e6dda08f-58ba-40fe-8748-14c589d3ebe7](http://citizen-statistician.org/wp-content/uploads/2013/04/e6dda08f-58ba-40fe-8748-14c589d3ebe7.png)](http://citizen-statistician.org/wp-content/uploads/2013/04/e6dda08f-58ba-40fe-8748-14c589d3ebe7.png)

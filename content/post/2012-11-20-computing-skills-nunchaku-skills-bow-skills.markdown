@@ -8,7 +8,7 @@ slug: computing-skills-nunchaku-skills-bow-skills
 title: Computing Skills, Nunchaku Skills, Bow Skills...
 wordpress_id: 259
 categories:
-- Computation
+- Computing
 - statistical software
 ---
 

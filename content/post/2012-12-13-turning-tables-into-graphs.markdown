@@ -8,7 +8,7 @@ slug: turning-tables-into-graphs
 title: Turning Tables into Graphs
 wordpress_id: 301
 categories:
-- Computation
+- Computing
 - Teaching
 ---
 

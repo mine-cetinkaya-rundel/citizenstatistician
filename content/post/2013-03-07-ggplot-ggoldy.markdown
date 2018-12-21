@@ -8,7 +8,7 @@ slug: ggplot-ggoldy
 title: ggplot ggoldy
 wordpress_id: 459
 categories:
-- R Project
+- rstats
 ---
 
 One of my graduate students worked some ggplot magic and created an almost [Light Bright-esqe](http://www.hasbro.com/litebrite/en_US/) plot of our very own Goldy Gopher. She also, thoughtfully, published a tutorial on her blog. Read and enjoy! [[visit Rita's blog here](http://pinksquirrelinc.blogspot.com/2013/03/body-td-font-family-sans-serif.html)]

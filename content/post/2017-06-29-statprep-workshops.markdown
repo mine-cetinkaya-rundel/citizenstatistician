@@ -9,7 +9,7 @@ title: StatPREP Workshops
 wordpress_id: 1134
 categories:
 - Events
-- R Project
+- rstats
 - teaching
 ---
 

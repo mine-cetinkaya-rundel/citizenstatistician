@@ -8,12 +8,11 @@ slug: reproducibility-breakout-session-at-uscots
 title: Reproducibility breakout session at USCOTS
 wordpress_id: 898
 categories:
-- Computation
+- Computing
 - Data
 - Events
-- R Project
+- rstats
 - statistical software
-- Teaching
 - teaching
 ---
 

@@ -8,8 +8,8 @@ slug: recoding-variables-in-r-pedagogic-considerations
 title: 'Recoding Variables in R: Pedagogic Considerations'
 wordpress_id: 160
 categories:
-- Computation
-- R Project
+- Computing
+- rstats
 - Teaching
 ---
 

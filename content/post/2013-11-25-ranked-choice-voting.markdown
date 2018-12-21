@@ -9,7 +9,7 @@ title: Ranked Choice Voting
 wordpress_id: 736
 categories:
 - pret-a-porter
-- R Project
+- rstats
 ---
 
 The city of Minneapolis recently elected a new mayor. This is not newsworthy in and of itself, however the method they used was—ranked choice voting. Ranked choice voting is a method of voting allowing voters to rank multiple candidates in order of preference. In the Minneapolis mayoral election, voters ranked up to three candidates.

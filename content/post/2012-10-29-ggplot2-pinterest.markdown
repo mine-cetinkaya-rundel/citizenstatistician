@@ -9,7 +9,7 @@ title: ggplot2 Pinterest
 wordpress_id: 211
 categories:
 - Musings
-- R Project
+- rstats
 ---
 
 I don't understand the website Pinterest, but it looks pretty (especially on the iPad), and an undergraduate student said it was the greatest thing since Facebook, so I thought I would give it a shot. The idea is that Pinterest "lets you organize and share all the beautiful things you find on the web." You organize beautiful things by creating a "board" (a page), and then adding "pins" (links to websites).

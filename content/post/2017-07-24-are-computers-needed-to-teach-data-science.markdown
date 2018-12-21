@@ -8,11 +8,11 @@ slug: are-computers-needed-to-teach-data-science
 title: Are computers needed to teach Data Science?
 wordpress_id: 1136
 categories:
-- Computation
-- Musings
-- R Project
+- computing
+- musings
+- rstats
 - statistical software
-- Teaching
+- teaching
 ---
 
 One of the many nice things about summer is the time and space it allows for blogging. And, after a very stimulating SRTL conference (Statistics Reasoning, Teaching and Learning) in Rotorua, New Zealand, there's lots to blog about.

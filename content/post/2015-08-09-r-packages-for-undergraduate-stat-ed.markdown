@@ -8,8 +8,8 @@ slug: r-packages-for-undergraduate-stat-ed
 title: R packages for undergraduate stat ed
 wordpress_id: 925
 categories:
-- Computation
-- R Project
+- Computing
+- rstats
 - Teaching
 ---
 
