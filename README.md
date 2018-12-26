@@ -1,6 +1,6 @@
 # citizen-statistician
 
-This is the source repository of the Citizen Statistician blog. The blog is built with the [**blogdown**](https://github.com/rstudio/blogdown) package. If you want to build the blog locally, you can clone or download this repo, click `citizenstatistician.Rproj` to open it in RStudio, then install **blogdown** and Hugo:
+This is the source repository of the [Citizen Statistician](http://www.citizen-statistician.org/) blog. The blog is built with the [**blogdown**](https://github.com/rstudio/blogdown) package. If you want to build the blog locally, you can clone or download this repo, click `citizenstatistician.Rproj` to open it in RStudio, then install **blogdown** and Hugo:
 
 ```r
 install.packages("blogdown")
