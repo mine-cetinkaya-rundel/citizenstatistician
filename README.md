@@ -27,6 +27,13 @@ RStudio will automatically open the post, and you can edit/preview it.
 
 You can also add new posts with the **New Post** Addin.
 
+This repository is set up such that when you push to the master branch the website is re-deployed automatically with Netlify. So you don't want to push to master before you're ready for your post to go live. Below are two workflows for working with this structure:
+
+1. (Recommended) Create a new branch before adding a new post. While writing the post view it locally with `blogdown::build_site()`. When you're done, create a pull request to the master branch and merge your changes. Once you merge, the blog will rebuild and your changes will go live.
+
+2. Add a new post in the master branch, and while writing the post only view it locally with `blogdown::build_site()` and make sure to never push your changes. When you're done, push your changes to the master branch, and Netlify will rebuild the site and publish your changes. Note that this approach is less recommended as it's natural to forget to not push your changes while writing your post. Of course, this is not the end of the world, it just means temporarily an incomplete post will be online. If this happens, you can either roll back your changes, or quickly finish your post and republish.
+
+
 ##  Acknowledgements
 
 - This README is heavily based on the README of the R Views blog.
