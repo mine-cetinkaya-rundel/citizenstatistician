@@ -1,0 +1,218 @@
+---
+title: Timezones are hard
+author: mine
+date: '2019-05-15'
+slug: timezones-are-hard
+categories:
+  - computing
+  - rstats
+tags: []
+keywords:
+  - tech
+---
+
+
+
+<p>Citizen Statistician is back from a hiautus! I hope to post more regularly in
+the coming weeks, including writing a post on converting from WordPress to
+blogdown.</p>
+<p>I have recently been dealing with time zone changes. I’ll say a bit more about
+it shortly. But first, here is a picture of my 2.5 year old “dealing” with
+time zone change.</p>
+<p><img src="/post/2019-05-15-timezones-are-hard_files/toddler-timezone.png" /></p>
+<p>His schedule is completely thrown off, he doesn’t know what to do with himself,
+so he keeps moving around in his room in his sleep. This picture also sums up
+my feelings about working with date/time data, especially when working across
+multiple time zones.</p>
+<p>I went down this rabbit hole on a very simple sounding quest: find some weather
+data for two cities in the world. I use Darksky on my phone for weather (I
+have thoughts about whether it’s really the “most accurate source of hyperlocal weather information”<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> but whatever…) so I figured I’d try the Darksky API.</p>
+<p>Whenever I want to do anything in R, I first tell myself “there’s probably a
+package for that”. And this statement is true ~90% of the time. There is
+indeed an R package called darksky<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>,
+authored by <a href="https://twitter.com/hrbrmstr">Bob Rudis</a> et al., that
+serves as an R interface to the Dark Sky API.</p>
+<p>I’ll use three packages for this exploration:</p>
+<pre class="r"><code>library(darksky)
+suppressMessages(library(tidyverse))
+suppressMessages(library(lubridate))</code></pre>
+<p>Let’s start with getting today’s hourly data for Durham, NC. I couldn’t
+decide what to use as precise location in Durham without disclosing my home
+address, so I went with the latitude and longitude for RDU (Raleigh-Durham International Airport). There’s probably a package for looking up airport
+locations as well, but I just used Google for this information. Note that
+you need to indicate West with a minus sign.</p>
+<p><img src="/post/2019-05-15-timezones-are-hard_files/rdu-lat-long.png" style="width:70.0%" /></p>
+<pre class="r"><code>RDU &lt;- list(lat = 35.8801, lon = -78.7880, time = &quot;2019-05-15T00:00:00-04:00&quot;)</code></pre>
+<p>In the same list we also set the date/time to midnight on 15 May 2019. The time
+zone is Eastern Daylight Time, which is GMT-4, incidated by the <code>-04:00</code> at the
+end of the time text string.</p>
+<p>Finally, we fetch the forecast for today at RDU with <code>darksky::get_forecast_for()</code>. I only need the hourly forecast so I’ll exclude
+<code>daily</code> and <code>currently</code> results.</p>
+<pre class="r"><code>rdu_forecast &lt;- get_forecast_for(RDU$lat, RDU$lon, RDU$time, exclude = &quot;daily,currently&quot;)</code></pre>
+<p>Let’s take a look at the result:</p>
+<pre class="r"><code>as_tibble(rdu_forecast$hourly)</code></pre>
+<pre><code># # A tibble: 24 x 18
+#    time                summary icon  precipIntensity precipProbabili…
+#    &lt;dttm&gt;              &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+#  1 2019-05-15 05:00:00 Clear   clea…           0                 0   
+#  2 2019-05-15 06:00:00 Clear   clea…           0                 0   
+#  3 2019-05-15 07:00:00 Clear   clea…           0                 0   
+#  4 2019-05-15 08:00:00 Clear   clea…           0                 0   
+#  5 2019-05-15 09:00:00 Clear   clea…           0                 0   
+#  6 2019-05-15 10:00:00 Clear   clea…           0                 0   
+#  7 2019-05-15 11:00:00 Clear   clea…           0                 0   
+#  8 2019-05-15 12:00:00 Clear   clea…           0                 0   
+#  9 2019-05-15 13:00:00 Clear   clea…           0                 0   
+# 10 2019-05-15 14:00:00 Clear   clea…           0.001             0.01
+# # … with 14 more rows, and 13 more variables: temperature &lt;dbl&gt;,
+# #   apparentTemperature &lt;dbl&gt;, dewPoint &lt;dbl&gt;, humidity &lt;dbl&gt;,
+# #   pressure &lt;dbl&gt;, windSpeed &lt;dbl&gt;, windGust &lt;dbl&gt;, windBearing &lt;int&gt;,
+# #   cloudCover &lt;dbl&gt;, uvIndex &lt;int&gt;, visibility &lt;dbl&gt;, ozone &lt;dbl&gt;,
+# #   precipType &lt;chr&gt;</code></pre>
+<p>And this is where I got lost for a bit. Why does the forecast start at
+<code>2019-05-15 05:00:00</code> instead of <code>2019-05-15 00:00:00</code>?</p>
+<p>I tried a bunch of things, and finally decided to peek at the raw JSON response
+from the Darksky API by turning on the <code>add_json</code> argument in the <code>get_forecast_for()</code> function.</p>
+<pre class="r"><code>rdu_forecast_json &lt;- get_forecast_for(RDU$lat, RDU$lon, RDU$time, exclude = &quot;daily,currently&quot;, add_json = TRUE)</code></pre>
+<p>My default method for browsing JSON files is using the viewer in RStudio, and
+then using the selector to help me grab an element in the file.</p>
+<p><img src="/post/2019-05-15-timezones-are-hard_files/browsing-json.gif" /></p>
+<pre class="r"><code>rdu_forecast_json[[&quot;json&quot;]][[&quot;hourly&quot;]][[&quot;data&quot;]][[1]][[&quot;time&quot;]]</code></pre>
+<pre><code># [1] 1557892800</code></pre>
+<p>The Darsky API mentions UNIX time (seconds since midnight GMT on 1 Jan 1970), so let’s convert it.</p>
+<pre class="r"><code>rdu_forecast_json[[&quot;json&quot;]][[&quot;hourly&quot;]][[&quot;data&quot;]][[1]][[&quot;time&quot;]] %&gt;%
+  as.POSIXct(origin = &quot;1970-01-01&quot;)</code></pre>
+<pre><code># [1] &quot;2019-05-15 05:00:00 BST&quot;</code></pre>
+<p>Ah, there we go! This is 05:00 British Standard Time, which is the time zone
+where I happen to be running this code. If so, the following <em>should</em> give me
+what I want:</p>
+<pre class="r"><code>rdu_forecast_json[[&quot;json&quot;]][[&quot;hourly&quot;]][[&quot;data&quot;]][[1]][[&quot;time&quot;]] %&gt;%
+  as.POSIXct(origin = &quot;1970-01-01&quot;, tz = &quot;America/New_York&quot;)</code></pre>
+<pre><code># [1] &quot;2019-05-15 EDT&quot;</code></pre>
+<p>I <em>think</em> this is right, but it bugs me that I don’t see 00:00 there. Let’s try
+another timezone to check.</p>
+<pre class="r"><code>rdu_forecast_json[[&quot;json&quot;]][[&quot;hourly&quot;]][[&quot;data&quot;]][[1]][[&quot;time&quot;]] %&gt;%
+  as.POSIXct(origin = &quot;1970-01-01&quot;, tz = &quot;America/Los_Angeles&quot;)</code></pre>
+<pre><code># [1] &quot;2019-05-14 21:00:00 PDT&quot;</code></pre>
+<p>Alright, seeing both 5am BST and 9pm PDT gives me enough to say this is indeed
+midnight EDT. So if I want the hour to show up as 00:00 instead of 05:00, I
+should subtract 5 from the hour.</p>
+<p>What I ultimately wanted to do was to calculate average temperature in 4 time
+periods during the day (night, morning, afternoon, evening) and plot them. And
+I’ll use the blue from the American flag for the points and lines.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<pre class="r"><code>us_blue &lt;- &quot;#002664&quot;
+
+rdu_forecast$hourly %&gt;% 
+  mutate(
+    hour = hour(time) - 5, # because package converts to local time
+    time_of_day = cut(hour, breaks = 4, labels = c(&quot;night&quot;, &quot;morning&quot;, &quot;afternoon&quot;, &quot;evening&quot;))
+    ) %&gt;%
+  group_by(time_of_day) %&gt;%
+  summarize(mean_temp = mean(apparentTemperature)) %&gt;%
+  ggplot(aes(x = time_of_day, y = mean_temp)) +
+    geom_line(group = 1, color = us_blue)  + 
+    geom_point(color = us_blue) +
+    labs(x = &quot;&quot;, y = &quot;Mean temperature (F)&quot;, 
+         title = &quot;Apparent temperature&quot;,
+         subtitle = &quot;May 15, 2019 - Durham, NC&quot;) +
+    scale_y_continuous(limits = c(40, 80),
+                       sec.axis = sec_axis(trans = ~(. - 32) * (5/9), 
+                                           name = &quot;Mean temperature (C)&quot;))</code></pre>
+<p><img src="/post/2019-05-15-timezones-are-hard_files/figure-html/rdu-plot-1.png" width="672" /></p>
+<p>Here I have split the day into four time periods with <code>cut()</code>, calculated mean
+temperature for each time period. This information, along with information
+on precipitation and humidity, is how I decide what to wear depending on what
+hours of the day I’ll be out of the house.</p>
+<p>In the visualization I’ve also used dual y-axes 😱, as I
+need to retrain my brain to process Celcius information quickly. I believe
+this is one of the accepted uses of dual axes though, since the same data is
+being plotted on different scales (degrees Fahrenheit vs. Celcius).</p>
+<p>Next, let’s create a similar plot for weather in Edinburgh, Scotland. For parity,
+let’s go with the latitude and longitude of the airport here as well, and use the
+blue from the Scottish flag.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<pre class="r"><code># set location and time for EDI
+EDI &lt;- list(lat = 55.9508, lon = -3.3615,  time = &quot;2019-05-15T00:00:00+01:00&quot;)
+
+# get forecast
+edi_forecast &lt;- get_forecast_for(EDI$lat, EDI$lon, EDI$time, exclude = &quot;daily,currently&quot;)
+
+# set color
+scot_blue &lt;- &quot;#0165BF&quot;
+
+# plot temperature throughout the day at EDI
+edi_forecast$hourly %&gt;% 
+  mutate(
+    hour = hour(time),
+    time_of_day = cut(hour, breaks = 4, labels = c(&quot;night&quot;, &quot;morning&quot;, &quot;afternoon&quot;, &quot;evening&quot;))
+  ) %&gt;%
+  group_by(time_of_day) %&gt;%
+  summarize(mean_temp = mean(apparentTemperature)) %&gt;%
+  ggplot(aes(x = time_of_day, y = mean_temp)) +
+    geom_line(group = 1, color = scot_blue) + 
+    geom_point(color = scot_blue) +
+    labs(x = &quot;&quot;, y = &quot;Mean temperature (F)&quot;, 
+         title = &quot;Apparent temperature&quot;,
+         subtitle = &quot;May 15, 2019 - Edinburgh, UK&quot;) +
+    scale_y_continuous(limits = c(40, 80),
+                       sec.axis = sec_axis(trans = ~(. - 32) * (5/9), 
+                                           name = &quot;Mean temperature (C)&quot;))</code></pre>
+<p><img src="/post/2019-05-15-timezones-are-hard_files/figure-html/edi-plot-1.png" width="672" /></p>
+<p>Oh, actually let me make a few more subtle changes to the code to “correct” the
+spelling of some of the functions and arguments.</p>
+<pre class="r"><code># set colour
+scot_blue &lt;- &quot;#0165BF&quot;
+
+# plot temperature throughout the day at EDI
+edi_forecast$hourly %&gt;% 
+  mutate(
+    hour = hour(time),
+    time_of_day = cut(hour, breaks = 4, labels = c(&quot;night&quot;, &quot;morning&quot;, &quot;afternoon&quot;, &quot;evening&quot;))
+  ) %&gt;%
+  group_by(time_of_day) %&gt;%
+  summarise(mean_temp = mean(apparentTemperature)) %&gt;%
+  ggplot(aes(x = time_of_day, y = mean_temp)) +
+    geom_line(group = 1, colour = scot_blue) + 
+    geom_point(colour = scot_blue) +
+    labs(x = &quot;&quot;, y = &quot;Mean temperature (F)&quot;, 
+         title = &quot;Apparent temperature&quot;,
+         subtitle = &quot;15 May 2019 - Edinburgh, UK&quot;) +
+    scale_y_continuous(limits = c(40, 80),
+                       sec.axis = sec_axis(trans = ~(. - 32) * (5/9), 
+                                           name = &quot;Mean temperature (C)&quot;))</code></pre>
+<p>And here is a better snapshot of what changed.</p>
+<p><img src="/post/2019-05-15-timezones-are-hard_files/us-to-uk.png" /></p>
+<p>Weather has been lovely in Edinburgh for the last few days. Apparently it’s
+called “taps aff” weather<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>,
+which Urban Dictionary defines as “the removing of one’s shirt or other upper
+body garments, most often in the event of warm weather”<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>).</p>
+<p>This was an exercise in figuring out how the Darksky API works so that
+I can fetch some local weather data to use in my new course come September.
+I’ll be working on developing a lesson module around it <a href="https://github.com/mine-cetinkaya-rundel/darksky">here</a>.</p>
+<p>But ultimately …</p>
+<p><i>
+I have written<br />
+this blog post<br />
+just to say<br />
+that I have</p>
+<p>moved to<br />
+Edinburgh.<br />
+Timezones<br />
+are hard</p>
+<p>in data science<br />
+and in real life.<br />
+So forgive me<br />
+if I haven’t responded to your email last week</p>
+<p>I will, soon as my toddler is back on schedule…<br />
+</i></p>
+<p>(Also forgive me, as poetry has never been my strong suit.)</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://itunes.apple.com/us/app/dark-sky-weather/id517329357?mt=8" class="uri">https://itunes.apple.com/us/app/dark-sky-weather/id517329357?mt=8</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p><a href="https://github.com/hrbrmstr/darksky" class="uri">https://github.com/hrbrmstr/darksky</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p><a href="https://commons.wikimedia.org/wiki/File_talk:Flag_of_the_United_States.svg" class="uri">https://commons.wikimedia.org/wiki/File_talk:Flag_of_the_United_States.svg</a><a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p><a href="https://www.schemecolor.com/flag-of-scotland-colors.php" class="uri">https://www.schemecolor.com/flag-of-scotland-colors.php</a><a href="#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p><a href="https://www.edinburghnews.scotsman.com/news/weather/edinburgh-weather-this-is-when-soaring-temperatures-will-hit-the-capital-1-4925959" class="uri">https://www.edinburghnews.scotsman.com/news/weather/edinburgh-weather-this-is-when-soaring-temperatures-will-hit-the-capital-1-4925959</a><a href="#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p><a href="https://www.urbandictionary.com/define.php?term=Taps%20aff" class="uri">https://www.urbandictionary.com/define.php?term=Taps%20aff</a><a href="#fnref6" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
