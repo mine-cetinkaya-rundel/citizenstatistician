@@ -1,5 +1,5 @@
 ---
-title: Timezones are hard
+title: Time zones are hard
 author: mine
 date: '2019-05-15'
 slug: timezones-are-hard
@@ -13,12 +13,12 @@ keywords:
 
 
 
-<p>Citizen Statistician is back from a hiautus! I hope to post more regularly in
+<p>Citizen Statistician is back from a hiatus! I hope to post more regularly in
 the coming weeks, including writing a post on converting from WordPress to
 blogdown.</p>
 <p>I have recently been dealing with time zone changes. I’ll say a bit more about
-it shortly. But first, here is a picture of my 2.5 year old “dealing” with
-time zone change.</p>
+it shortly. But first, here is a picture of my 2 year old “dealing” with
+time zone changes.</p>
 <p><img src="/post/2019-05-15-timezones-are-hard_files/toddler-timezone.png" /></p>
 <p>His schedule is completely thrown off, he doesn’t know what to do with himself,
 so he keeps moving around in his room in his sleep. This picture also sums up
@@ -44,7 +44,7 @@ you need to indicate West with a minus sign.</p>
 <p><img src="/post/2019-05-15-timezones-are-hard_files/rdu-lat-long.png" style="width:70.0%" /></p>
 <pre class="r"><code>RDU &lt;- list(lat = 35.8801, lon = -78.7880, time = &quot;2019-05-15T00:00:00-04:00&quot;)</code></pre>
 <p>In the same list we also set the date/time to midnight on 15 May 2019. The time
-zone is Eastern Daylight Time, which is GMT-4, incidated by the <code>-04:00</code> at the
+zone is Eastern Daylight Time, which is GMT-4, indicated by the <code>-04:00</code> at the
 end of the time text string.</p>
 <p>Finally, we fetch the forecast for today at RDU with <code>darksky::get_forecast_for()</code>. I only need the hourly forecast so I’ll exclude
 <code>daily</code> and <code>currently</code> results.</p>
@@ -79,7 +79,7 @@ then using the selector to help me grab an element in the file.</p>
 <p><img src="/post/2019-05-15-timezones-are-hard_files/browsing-json.gif" /></p>
 <pre class="r"><code>rdu_forecast_json[[&quot;json&quot;]][[&quot;hourly&quot;]][[&quot;data&quot;]][[1]][[&quot;time&quot;]]</code></pre>
 <pre><code># [1] 1557892800</code></pre>
-<p>The Darsky API mentions UNIX time (seconds since midnight GMT on 1 Jan 1970), so let’s convert it.</p>
+<p>The Darksky API mentions UNIX time (seconds since midnight GMT on 1 Jan 1970), so let’s convert it.</p>
 <pre class="r"><code>rdu_forecast_json[[&quot;json&quot;]][[&quot;hourly&quot;]][[&quot;data&quot;]][[1]][[&quot;time&quot;]] %&gt;%
   as.POSIXct(origin = &quot;1970-01-01&quot;)</code></pre>
 <pre><code># [1] &quot;2019-05-15 05:00:00 BST&quot;</code></pre>
@@ -90,12 +90,12 @@ what I want:</p>
   as.POSIXct(origin = &quot;1970-01-01&quot;, tz = &quot;America/New_York&quot;)</code></pre>
 <pre><code># [1] &quot;2019-05-15 EDT&quot;</code></pre>
 <p>I <em>think</em> this is right, but it bugs me that I don’t see 00:00 there. Let’s try
-another timezone to check.</p>
+another time zone to check.</p>
 <pre class="r"><code>rdu_forecast_json[[&quot;json&quot;]][[&quot;hourly&quot;]][[&quot;data&quot;]][[1]][[&quot;time&quot;]] %&gt;%
   as.POSIXct(origin = &quot;1970-01-01&quot;, tz = &quot;America/Los_Angeles&quot;)</code></pre>
 <pre><code># [1] &quot;2019-05-14 21:00:00 PDT&quot;</code></pre>
 <p>Alright, seeing both 5am BST and 9pm PDT gives me enough to say this is indeed
-midnight EDT. So if I want the hour to show up as 00:00 instead of 05:00, I
+midnight EDT. So, if I want the hour to show up as 00:00 instead of 05:00, I
 should subtract 5 from the hour.</p>
 <p>What I ultimately wanted to do was to calculate average temperature in 4 time
 periods during the day (night, morning, afternoon, evening) and plot them. And
@@ -119,14 +119,14 @@ rdu_forecast$hourly %&gt;%
                        sec.axis = sec_axis(trans = ~(. - 32) * (5/9), 
                                            name = &quot;Mean temperature (C)&quot;))</code></pre>
 <p><img src="/post/2019-05-15-timezones-are-hard_files/figure-html/rdu-plot-1.png" width="672" /></p>
-<p>Here I have split the day into four time periods with <code>cut()</code>, calculated mean
+<p>Here I split the day into four time periods with <code>cut()</code>, calculated mean
 temperature for each time period. This information, along with information
 on precipitation and humidity, is how I decide what to wear depending on what
 hours of the day I’ll be out of the house.</p>
 <p>In the visualization I’ve also used dual y-axes 😱, as I
-need to retrain my brain to process Celcius information quickly. I believe
+need to retrain my brain to process Celsius information quickly. I believe
 this is one of the accepted uses of dual axes though, since the same data is
-being plotted on different scales (degrees Fahrenheit vs. Celcius).</p>
+being plotted on different scales (degrees Fahrenheit vs. Celsius).</p>
 <p>Next, let’s create a similar plot for weather in Edinburgh, Scotland. For parity,
 let’s go with the latitude and longitude of the airport here as well, and use the
 blue from the Scottish flag.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
@@ -181,8 +181,8 @@ edi_forecast$hourly %&gt;%
                                            name = &quot;Mean temperature (C)&quot;))</code></pre>
 <p>And here is a better snapshot of what changed.</p>
 <p><img src="/post/2019-05-15-timezones-are-hard_files/us-to-uk.png" /></p>
-<p>Weather has been lovely in Edinburgh for the last few days. Apparently it’s
-called “taps aff” weather<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>,
+<p>Weather has been lovely in Edinburgh for the last few days. I’ve also learned
+that this is called “taps aff” weather<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>,
 which Urban Dictionary defines as “the removing of one’s shirt or other upper
 body garments, most often in the event of warm weather”<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>).</p>
 <p>This was an exercise in figuring out how the Darksky API works so that
@@ -196,7 +196,7 @@ just to say<br />
 that I have</p>
 <p>moved to<br />
 Edinburgh.<br />
-Timezones<br />
+Time zones<br />
 are hard</p>
 <p>in data science<br />
 and in real life.<br />

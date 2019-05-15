@@ -1,5 +1,5 @@
 ---
-title: Timezones are hard
+title: Time zones are hard
 author: mine
 date: '2019-05-15'
 slug: timezones-are-hard
@@ -16,13 +16,13 @@ knitr::opts_chunk$set(comment = "#")
 ```
 
 
-Citizen Statistician is back from a hiautus! I hope to post more regularly in 
+Citizen Statistician is back from a hiatus! I hope to post more regularly in 
 the coming weeks, including writing a post on converting from WordPress to 
 blogdown. 
 
 I have recently been dealing with time zone changes. I'll say a bit more about 
-it shortly. But first, here is a picture of my 2.5 year old "dealing" with 
-time zone change. 
+it shortly. But first, here is a picture of my 2 year old "dealing" with 
+time zone changes. 
 
 ![](/post/2019-05-15-timezones-are-hard_files/toddler-timezone.png)
 
@@ -62,7 +62,7 @@ RDU <- list(lat = 35.8801, lon = -78.7880, time = "2019-05-15T00:00:00-04:00")
 ```
 
 In the same list we also set the date/time to midnight on 15 May 2019. The time 
-zone is Eastern Daylight Time, which is GMT-4, incidated by the `-04:00` at the 
+zone is Eastern Daylight Time, which is GMT-4, indicated by the `-04:00` at the 
 end of the time text string.
 
 Finally, we fetch the forecast for today at RDU with `darksky::get_forecast_for()`. I only need the hourly forecast so I'll exclude 
@@ -97,7 +97,7 @@ then using the selector to help me grab an element in the file.
 rdu_forecast_json[["json"]][["hourly"]][["data"]][[1]][["time"]]
 ```
 
-The Darsky API mentions UNIX time (seconds since midnight GMT on 1 Jan 1970), so let's convert it.
+The Darksky API mentions UNIX time (seconds since midnight GMT on 1 Jan 1970), so let's convert it.
 
 ```{r convert-unix-time}
 rdu_forecast_json[["json"]][["hourly"]][["data"]][[1]][["time"]] %>%
@@ -114,7 +114,7 @@ rdu_forecast_json[["json"]][["hourly"]][["data"]][[1]][["time"]] %>%
 ```
 
 I _think_ this is right, but it bugs me that I don't see 00:00 there. Let's try 
-another timezone to check.
+another time zone to check.
 
 ```{r convert-unix-time-la}
 rdu_forecast_json[["json"]][["hourly"]][["data"]][[1]][["time"]] %>%
@@ -122,7 +122,7 @@ rdu_forecast_json[["json"]][["hourly"]][["data"]][[1]][["time"]] %>%
 ```
 
 Alright, seeing both 5am BST and 9pm PDT gives me enough to say this is indeed 
-midnight EDT. So if I want the hour to show up as 00:00 instead of 05:00, I 
+midnight EDT. So, if I want the hour to show up as 00:00 instead of 05:00, I 
 should subtract 5 from the hour. 
 
 What I ultimately wanted to do was to calculate average temperature in 4 time 
@@ -150,15 +150,15 @@ rdu_forecast$hourly %>%
                                            name = "Mean temperature (C)"))
 ```
 
-Here I have split the day into four time periods with `cut()`, calculated mean 
+Here I split the day into four time periods with `cut()`, calculated mean 
 temperature for each time period. This information, along with information 
 on precipitation and humidity, is how I decide what to wear depending on what 
 hours of the day I'll be out of the house.
 
 In the visualization I've also used dual y-axes `r emo::ji("scream")`, as I 
-need to retrain my brain to process Celcius information quickly. I believe 
+need to retrain my brain to process Celsius information quickly. I believe 
 this is one of the accepted uses of dual axes though, since the same data is 
-being plotted on different scales (degrees Fahrenheit vs. Celcius).
+being plotted on different scales (degrees Fahrenheit vs. Celsius).
 
 Next, let's create a similar plot for weather in Edinburgh, Scotland. For parity, 
 let's go with the latitude and longitude of the airport here as well, and use the 
@@ -223,8 +223,8 @@ And here is a better snapshot of what changed.
 
 ![](/post/2019-05-15-timezones-are-hard_files/us-to-uk.png)
 
-Weather has been lovely in Edinburgh for the last few days. Apparently it's 
-called "taps aff" weather^[https://www.edinburghnews.scotsman.com/news/weather/edinburgh-weather-this-is-when-soaring-temperatures-will-hit-the-capital-1-4925959], 
+Weather has been lovely in Edinburgh for the last few days. I've also learned 
+that this is called "taps aff" weather^[https://www.edinburghnews.scotsman.com/news/weather/edinburgh-weather-this-is-when-soaring-temperatures-will-hit-the-capital-1-4925959], 
 which Urban Dictionary defines as "the removing of one's shirt or other upper 
 body garments, most often in the event of warm weather"^[https://www.urbandictionary.com/define.php?term=Taps%20aff]).
 
@@ -242,7 +242,7 @@ that I have
 
 moved to  
 Edinburgh.  
-Timezones  
+Time zones  
 are hard  
 
 in data science  
