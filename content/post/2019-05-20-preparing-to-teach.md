@@ -9,6 +9,8 @@ categories:
 tags:
   - jsm2019
   - workshop
+thumbnailImage: https://images.unsplash.com/photo-1531421693921-03e5aa6ee863?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80
+thumbnailImagePosition: left
 ---
 
 I'm excited to announce that, with support from the National Science Foundation (pending final approval), the Section on Statistics and Data Science Education will host the 2nd annual [Preparing for Careers in Teaching Statistics and Data Science Workshop](https://preparingtoteach.org/) in Fort Collins, Colorado, on July 27 (immediately prior to JSM 2019 in Denver, Colorado). The workshop is designed for graduate students and recent PhDs interested in careers in teaching statistics and data science. 

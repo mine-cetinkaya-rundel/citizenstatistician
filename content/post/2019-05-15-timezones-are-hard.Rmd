@@ -6,9 +6,8 @@ slug: timezones-are-hard
 categories:
   - computing
   - rstats
-tags: []
-keywords:
-  - tech
+thumbnailImage: https://images.unsplash.com/photo-1457883626133-458e5ec26948?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80
+thumbnailImagePosition: left
 ---
 
 ```{r setup, include=FALSE}
