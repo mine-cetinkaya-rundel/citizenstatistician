@@ -1,0 +1,317 @@
+---
+title: KonMari your GitHub watchlist
+author: mine
+date: '2019-06-07'
+slug: konmari-your-github-watchlist
+categories:
+  - git
+tags:
+  - github
+  - teaching
+keywords:
+  - tech
+thumbnailImage: "https://i.imgur.com/khwbCdy.png"
+thumbnailImagePosition: left
+---
+
+First, if you don't know what KonMari means, see [here](https://konmari.com/pages/about). 
+My interpretation, based on having watched the [Netflix series](https://www.netflix.com/gb/title/80209379) 
+and not having read the books, is that you get rid of things that don't give you 
+joy. This is a huge oversimplification of Marie Kondo's *KonMari Method*, 
+but it's the bit that's relevant to this post.
+
+Now back to regular programming...
+
+As of two days ago I was watching over 2000 GitHub repositories! In an effort 
+to increase the signal/noise ratio of the GitHub notifications I get in my email, 
+I wanted to trim down this list.
+
+But how did I end up watching over 2000 repositories in the first place? I teach 
+my courses on GitHub, which means I have a GitHub organization for each course, 
+and within that organization a repository per student (or team) per assignment. 
+For example, in Spring of 2018 when I taught a course with 82 students and 4 
+teaching assistants, I ended up with 925 repositories in my course organization!
+If you were to go to the [course organization](https://github.com/Sta199-S18), 
+you'll only be able to see 19 repositories in there since the student work is in 
+private repositories, but trust me, they're there!
+
+![Sta 199 - Spring 2018 GitHub org for course](/post/2019-06-07-konmari-your-github-watchlist_files/sta199-s18-repos.png)
+
+These repos were all created using the **[ghclass](https://github.com/rundel/ghclass)** 
+package, which makes calls to the GitHub API leveraging the 
+**[gh](https://github.com/r-lib/gh)** package. As the owner of the GitHub 
+organization for each course, I was automatically watching each and every 
+one of them. This is not necessarily a big deal -- the class is over, the students 
+are no longer interacting with those repositories, and so no noise is generated 
+from them. GitHub allows you to either unwatch all repos at once or one-by-one 
+at [github.com/watching](https://github.com/watching). Neither of these were ideal 
+solutions in my case. I didn't want to unwatch *everything*, and the sheer number 
+of student repositories made it infeasible to browse my watchlist and unwatch 
+one at a time.
+
+What I needed was a way to unwatch all repos in a given organization so that 
+I can apply it to my past course organizations and cut down my watchlist one 
+course (hundreds of repositories) at a time.
+
+I think what comes next is interesting in terms of how people with different 
+background/expertise approach the same problem. Googling "unwatch all repos in an org" 
+landed me [here](https://github.com/isaacs/github/issues/641), and specifically 
+with the following suggestion:
+
+![Unwatch from the JavaScript console](/post/2019-06-07-konmari-your-github-watchlist_files/unwatch-java.png)
+
+First of all, it took me a second to realize that I'm supposed to run this piece 
+of code in the JavaScript console of my browser since I'm not really used to 
+running code anywhere but in RStudio.
+
+If you want to give this a try, go to [github.com/watching](https://github.com/watching) 
+while logged in to GitHub. Then, in your browser window go to the JavaScript 
+console (in Chrome: View -> Developer -> Developer Tools -> Console) 
+and run the following code replacing `ORG_NAME` with the GitHub name of the 
+organization or user you want to unwatch the repos of. For example, if you are 
+watching any of my repos and you want to unwatch them all, you'd replace 
+`ORG_NAME` with [`mine-cetinkaya-rundel`](https://github.com/mine-cetinkaya-rundel), 
+or if you want to unwatch all repos in the OpenIntroStat organization, you would 
+replace it with [`OpenIntroStat`](https://github.com/openIntrostat).
+
+```
+Array.prototype.slice.apply(document.querySelectorAll('.Box-row')).forEach(el => {
+    const org = el.querySelector('a[href^="/ORG_NAME"]');
+    console.log(org);
+    if (org) el.querySelector('button').click()
+})
+```
+
+This *kinda* works. It doesn't actually unwatch all repositories in the given 
+organization, only the ones that show up on the current page you're viewing. 
+Since the list is paginated at [github.com/watching](https://github.com/watching), 
+you need to run this code over and over on each page to get all the repos. Or maybe 
+you don't, maybe there's a better way of doing this in JavaScript, but I don't 
+know any JavaScript, so I was stuck.
+
+More importantly, though, this solution automates user actions in the browser, 
+which is so different than how I would approach the problem. My natural instinct 
+is to interact with the database that stores the information on the repositories 
+I'm watching, and remove records corresponding to those I want to unwatch. A 
+quick peek at the GitHub API docs revealed that the GitHub API indeed has 
+endpoints for watched repositories. You can read more about them [here](https://developer.github.com/v3/activity/watching/).
+
+And an R based solution to KonMari your GitHub watchlist now lives in the 
+ghclass package (the very package that landed me with this problem in the 
+first place). Four new functions --
+[`get_watching()`](https://rundel.github.io/ghclass/reference/get_watching.html), 
+[`watch_repo()`](https://rundel.github.io/ghclass/reference/watch_repo.html),
+[`unwatch_repo()`](https://rundel.github.io/ghclass/reference/unwatch_repo.html), 
+and [`ignore_repo()`](https://rundel.github.io/ghclass/reference/ignore_repo.html) 
+-- are designed to help with actions around watching and unwatching repositories.
+
+Below are a few usage examples. If you want to give this a try, first read the 
+[Authentication section](https://rundel.github.io/ghclass/articles/ghclass.html#authentication) of the package vignette, which walks you through saving your personal access token.
+
+Install the package (which is not yet on CRAN, but release is planned soon!)[^We're actively working on it this summer.]:
+
+```r
+library(devtools)
+install_github("rundel/ghclass")
+```
+
+Load the package:
+
+```r
+library(ghclass)
+#> Loading required package: gh
+```
+
+Get a list of all repositories I'm watching:
+
+```r
+get_watching()
+#>   [1] "ShinyEd/ShinyEd"                                              
+#>   [2] "mine-cetinkaya-rundel/chanceReproducibility"                  
+#>   [3] "OpenIntroStat/openintro-r-package"                            
+#>   [4] "mine-cetinkaya-rundel/openintro"                              
+#>   [5] "mccahill/docker-rstudio"                                      
+#>   [6] "mine-cetinkaya-rundel/gapminder"                              
+#>   [7] "mine-cetinkaya-rundel/rr-intro"                               
+#>   [8] "mine-cetinkaya-rundel/duke_statsci_homepage"                  
+#>   [9] "OpenIntroStat/statistics-exercises"                           
+#>  [10] "mine-cetinkaya-rundel/rotten"                                 
+...
+```
+
+Get a list of all repositories in the `Sta199-S18` organization that have the 
+character string `project` in their names[^The character strings following the 
+`project-` are team names, you can see some teams get quite creative with 
+their names!]:
+
+```r
+sta199_projects <- get_repo(org = "Sta199-S18", filter = "project")
+sta199_projects
+#>  [1] "Sta199-S18/project"                    
+#>  [2] "Sta199-S18/project-23"                 
+#>  [3] "Sta199-S18/project-24-7"               
+#>  [4] "Sta199-S18/project-ACE"                
+#>  [5] "Sta199-S18/project-Blue_Wombats"       
+#>  [6] "Sta199-S18/project-BME"                
+#>  [7] "Sta199-S18/project-Cosmic"             
+#>  [8] "Sta199-S18/project-Databaes"           
+#>  [9] "Sta199-S18/project-Duke_Squirrels"     
+#> [10] "Sta199-S18/project-five_squared"       
+#> [11] "Sta199-S18/project-get_MECT"           
+#> [12] "Sta199-S18/project-Git_R_Done"         
+#> [13] "Sta199-S18/project-HJC"                
+#> [14] "Sta199-S18/project-instructors"        
+#> [15] "Sta199-S18/project-InterstellR"        
+#> [16] "Sta199-S18/project-Kimchi_Stew"        
+#> [17] "Sta199-S18/project-Migos"              
+#> [18] "Sta199-S18/project-Panda_Express"      
+#> [19] "Sta199-S18/project-R_we_done_yet-"     
+#> [20] "Sta199-S18/project-Six_Squared"        
+#> [21] "Sta199-S18/project-Sweeter_than_SugR"  
+#> [22] "Sta199-S18/project-TEAM_POWER"         
+#> [23] "Sta199-S18/project-Team_Untitled"      
+#> [24] "Sta199-S18/project-Tequila_Mockingbird"
+#> [25] "Sta199-S18/project-The_Data_Wranglers"
+```
+
+Watch all of these repositories:
+
+```r
+watch_repo(sta199_projects)
+#> ✔ Watched 'Sta199-S18/project'.
+#> ✔ Watched 'Sta199-S18/project-23'.
+#> ✔ Watched 'Sta199-S18/project-24-7'.
+#> ✔ Watched 'Sta199-S18/project-ACE'.
+#> ✔ Watched 'Sta199-S18/project-Blue_Wombats'.
+#> ✔ Watched 'Sta199-S18/project-BME'.
+#> ✔ Watched 'Sta199-S18/project-Cosmic'.
+#> ✔ Watched 'Sta199-S18/project-Databaes'.
+#> ✔ Watched 'Sta199-S18/project-Duke_Squirrels'.
+#> ✔ Watched 'Sta199-S18/project-five_squared'.
+#> ✔ Watched 'Sta199-S18/project-get_MECT'.
+#> ✔ Watched 'Sta199-S18/project-Git_R_Done'.
+#> ✔ Watched 'Sta199-S18/project-HJC'.
+#> ✔ Watched 'Sta199-S18/project-instructors'.
+#> ✔ Watched 'Sta199-S18/project-InterstellR'.
+#> ✔ Watched 'Sta199-S18/project-Kimchi_Stew'.
+#> ✔ Watched 'Sta199-S18/project-Migos'.
+#> ✔ Watched 'Sta199-S18/project-Panda_Express'.
+#> ✔ Watched 'Sta199-S18/project-R_we_done_yet-'.
+#> ✔ Watched 'Sta199-S18/project-Six_Squared'.
+#> ✔ Watched 'Sta199-S18/project-Sweeter_than_SugR'.
+#> ✔ Watched 'Sta199-S18/project-TEAM_POWER'.
+#> ✔ Watched 'Sta199-S18/project-Team_Untitled'.
+#> ✔ Watched 'Sta199-S18/project-Tequila_Mockingbird'.
+#> ✔ Watched 'Sta199-S18/project-The_Data_Wranglers'.
+```
+
+Get a list of all repositories I'm watching in the `Sta199-S18` organization:
+
+```
+sta199_watching <- get_watching(filter = "Sta199-S18")
+sta199_watching
+#>  [1] "Sta199-S18/project"                    
+#>  [2] "Sta199-S18/project-23"                 
+#>  [3] "Sta199-S18/project-24-7"               
+#>  [4] "Sta199-S18/project-ACE"                
+#>  [5] "Sta199-S18/project-Blue_Wombats"       
+#>  [6] "Sta199-S18/project-BME"                
+#>  [7] "Sta199-S18/project-Cosmic"             
+#>  [8] "Sta199-S18/project-Databaes"           
+#>  [9] "Sta199-S18/project-Duke_Squirrels"     
+#> [10] "Sta199-S18/project-five_squared"       
+#> [11] "Sta199-S18/project-get_MECT"           
+#> [12] "Sta199-S18/project-Git_R_Done"         
+#> [13] "Sta199-S18/project-HJC"                
+#> [14] "Sta199-S18/project-instructors"        
+#> [15] "Sta199-S18/project-InterstellR"        
+#> [16] "Sta199-S18/project-Kimchi_Stew"        
+#> [17] "Sta199-S18/project-Migos"              
+#> [18] "Sta199-S18/project-Panda_Express"      
+#> [19] "Sta199-S18/project-R_we_done_yet-"     
+#> [20] "Sta199-S18/project-Six_Squared"        
+#> [21] "Sta199-S18/project-Sweeter_than_SugR"  
+#> [22] "Sta199-S18/project-TEAM_POWER"         
+#> [23] "Sta199-S18/project-Team_Untitled"      
+#> [24] "Sta199-S18/project-Tequila_Mockingbird"
+#> [25] "Sta199-S18/project-The_Data_Wranglers"
+```
+
+Unwatch all repositories in the `Sta199-S18` organization:
+
+```r
+unwatch_repo(sta199_watching)
+#> ✔ Unwatched 'Sta199-S18/project'.
+#> ✔ Unwatched 'Sta199-S18/project-23'.
+#> ✔ Unwatched 'Sta199-S18/project-24-7'.
+#> ✔ Unwatched 'Sta199-S18/project-ACE'.
+#> ✔ Unwatched 'Sta199-S18/project-Blue_Wombats'.
+#> ✔ Unwatched 'Sta199-S18/project-BME'.
+#> ✔ Unwatched 'Sta199-S18/project-Cosmic'.
+#> ✔ Unwatched 'Sta199-S18/project-Databaes'.
+#> ✔ Unwatched 'Sta199-S18/project-Duke_Squirrels'.
+#> ✔ Unwatched 'Sta199-S18/project-five_squared'.
+#> ✔ Unwatched 'Sta199-S18/project-get_MECT'.
+#> ✔ Unwatched 'Sta199-S18/project-Git_R_Done'.
+#> ✔ Unwatched 'Sta199-S18/project-HJC'.
+#> ✔ Unwatched 'Sta199-S18/project-instructors'.
+#> ✔ Unwatched 'Sta199-S18/project-InterstellR'.
+#> ✔ Unwatched 'Sta199-S18/project-Kimchi_Stew'.
+#> ✔ Unwatched 'Sta199-S18/project-Migos'.
+#> ✔ Unwatched 'Sta199-S18/project-Panda_Express'.
+#> ✔ Unwatched 'Sta199-S18/project-R_we_done_yet-'.
+#> ✔ Unwatched 'Sta199-S18/project-Six_Squared'.
+#> ✔ Unwatched 'Sta199-S18/project-Sweeter_than_SugR'.
+#> ✔ Unwatched 'Sta199-S18/project-TEAM_POWER'.
+#> ✔ Unwatched 'Sta199-S18/project-Team_Untitled'.
+#> ✔ Unwatched 'Sta199-S18/project-Tequila_Mockingbird'.
+#> ✔ Unwatched 'Sta199-S18/project-The_Data_Wranglers'.
+```
+
+Ahh... bliss! I love these students, but it feels good to trim down that 
+watchlist.
+
+Note that if you were to run the code above, you would only watch/unwatch the one 
+public repository, `Sta199-S18/project`, and not the private student repositories. 
+If you want to watch/unwatch all repositories under `rstudio-education` you 
+can try the following:
+
+- Watch all repos in the rstudio-education organization:
+
+```r
+library(magrittr)
+
+get_repo(org = "rstudio-education") %>%
+  watch_repo()
+#> ✔ Watched 'rstudio-education/datascience-box'.
+#> ✔ Watched 'rstudio-education/intro-shiny-rmarkdown'.
+#> ✔ Watched 'rstudio-education/master-the-tidyverse'.
+#> ✔ Watched 'rstudio-education/master-the-tidyverse-instructors'.
+#> ✔ Watched 'rstudio-education/teach-the-tidyverse'.
+...
+```
+
+- Unwatch all repos in the `rstudio-education` organization:
+
+```r
+get_watching(filter = "rstudio-education") %>%
+  unwatch_repo()
+#> ✔ Unwatched 'rstudio-education/datascience-box'.
+#> ✔ Unwatched 'rstudio-education/intro-shiny-rmarkdown'.
+#> ✔ Unwatched 'rstudio-education/master-the-tidyverse'.
+#> ✔ Unwatched 'rstudio-education/master-the-tidyverse-instructors'.
+#> ✔ Unwatched 'rstudio-education/teach-the-tidyverse'.
+...
+```
+
+If these functions truly followed the KonMari method, they would thank the 
+repositories before unwatching them. But that seemed like a stretch... If you 
+like, you can express your gratitude for the repositories you're letting go 
+of by saying a big "thank you" as you run `unwatch_repo()`.
+
+During this process I also discovered that you can adjust your GitHub settings 
+to not automatically watch repositories you're given push access to by unchecking 
+"Automatically watch repositories" box at 
+[github.com/settings/notifications](https://github.com/settings/notifications).
+
+![GitHub notification preferences](/post/2019-06-07-konmari-your-github-watchlist_files/github-notification-preferences.png)
