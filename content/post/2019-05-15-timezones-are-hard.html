@@ -33,8 +33,8 @@ authored by <a href="https://twitter.com/hrbrmstr">Bob Rudis</a> et al., that
 serves as an R interface to the Dark Sky API.</p>
 <p>I’ll use three packages for this exploration:</p>
 <pre class="r"><code>library(darksky)
-suppressMessages(library(tidyverse))
-suppressMessages(library(lubridate))</code></pre>
+library(tidyverse)
+library(lubridate)</code></pre>
 <p>Let’s start with getting today’s hourly data for Durham, NC. I couldn’t
 decide what to use as precise location in Durham without disclosing my home
 address, so I went with the latitude and longitude for RDU (Raleigh-Durham International Airport). There’s probably a package for looking up airport

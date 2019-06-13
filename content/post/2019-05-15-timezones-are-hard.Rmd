@@ -42,10 +42,10 @@ serves as an R interface to the Dark Sky API.
 
 I'll use three packages for this exploration:
 
-```{r load-packages}
+```{r load-packages, message = FALSE}
 library(darksky)
-suppressMessages(library(tidyverse))
-suppressMessages(library(lubridate))
+library(tidyverse)
+library(lubridate)
 ```
 
 Let's start with getting today's hourly data for Durham, NC. I couldn't 
