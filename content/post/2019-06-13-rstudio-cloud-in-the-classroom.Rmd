@@ -1,0 +1,32 @@
+---
+title: RStudio Cloud in the classroom
+author: mine
+date: '2019-06-13'
+slug: rstudio-cloud-in-the-classroom
+categories:
+  - teaching
+  - computing
+  - rstats
+tags: []
+keywords:
+  - tech
+---
+
+Much has been written in statistics and data science education literature about pedagogical tools and approaches to provide a practical computational foundation for students. However a common friction point for getting students (and faculty) started with computing is installation and setup. If you've heard me talk about teaching R, you've probably heard me mention the following day one dilemma:  
+  
+
+Option 1 `r emo::ji("cold_sweat")`   | Option 2 `r emo::ji("sunglasses")`
+----------------------------|----------------------------
+1. Install R                | 1. Go to RStudio in your browser
+2. Install RStudio          | 2. Log in
+3. Install the following packages: tidyverse, rmarkdown, etc. | 3. `hello R!`
+4. Load these packages      |
+5. Install git              |
+
+Last week I gave a webinar on using RStudio Cloud as a lightweight infrastructure solution for Step 1 of Option 2 above. Circumventing the installation step early in the course by having students access R and RStudio in the cloud can minimize frustration and improve buy in, and RStudio Cloud is one (super convenient!) way of enabling your students to access RStudio in their browser -- and you don't need to know how to set up a server or the help of an IT professional!
+
+In the webinar I went through the logistics of setting up a course in RStudio Cloud, shared practices that worked well for me in mid-to-large sized courses, and walked through some screen captures of the experience of navigating RStudio Cloud from the perspective of the instructor and the student.
+
+You can watch a recording of the webinar [here](https://resources.rstudio.com/webinars/rstudio-cloud-in-the-classroom), and flip through the slides [here](https://rstd.io/cloud-classroom).
+
+If you were one of the people whose questions I didn't get to at the end of the webinar, feel free to post below or on [RStudio Community](https://community.rstudio.com/c/rstudio-cloud).
