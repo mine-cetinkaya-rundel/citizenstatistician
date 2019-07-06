@@ -12,34 +12,34 @@ keywords:
   - tech
 ---
 
-I had been meaning to try out the [**gt**](https://gt.rstudio.com/) package 
+I have been meaning to try out the [**gt**](https://gt.rstudio.com/) package 
 for a while now, but didn't really have a great use case for it. However over 
-the last few days I've been looking over the 
+the last few days I have been looking over the 
 [useR 2019 schedule](http://www.user2019.fr/talk_schedule/) and felt like I 
-would have an easier time picking which talks I want to go to if the schedule 
+would have an easier time picking talks yo attend if the schedule 
 was formatted in wide format (talks occurring at the same time in different 
-rooms listed next to each other) as opposed to the long format.^[Note that the conference app provides a layout similar to the wide format I was after, with more in depth information on each talk.]
+rooms listed next to each other) as opposed to the long format.^[Note that the  conference app provides a layout similar to the wide format I wanted, with more in depth information on each talk.]
 
 Since "wide" and "long" are not well-defined concepts, let me first clarify what 
-I mean by them in this context: wide refers to data frames where is row is a 
-time slot and each column is a session/room and long refers to data frames where 
-each row is a talk.
+I mean by them in this context: wide refers to data frames where each row is a 
+time slot and long refers to data frames where each row is a talk.
 
-I have to admit some of the data processing steps are more manual than I would 
-have liked, but overall I'm pretty happy with the result! You can view and 
-interact with the resulting flexdashboard  [here](https://connect.rstudioservices.com/content/331/user2019-schedule.html).^[This might be the first time I made a flexdashboard without a Shiny component!] 
-The entire code associated with this mini-project can be found [here](https://github.com/mine-cetinkaya-rundel/user2019-schedule).
+I have to admit some of the data processing steps I've implemented for achieving 
+the look I wanted are more manual than I would have liked, but overall I'm pretty 
+happy with the result! You can view and interact with the resulting flexdashboard  [here](https://connect.rstudioservices.com/content/331/user2019-schedule.html).^[This might be the first time I made a flexdashboard without a Shiny component!] 
+And the code associated with this mini-project can be found [here](https://github.com/mine-cetinkaya-rundel/user2019-schedule).
 
 ![](/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/dash-demo.gif)
 
 Some highlights are:
 
 - I feel like I rarely have a use for `tibble::add_row()`, but this function 
-came really handy for this task when adding what one might call interim column 
-headers (session names). Something that makes sense, but I hadn't really thought 
+came really handy for this task when adding what one might call "interim column 
+headers" (session names). Something that makes sense, but I hadn't really thought 
 about before, is that when adding multiple rows throughout a data frame the row 
-index changes as you add rows. My tables were pretty short so I counted the rows 
-but a more programmatic way to determine the row index might be preferable.
+index changes as you add rows. My tables were pretty short so I counted up 
+where these rows needed to be added, but a more programmatic way to determine 
+the row index would be preferable.
 
 ![](/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-01.jpeg)
 
@@ -56,8 +56,8 @@ was a breeze with `pivot_wider()`.
 and fantastic documentation and website. I did much of this work on a plane 
 without WiFi^[What's with no WiFi on cheap European flights?!] and the figures 
 in the R help files were super helpful for figuring out how the functions work. 
-Every package with some visual aspects to its output should include figures in the 
-help files.
+Every package with some visual aspect to its output should include rendered 
+figures in its help files.
 
 ![](/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-03.jpeg)
 
@@ -65,20 +65,20 @@ help files.
 
 - `gt::fmt_markdown()` is pretty handy for styling text inside cells. You can 
 have a source file that includes markdown formatting in the text, e.g. 
-a spreadsheet with cells with text _`_italicized_`_ and that gets reflected 
-in the output.
+a spreadsheet with cells with text _`_italicized_`_ and with this function, 
+the markdown formatting gets reflected in the resulting table.
 
 ![](/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-04.jpeg)
 
 <br>
 
-- Finally, I loved my first foray into gt tables, but I'm not over my love for 
-`DT::datatable()` yet. I was going to build a Shiny component for the abstracts 
+- Finally, I loved my first foray into gt, but I'm not over my love for 
+`DT::datatable()` yet. I was going to build a Shiny app for the abstracts 
 page for searching for keywords, but then I remembered `DT::datatable()` has 
-built-in search functionality so I went with that. I much prefer gt tables for 
-styling as I am not a fan of needing to read the JavaScript help page to figure 
-out all the options one might need for `DT::datatable()` but the out of the box 
-(limited but sufficient) interactivity it offers is hard to beat.
+built-in search functionality so I went with that. I much prefer gt for 
+it's simplicity in building by layers with the pipe operator and its styling, 
+but the out of the box (limited but sufficient) interactivity `DT::datatable()` 
+offers out of the box is hard to beat
 
 ![](/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-05.jpeg)
 
@@ -92,7 +92,7 @@ communication parts of this mini-project.
 
 ## Scrape
 
-First I checked that I'm indeed allowed to scrape the useR 2019 website using 
+First, I checked that I'm indeed allowed to scrape the useR 2019 website using 
 `robotstxt::paths_allowed()`:
 
 ```{r warning=FALSE}
@@ -172,6 +172,8 @@ or `slice(seq(2, nrow(raw), by = 2))` to grab these rows.
 - You need to have a `data/` folder in your working directory for this function 
 to work.
 
+I should admit that I can't believe this code works with all the accents...
+
 Then I ran the function once per each day. I could have done a map or apply 
 step here, but writing this out three times didn't seem too cumbersome:
 
@@ -184,7 +186,7 @@ process_schedule(tabs[[3]], "fri")
 
 ## Communicate
 
-Finally I used a flexdashboard to put everything together. The code for the 
+Finally, I used a flexdashboard to put everything together. The code for the 
 flexdashboard can be found [here](https://github.com/mine-cetinkaya-rundel/user2019-schedule/blob/master/user2019-schedule.Rmd).
 
 A styling note on the dashboard: I used the yeti theme with a custom color 
