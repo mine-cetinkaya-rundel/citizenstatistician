@@ -1,0 +1,174 @@
+---
+title: Exploring the gt package with the useR 2019 schedule
+author: mine
+date: '2019-07-06'
+slug: exploring-gt-with-user-2019-schedule
+categories:
+  - rstats
+  - events
+tags:
+  - useR
+keywords:
+  - tech
+---
+
+
+
+<p>I had been meaning to try out the <a href="https://gt.rstudio.com/"><strong>gt</strong></a> package
+for a while now, but didn’t really have a great use case for it. However over
+the last few days I’ve been looking over the
+<a href="http://www.user2019.fr/talk_schedule/">useR 2019 schedule</a> and felt like I
+would have an easier time picking which talks I want to go to if the schedule
+was formatted in wide format (talks occurring at the same time in different
+rooms listed next to each other) as opposed to the long format.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Since “wide” and “long” are not well-defined concepts, let me first clarify what
+I mean by them in this context: wide refers to data frames where is row is a
+time slot and each column is a session/room and long refers to data frames where
+each row is a talk.</p>
+<p>I have to admit some of the data processing steps are more manual than I would
+have liked, but overall I’m pretty happy with the result! You can view and
+interact with the resulting flexdashboard <a href="https://connect.rstudioservices.com/content/331/user2019-schedule.html">here</a>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+The entire code associated with this mini-project can be found <a href="https://github.com/mine-cetinkaya-rundel/user2019-schedule">here</a>.</p>
+<p><img src="/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/dash-demo.gif" /></p>
+<p>Some highlights are:</p>
+<ul>
+<li>I feel like I rarely have a use for <code>tibble::add_row()</code>, but this function
+came really handy for this task when adding what one might call interim column
+headers (session names). Something that makes sense, but I hadn’t really thought
+about before, is that when adding multiple rows throughout a data frame the row
+index changes as you add rows. My tables were pretty short so I counted the rows
+but a more programmatic way to determine the row index might be preferable.</li>
+</ul>
+<p><img src="/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-01.jpeg" /></p>
+<p><br></p>
+<ul>
+<li><code>tidyr::pivot_*()</code> functions are da bomb! Going from long to wide format
+was a breeze with <code>pivot_wider()</code>.</li>
+</ul>
+<p><img src="/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-02.jpeg" /></p>
+<p><br></p>
+<ul>
+<li>The <strong>gt</strong> package has super sleek functionality for styling rows/columns/cells,<br />
+and fantastic documentation and website. I did much of this work on a plane
+without WiFi<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> and the figures
+in the R help files were super helpful for figuring out how the functions work.
+Every package with some visual aspects to its output should include figures in the
+help files.</li>
+</ul>
+<p><img src="/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-03.jpeg" /></p>
+<p><br></p>
+<ul>
+<li><code>gt::fmt_markdown()</code> is pretty handy for styling text inside cells. You can
+have a source file that includes markdown formatting in the text, e.g.
+a spreadsheet with cells with text <em><code>_italicized_</code></em> and that gets reflected
+in the output.</li>
+</ul>
+<p><img src="/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-04.jpeg" /></p>
+<p><br></p>
+<ul>
+<li>Finally, I loved my first foray into gt tables, but I’m not over my love for
+<code>DT::datatable()</code> yet. I was going to build a Shiny component for the abstracts
+page for searching for keywords, but then I remembered <code>DT::datatable()</code> has
+built-in search functionality so I went with that. I much prefer gt tables for
+styling as I am not a fan of needing to read the JavaScript help page to figure
+out all the options one might need for <code>DT::datatable()</code> but the out of the box
+(limited but sufficient) interactivity it offers is hard to beat.</li>
+</ul>
+<p><img src="/post/2019-07-06-exploring-gt-with-user-2019-schedule_files/highlight-05.jpeg" /></p>
+<p><br></p>
+<p>I’m happy to answer any questions about this process. Just don’t ask me whether
+my conference talk is ready!</p>
+<p>Below is a more detailed account of the data scraping, processing, and
+communication parts of this mini-project.</p>
+<div id="scrape" class="section level2">
+<h2>Scrape</h2>
+<p>First I checked that I’m indeed allowed to scrape the useR 2019 website using
+<code>robotstxt::paths_allowed()</code>:</p>
+<pre class="r"><code>library(robotstxt)
+paths_allowed(&quot;http://www.user2019.fr/talk_schedule/&quot;)</code></pre>
+<pre><code>## 
+ www.user2019.fr</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>I used the tidyverse, rvest, glue, and tools packages to scrape and process
+the data into a format I wanted.</p>
+<pre class="r"><code>library(tidyverse)
+library(rvest)
+library(glue)
+library(tools)</code></pre>
+<p>Data scraping took only two functions, <code>read_html()</code> and <code>html_table()</code>:</p>
+<pre class="r"><code># read schedule page -----------------------------------------------------------
+page &lt;- read_html(&quot;http://www.user2019.fr/talk_schedule/&quot;)
+
+# extract table ----------------------------------------------------------------
+tabs &lt;- page %&gt;%
+  html_table(&quot;td&quot;, header = TRUE)</code></pre>
+<p>This results in a list with three elements, one for each day of the conference<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>: Wednesday, Thursday, and Friday.</p>
+</div>
+<div id="process" class="section level2">
+<h2>Process</h2>
+<p>Since the format of the tables for each day is essentially the same, I wrote a
+function to process each one and write out two CSV files per day: one in wide
+format for the talks and the other in long format for the abstracts.</p>
+<pre class="r"><code># function to process data -----------------------------------------------------
+process_schedule &lt;- function(day_tab, day_name){
+  
+  # remove unused columns ----
+  raw &lt;- day_tab %&gt;% select(-2, -Slides)
+  
+  # create talks_long ----
+  talks_long &lt;- raw %&gt;%
+    slice(seq(1, nrow(raw), by = 2)) %&gt;%
+    mutate(info = as.character(glue(&quot;{Title} &lt;br&gt;&lt;br&gt; _{Speaker}_&quot;)))
+  
+  # create talks_wide ----
+  talks_wide &lt;- talks_long %&gt;%
+    select(Time, Room, info) %&gt;%
+    pivot_wider(names_from = Room, values_from = info) %&gt;%
+    select(Time, `Concorde 1+2`, `Cassiopée`, `Caravelle 2`, 
+           `Saint-Exupéry`, `Ariane 1+2`, `Guillaumet 1+2`)
+  
+  # create abstracts_long ----
+  abstracts_long &lt;- raw %&gt;%
+    slice(seq(2, nrow(raw), by = 2)) %&gt;%
+    rename(Abstract = Time) %&gt;%
+    select(Abstract) %&gt;%
+    bind_cols(talks_long, .) %&gt;%
+    mutate(Day = toTitleCase(day_name)) %&gt;%
+    select(Day, Time, Title, Speaker, Abstract, Session, Room, Chair)
+  
+  # write out ----
+  write_csv(talks_wide, glue(&quot;data/{day_name}_talks_wide.csv&quot;))
+  write_csv(abstracts_long, glue(&quot;data/{day_name}_abstracts_long.csv&quot;))
+  
+}</code></pre>
+<p>Two comments about this function:</p>
+<ul>
+<li>In the scraped data talks appear in the odd numbered rows and the abstracts
+appear in the even numbered rows. Hence I used <code>slice(seq(1, nrow(raw), by = 2))</code>
+or <code>slice(seq(2, nrow(raw), by = 2))</code> to grab these rows.</li>
+<li>You need to have a <code>data/</code> folder in your working directory for this function
+to work.</li>
+</ul>
+<p>Then I ran the function once per each day. I could have done a map or apply
+step here, but writing this out three times didn’t seem too cumbersome:</p>
+<pre class="r"><code># process days -----------------------------------------------------------------
+process_schedule(tabs[[1]], &quot;wed&quot;)
+process_schedule(tabs[[2]], &quot;thu&quot;)
+process_schedule(tabs[[3]], &quot;fri&quot;)</code></pre>
+</div>
+<div id="communicate" class="section level2">
+<h2>Communicate</h2>
+<p>Finally I used a flexdashboard to put everything together. The code for the
+flexdashboard can be found <a href="https://github.com/mine-cetinkaya-rundel/user2019-schedule/blob/master/user2019-schedule.Rmd">here</a>.</p>
+<p>Couple styling notes on the dashboard: I used the yeti theme with a custom color
+navbar (a lighter tint of the blue used for highlighting certain rows).</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Note that the conference app provides a layout similar to the wide format I was after, with more in depth information on each talk.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>This might be the first time I made a flexdashboard without a Shiny component!<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>What’s with no WiFi on cheap European flights?!<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>Each day with talks.<a href="#fnref4" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
