@@ -187,5 +187,5 @@ process_schedule(tabs[[3]], "fri")
 Finally I used a flexdashboard to put everything together. The code for the 
 flexdashboard can be found [here](https://github.com/mine-cetinkaya-rundel/user2019-schedule/blob/master/user2019-schedule.Rmd).
 
-Couple styling notes on the dashboard: I used the yeti theme with a custom color 
+A styling note on the dashboard: I used the yeti theme with a custom color 
 navbar (a lighter tint of the blue used for highlighting certain rows).
