@@ -108,7 +108,7 @@ and [`ignore_repo()`](https://rundel.github.io/ghclass/reference/ignore_repo.htm
 Below are a few usage examples. If you want to give this a try, first read the 
 [Authentication section](https://rundel.github.io/ghclass/articles/ghclass.html#authentication) of the package vignette, which walks you through saving your personal access token.
 
-Install the package (which is not yet on CRAN, but release is planned soon!)[^We're actively working on it this summer.]:
+Install the package (which is not yet on CRAN, but release is planned soon!)^[We're actively working on it this summer.]:
 
 ```r
 library(devtools)
@@ -140,7 +140,7 @@ get_watching()
 ```
 
 Get a list of all repositories in the `Sta199-S18` organization that have the 
-character string `project` in their names[^The character strings following the 
+character string `project` in their names^[The character strings following the 
 `project-` are team names, you can see some teams get quite creative with 
 their names!]:
 

@@ -98,7 +98,7 @@ and <a href="https://rundel.github.io/ghclass/reference/ignore_repo.html"><code>
 – are designed to help with actions around watching and unwatching repositories.</p>
 <p>Below are a few usage examples. If you want to give this a try, first read the
 <a href="https://rundel.github.io/ghclass/articles/ghclass.html#authentication">Authentication section</a> of the package vignette, which walks you through saving your personal access token.</p>
-<p>Install the package (which is not yet on CRAN, but release is planned soon!)[^We’re actively working on it this summer.]:</p>
+<p>Install the package (which is not yet on CRAN, but release is planned soon!)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
 <pre class="r"><code>library(devtools)
 install_github(&quot;rundel/ghclass&quot;)</code></pre>
 <p>Load the package:</p>
@@ -118,9 +118,7 @@ install_github(&quot;rundel/ghclass&quot;)</code></pre>
 #&gt;  [10] &quot;mine-cetinkaya-rundel/rotten&quot;                                 
 ...</code></pre>
 <p>Get a list of all repositories in the <code>Sta199-S18</code> organization that have the
-character string <code>project</code> in their names[^The character strings following the
-<code>project-</code> are team names, you can see some teams get quite creative with
-their names!]:</p>
+character string <code>project</code> in their names<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
 <pre class="r"><code>sta199_projects &lt;- get_repo(org = &quot;Sta199-S18&quot;, filter = &quot;project&quot;)
 sta199_projects
 #&gt;  [1] &quot;Sta199-S18/project&quot;                    
@@ -271,4 +269,13 @@ to not automatically watch repositories you’re given push access to by uncheck
 <div class="figure">
 <img src="/post/2019-06-07-konmari-your-github-watchlist_files/github-notification-preferences.png" alt="GitHub notification preferences" />
 <p class="caption">GitHub notification preferences</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>We’re actively working on it this summer.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>The character strings following the
+<code>project-</code> are team names, you can see some teams get quite creative with
+their names!<a href="#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
