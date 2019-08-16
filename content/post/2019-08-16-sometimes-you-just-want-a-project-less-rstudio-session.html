@@ -1,0 +1,59 @@
+---
+title: Sometimes you just want a project-less RStudio session
+author: mine
+date: '2019-08-16'
+slug: sometimes-you-just-want-a-project-less-rstudio-session
+categories:
+  - computing
+  - rstats
+tags:
+  - rstats
+  - addin
+keywords:
+  - tech
+---
+
+
+
+<p>If you’ve ever been to an R workshop I gave, you probably heard me say “if the
+only thing you get out of this workshop is that RStudio projects are awesome
+and you should use them, this workshop was worth your time”. And I stand by this statement, they are awesome!<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>But sometimes you just want a project-less RStudio! When, you ask? Imagine
+you have an RStudio project open where you’re writing course slides, or a blog
+post, or a package… And then imagine a student asks a coding question and you
+want to run their code quickly but don’t want to populate your environment
+with the objects that code creates. You also don’t want to restart
+your existing R session, but you want to try out their code in a pristine
+environment. I find myself in situations like this pretty regularly,
+and often work through the following steps:</p>
+<ul>
+<li>Go to the issues in the <a href="https://github.com/rstudio/rstudio/issues">RStudio IDE repository</a> on GitHub</li>
+<li>Search for the character string <em>“new empty session”</em></li>
+<li>Run the <a href="https://github.com/rstudio/rstudio/issues/3612#issuecomment-427942861">suggested code</a> in the console:</li>
+</ul>
+<pre class="r"><code>rstudioapi::terminalExecute(&quot;open -n /Applications/RStudio.app&quot;, show = FALSE)</code></pre>
+<p>Hadley Wickham suggests in R for Data Science that “you should consider writing a function whenever you’ve copied and pasted a block of code more than twice”<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. So I figured if I keep doing this same set of moves over and over, I should write an addin for that! And a <a href="https://twitter.com/minebocek/status/1162475567117156352?s=20">recent Twitter conversation</a> reminded me that I have a personal addins package, <a href="https://github.com/mine-cetinkaya-rundel/addmins">addmins</a><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, with one <em>very</em> frequently used addin for Tidyverse style comments with dashes that up to 80 characters.</p>
+<br>
+<center>
+<img src="/post/2019-08-16-sometimes-you-just-want-a-project-less-rstudio-session_files/insert-dashes.gif" alt="Insert dashes addin" style="width:50.0%" />
+</center>
+<p><br></p>
+<p>So I figured now is the time to finally include a second addin to this package addin: <a href="https://github.com/mine-cetinkaya-rundel/addmins">launch_rstudio()</a>!</p>
+<br>
+<center>
+<img src="/post/2019-08-16-sometimes-you-just-want-a-project-less-rstudio-session_files/launch-rstudio.gif" alt="Launch RStudio addin" style="width:70.0%" />
+</center>
+<p><br></p>
+<p>If these two niche addins are useful to you as well, you can install this package using the following:</p>
+<pre class="r"><code>devtools::install_github(&quot;mine-cetinkaya-rundel/addmins&quot;)</code></pre>
+<p>But more likely you have some sets of actions you do regularly when working in R and your workflow might benefit from having shortcuts for them. Writing your own addins is relatively straightforward, even if you’ve never written an R package before. Pretty much everything you need to know about RStudio Addins can be found <a href="https://rstudio.github.io/rstudioaddins/">here</a>, including instructions for developing your own addins. Additionally, you can find an extensive list of addins people have developed over the years <a href="https://github.com/daattali/addinslist/blob/master/README.md">here</a> and searching for <a href="https://twitter.com/search?q=%23rstats%20addin&amp;src=typed_query">#rstats addin</a> on Twitter yields a more current list.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>If
+you want to know why, Jenny Bryan explained it better than I could ever have
+<a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">here</a>.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p><a href="https://r4ds.had.co.nz/functions.html#when-should-you-write-a-function">R4DS - When should you write a function?</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>The name is a combination of addin, admin, and Mine<a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</div>

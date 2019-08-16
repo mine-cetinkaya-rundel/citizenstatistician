@@ -1,0 +1,63 @@
+---
+title: Sometimes you just want a project-less RStudio session
+author: mine
+date: '2019-08-16'
+slug: sometimes-you-just-want-a-project-less-rstudio-session
+categories:
+  - computing
+  - rstats
+tags:
+  - rstats
+  - addin
+keywords:
+  - tech
+---
+
+If you've ever been to an R workshop I gave, you probably heard me say "if the 
+only thing you get out of this workshop is that RStudio projects are awesome 
+and you should use them, this workshop was worth your time". And I stand by this statement, they are awesome!^[If 
+you want to know why, Jenny Bryan explained it better than I could ever have 
+[here](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/).]
+
+But sometimes you just want a project-less RStudio! When, you ask? Imagine 
+you have an RStudio project open where you're writing course slides, or a blog 
+post, or a package... And then imagine a student asks a coding question and you 
+want to run their code quickly but don't want to populate your environment 
+with the objects that code creates. You also don't want to restart 
+your existing R session, but you want to try out their code in a pristine 
+environment. I find myself in situations like this pretty regularly, 
+and often work through the following steps:  
+
+- Go to the issues in the [RStudio IDE repository](https://github.com/rstudio/rstudio/issues) on GitHub
+- Search for the character string _"new empty session"_
+- Run the [suggested code](https://github.com/rstudio/rstudio/issues/3612#issuecomment-427942861) in the console:
+
+```{r eval=FALSE}
+rstudioapi::terminalExecute("open -n /Applications/RStudio.app", show = FALSE)
+```
+
+Hadley Wickham suggests in R for Data Science that "you should consider writing a function whenever you’ve copied and pasted a block of code more than twice"^[[R4DS - When should you write a function?](https://r4ds.had.co.nz/functions.html#when-should-you-write-a-function)]. So I figured if I keep doing this same set of moves over and over, I should write an addin for that! And a [recent Twitter conversation](https://twitter.com/minebocek/status/1162475567117156352?s=20) reminded me that I have a personal addins package, [addmins](https://github.com/mine-cetinkaya-rundel/addmins)^[The name is a combination of addin, admin, and Mine], with one *very* frequently used addin for Tidyverse style comments with dashes that up to 80 characters.
+
+<br><center>
+![Insert dashes addin](/post/2019-08-16-sometimes-you-just-want-a-project-less-rstudio-session_files/insert-dashes.gif){width=50%}
+</center><br>
+
+So I figured now is the time to finally include a second addin to this package addin: [launch_rstudio()](https://github.com/mine-cetinkaya-rundel/addmins)!
+
+<br><center>
+![Launch RStudio addin](/post/2019-08-16-sometimes-you-just-want-a-project-less-rstudio-session_files/launch-rstudio.gif){width=70%}
+</center><br>
+
+If these two niche addins are useful to you as well, you can install this package using the following:
+
+```{r eval=FALSE}
+devtools::install_github("mine-cetinkaya-rundel/addmins")
+```
+
+But more likely you have some sets of actions you do regularly when working in R and your workflow might benefit from having shortcuts for them. Writing your own addins is relatively straightforward, even if you've never written an R package before. Pretty much everything you need to know about RStudio Addins can be found [here](https://rstudio.github.io/rstudioaddins/), including instructions for developing your own addins. Additionally, you can find an extensive list of addins people have developed over the years [here](https://github.com/daattali/addinslist/blob/master/README.md) and searching for [#rstats addin](https://twitter.com/search?q=%23rstats%20addin&src=typed_query) on Twitter yields a more current list.
+
+
+
+
+
+
