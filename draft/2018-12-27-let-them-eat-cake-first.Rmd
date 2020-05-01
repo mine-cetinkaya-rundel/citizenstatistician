@@ -1,0 +1,41 @@
+---
+title: Let them eat cake (first)!
+author: Mine Çetinkaya-Rundel
+date: '2018-12-27'
+slug: let-them-eat-cake-first
+draft: true
+categories:
+  - Teaching
+  - data science
+  - rstats
+tags:
+  - rstats
+---
+
+Let me start with a question: What do you picture when I say "Today we're going to make a pineapple and coconut sandwich cake"?. Close your eyes, think for a second, and try to picture the cake.
+
+Now let's try again: What do you picture when I say "Today we're going to make a pineapple and coconut sandwich cake using flour, eggs, butter, sugar, baking soda, coconut, pineapple, and heavy cream"? Do you have a better sense of what the cake might look like at the end now that you know what ingredients go into it?
+
+Let's try one more time: "Today we're going to make a pineapple and coconut sandwich cake where we sandwich squeezed pineapple and coconut sponges with coconut Italian meringue butter cream." Is the image clearer now?
+
+Last one! Watch the following video:
+
+Which of the four options (just the name of the cake, the ingredient list, the description of how the cake will be made, and the illustrated video) gives you a better sense of the final product?
+
+For me, it's the last one.
+
+I am not a baker (I aspire to be, but I'm faaaar from it) and so when I hear "pineapple and coconut sandwich cake" I have no idea what to picture. If you told me we're making a "pineapple and coconut sandwich cake" today, didn't even show me a picture, and that I should just follow along as you walk me through the steps, I'd likely get lost (and frustrated) along the way because I don't know what end result we would be working towards. But if you showed me the picture of the intended outcome and gave me an overview of the process, I would feel more in charge and less lost along the way.
+
+The message here is **start with cake**.
+
+So, why am I talking about cake? Let's put this in the context of education. And start with a bit of background. 
+
+Backwards design, designing educational curricula by setting goals before choosing instructional methods and forms of assessment, is a widely accepted approach to course development. How would applying this pedagogy work in the context of data analysis modules? First expose students to results and findings of a data analysis, 
+and then learn the building blocks of the methods and techniques used along the way.
+
+where students are exposed to results and findings of a data analysis first and then learn about the building blocks of the methods and techniques used to arrive at these results. I presented this approach in the context of the introductory data science course I've been developing and teaching. This course focuses on exploratory data analysis, modeling, and effective communication, while also requiring reproducibility and collaboration. The talk was organized in three parts (visualization, data acquisition, and modeling) and featured examples of in class activities, details of the course curriculum, and sample student work.
+
+A video of this talk is now available [here](https://www.youtube.com/watch?v=RsVOrpXAPXo) if you would prefer to watch it instead.
+
+
+
