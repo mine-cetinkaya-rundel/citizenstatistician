@@ -1,0 +1,32 @@
+---
+title: Citizen Statistician is back!
+author: mine
+date: '2020-05-01'
+slug: citizen-statistician-is-back
+categories:
+  - news
+---
+
+We haven't written anything for a while because, well, I broke this website. Or maybe not me, but [Hugo](https://gohugo.io/) broke it. Or maybe [blogdown](https://bookdown.org/yihui/blogdown/) did. They had disagreements about versions and didn't want to play nicely with each other and I was too busy/tired/overwhelmed to play arbiter. Those adjectives still apply to how I'm feeling nowadays, but after updating [R to version 4.0](https://blog.revolutionanalytics.com/2020/04/r-400-is-released.html) and reinstalling all my packages, I decided now was the time to suck it up and fix things.  
+
+I don't know why I dragged my feet for so long; it really didn't take too many commits to get it done.
+
+![Screenshot of commit history](/post/2020-05-01-citizen-statistician-is-back_files/commit-history.png)
+
+Some of the commit messages tell you how confident I felt while going through the process... But oh well, it ultimately worked. This is to say, if you also have a broken blogdown site, resurrecting it might not be as bad as it seems. 
+
+One thing I wouldn't recommend you that you do is pushing to the master branch like I did. Making the changes in a new branch and then submitting a pull request from that branch to master would have been a better way of approaching this problem. This way, if I couldn't fix things before my 3-year-old boss decided that it was time for me to take a break from the computer, I wouldn't have had to leave things in a completely broken state. Even though I submit pull requests [pretty regularly](https://github.com/pulls), it's not rare that I forget to go through this process when I'm working on a repo of my own. It's just a bad habit that I need to break.
+
+Another reason for making pull requests, especially for a blogdown site that is rendered with Netlify, is that you can use Netlify's deploy preview feature to see what your site would actually look like to others before merging your changes to master. This feature really helps avoid situations where you go "but it worked on my computer, why does it look different on yours?".
+
+![Netlify deploy preview from GitHub pull request](/post/2020-05-01-citizen-statistician-is-back_files/deploy-preview.png)
+
+If you are an R user who is new to this workflow, I strongly recommend the following resources:
+
+- For pull requests in general:
+  - [Happy Git with R - Explore and extend a pull request](https://happygitwithr.com/pr-extend.html) by Jenny Bryan
+  - [usethis - Pull request helpers](https://usethis.r-lib.org/articles/articles/pr-functions.html)
+- For pull requests and deploy previews for blogdown sites: [A Blogdown New Post Workflow with Github and Netlify](https://www.garrickadenbuie.com/blog/blogdown-netlify-new-post-workflow/) by Garrick Aden-Buie
+
+Finally, sometimes just looking at how others have solved a problem and copying it to see if it works for you can be a fruitful approach. I have to say, this approach can get time consuming if you're blindly copying from other sources and not reading errors you get along the way, so use it with caution. Often times, it can help progress though... For example, I had not set up deploy previews previously on this site (but I had on another one, so I'm familiar with the process). The blog post I referenced above from Garrick Aden-Buie was helpful in reminding me what I needed to do, but I ultimately took a peek at the [`netlify.toml`](https://github.com/tidymodels/tidymodels.org/blob/master/netlify.toml) file for [tidymodels.org](https://www.tidymodels.org/) and copied it (with some modification for the Hugo version I'm currently using) to seal the deal. So, if you set up Netlify deploy for your blogdown site, but the CSS is failing for your deploy previews, what I did [in this commit]() might help. I'm putting this here because googling "CSS doesn't work on Netlify deploy preview of blogdown site" didn't yield anything worthwhile for me. If you find yourself in this frustrating situation, I hope your search lands you here and the changes to your `netlify.toml` file fix your issue as well.
+
