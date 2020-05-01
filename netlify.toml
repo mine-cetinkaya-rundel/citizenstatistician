@@ -1,5 +1,5 @@
 [build]
-  base    = "http://www.citizen-statistician.org/"
+  base    = "/"
   publish = "public/"
   command = "hugo"
 
