@@ -16,7 +16,38 @@ blogdown::serve_site()
 
 Please note it may take a long time to render the website for the first time, but it will be faster after that.
 
-You can add a new post via
+## Adding a new post
+
+This repository is set up such that when you push to the master branch the website is re-deployed automatically with Netlify. So you don't want to push to master before you're ready for your post to go live.
+
+The main recommendation is to create a new branch, create a new post in the new branch, and then submit a pull request to the master branch. Then, view the Netlify deploy preview on GitHub, and merge if you're happy with what you see. 
+
+Below are step-by-step instructions using the [pull request helpers](https://usethis.r-lib.org/articles/articles/pr-functions.html) from the **usethis** package.
+
+1. Launch the RStudio project on your machine by double clicking on `citizenstatistician.Rproj`.
+
+2. Make sure you're on the master branch, and pull to get the latest changes.
+
+3. Load the blogdown and usethis packages.
+
+```r
+library(blogdown)
+library(usethis)
+```
+
+4. Serve the site locally to make sure everything builds fine locally before you start adding your own changes.
+
+```r
+blogdown::serve_site()
+```
+
+3. Initiate a pull request.
+
+```
+usethis::pr_init("shorthand-for-blog-title")
+```
+
+4. Add a new post using the **New Post** Addin (recommended) or via
 
 ```r
 blogdown::new_post("Your Post Title")
@@ -25,13 +56,11 @@ blogdown::new_post("Your Post Title")
 
 RStudio will automatically open the post, and you can edit/preview it.
 
-You can also add new posts with the **New Post** Addin.
+5. Commit your changes.
 
-This repository is set up such that when you push to the master branch the website is re-deployed automatically with Netlify. So you don't want to push to master before you're ready for your post to go live. Below are two workflows for working with this structure:
+6. Push your changes with `usethis::pr_push()` and complete the pull request on GitHub. 
 
-1. (Recommended) Create a new branch before adding a new post. While writing the post view it locally with `blogdown::build_site()`. When you're done, create a pull request to the master branch and merge your changes. Once you merge, the blog will rebuild and your changes will go live.
-
-2. Add a new post in the master branch, and while writing the post only view it locally with `blogdown::build_site()` and make sure to never push your changes. When you're done, push your changes to the master branch, and Netlify will rebuild the site and publish your changes. Note that this approach is less recommended as it's natural to forget to not push your changes while writing your post. Of course, this is not the end of the world, it just means temporarily an incomplete post will be online. If this happens, you can either roll back your changes, or quickly finish your post and republish.
+7. Once checks are completed, view the Netlify deploy preview to make sure all looks as intended. If yes, merge away! If not, come back to RStudio and make changes, commit, push, and view your changes on the Netlify deploy preview agian.
 
 
 ##  Acknowledgements
