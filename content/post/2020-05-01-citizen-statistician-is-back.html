@@ -1,0 +1,26 @@
+---
+title: Citizen Statistician is back!
+author: mine
+date: '2020-05-01'
+slug: citizen-statistician-is-back
+categories:
+  - news
+---
+
+
+
+<p>We haven’t written anything for a while because, well, I broke this website. Or maybe not me, but <a href="https://gohugo.io/">Hugo</a> broke it. Or maybe <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> did. They had disagreements about versions and didn’t want to play nicely with each other and I was too busy/tired/overwhelmed to play arbiter. Those adjectives still apply to how I’m feeling nowadays, but after updating <a href="https://blog.revolutionanalytics.com/2020/04/r-400-is-released.html">R to version 4.0</a> and reinstalling all my packages, I decided now was the time to suck it up and fix things.</p>
+<p>I don’t know why I dragged my feet for so long; it really didn’t take too many commits to get it done.</p>
+<div class="figure">
+<img src="/post/2020-05-01-citizen-statistician-is-back_files/commit-history.png" alt="" />
+<p class="caption">Screenshot of commit history</p>
+</div>
+<p>Some of the commit messages tell you how confident I felt while going through the process, but oh well, it ultimately worked. This is to say, if you also have a broken blogdown site, resurrecting it might not be as bad as it seems.</p>
+<p>One thing I wouldn’t recommend you that you do is pushing to the master branch like I did. Making the changes in a new branch and then submitting a pull request from that branch to master would have been a better way of approaching this problem. This way, if I couldn’t fix things before my 3 year old boss decided it was time to take a break from the computer, I wouldn’t have had to leave things in a completely broken state. Even though I submit pull requests <a href="https://github.com/pulls">pretty regularly</a>, it’s not rare that I forget to go through this process when I’m working on a repo of my own. It’s just a bad habit that I need to break.</p>
+<p>Another reason for making pull requests, especially for a blogdown site that is rendered with Netlify, is that you can use Netlify’s deploy preview feature to see what your site would actually look like to others before merging your changes to master.</p>
+<p>If you are an R user who is new to this workflow, I strongly recommend the following resources:</p>
+<ul>
+<li><a href="https://happygitwithr.com/pr-extend.html">Happy Git with R - Explore and extend a pull request</a> by Jenny Bryan</li>
+<li><a href="https://usethis.r-lib.org/articles/articles/pr-functions.html">usethis - Pull request helpers</a></li>
+<li><a href="https://www.garrickadenbuie.com/blog/blogdown-netlify-new-post-workflow/">A Blogdown New Post Workflow with Github and Netlify</a> by Garrick Aden-Buie</li>
+</ul>
