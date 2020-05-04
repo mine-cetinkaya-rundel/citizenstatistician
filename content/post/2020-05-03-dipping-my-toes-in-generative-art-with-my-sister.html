@@ -1,0 +1,176 @@
+---
+title: Dipping my toes in generative art, with my sister
+author: mine
+date: '2020-05-03'
+slug: dipping-my-toes-in-generative-art-with-my-sister
+categories:
+  - rstats
+  - art
+  - generative
+  - teaching
+  - virtual
+tags:
+  - art
+  - visualisation
+keywords:
+  - tech
+---
+
+
+
+<p>Story of my first attempt at learning how to make generative art in R.</p>
+<!--more-->
+<p>I made two resolutions for 2020:</p>
+<ol style="list-style-type: decimal">
+<li>Turn in stuff due at least one day before the deadline, where “stuff” is things like manuscripts, reviews, applications, etc.</li>
+<li>Learn about generative art in R.</li>
+</ol>
+<p>The first was going okay, until COVID… And since I didn’t get to start on the second one until the COVID lockdown, I was thinking there’s no way I manage to make time for it before nursery reopens. But then, out of nowhere last week, <a href="https://www.muge.fr/">my sister</a> DMed me this on Twitter:</p>
+<div class="figure">
+<img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/generative-first-dm.png" style="width:50.0%" alt="" />
+<p class="caption">Twitter DM conversation with my sister where she asks how Danielle Navarro created a piece of generative art</p>
+</div>
+<p>For those of you who don’t speak Turkish, this translates to <em>“WOAH so pretty, how did she make <a href="https://twitter.com/djnavarro/status/1253919579526422529">this</a>?”</em>. So I linked to Danielle Navarro’s <a href="https://djnavarro.net/post/unpredictable-paintings/">blog post</a> on getting started with generative art, and my sister’s response was <em>“I read this, and really wanted to understand it, but I can’t follow it. Should we try it together?”</em>. I should clarify that my sister doesn’t know R. She is a UX/UI designer and an <a href="https://dribbble.com/muuuuge">illustrator</a> and she’s pretty technical, but she’s not a programmer. She obviously knows what R is since I won’t stop talking about it. She has even tried to learn R once or twice, but never really got too interested (she was one of the many drop outs from my <a href="https://www.coursera.org/specializations/statistics">Coursera courses</a>). Lately her interest in data visualisation has been growing (a combination of work projects involving data visualisation as well as personal interests), so I was kinda hoping one day she would ask me <em>“how do you do [X] in R?”</em>. I was very excited when that <em>[X]</em> ended up being something I really wanted to learn as well.</p>
+<p>So we made a virtual <em>(duh!)</em> date to meet up on Saturday and get started with generative art in R. I decided to blog about this for three reasons:</p>
+<ol style="list-style-type: decimal">
+<li>To demonstrate how we used RStudio Cloud to get someone who is totally new to R and programming to make some pretty pictures, quickly (we were under the time pressure of my 3 year old refusing to nap)</li>
+<li>To show our setup for remote one-on-one instruction / learning together</li>
+<li>To share a list of beginner friendly resources on generative art in R</li>
+</ol>
+<div id="meet-me-on-rstudio-cloud" class="section level2">
+<h2>Meet me on RStudio Cloud!</h2>
+<p>In the 15 minutes between putting my son down for a nap and my sister getting online, I created a workspace on RStudio Cloud and set up a base project in the workspace where I installed a bunch of packages that I figured might be useful for this exercise.</p>
+<pre class="r"><code># from CRAN
+install.packages(&quot;tidyverse&quot;) # For data wrangling and visualisation
+install.packages(&quot;devtools&quot;)  # To install packages from GitHub
+install.packages(&quot;scico&quot;)     # Colour palettes based on the scientific colour-maps
+install.packages(&quot;TSP&quot;)       # Travelling salesperson problem
+
+# from GitHub
+devtools::install_github(&quot;mine-cetinkaya-rundel/addmins&quot;) # Mine&#39;s addins
+devtools::install_github(&quot;thomasp85/ambient&quot;)             # Generate multidimensional noise
+devtools::install_github(&quot;djnavarro/jasmines&quot;)            # Danielle&#39;s generative art
+devtools::install_github(&quot;djnavarro/flametree&quot;)           # Generate pretty trees
+devtools::install_github(&quot;cutterkom/generativeart&quot;)       # Create generative art with R</code></pre>
+<p>Then, I messaged her the sharing link for the workspace and asked her to create a new project in it. No installation needed! And, to be perfectly honest, it wouldn’t have been so difficult to walk her through installing R and RStudio on her computer, but some of these packages that need to be installed from GitHub use C++ code, which would require that she install Xcode, and who knows whether we could be up and running before my son completely gave up on his nap…</p>
+<div class="figure">
+<img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/rstudio-cloud.png" alt="" />
+<p class="caption">RStudio Cloud workspace with two projects</p>
+</div>
+<p>You can tell she’s a lot more creative than me based on her project name alone!</p>
+<p>If you’re interested in setting up RStudio Cloud for collaborative work and/or teaching, I recommend reading the official <a href="https://rstudio.cloud/learn/guide">guide</a> which walks you through all of its features. Or if you prefer videos / want something more focused on teaching, I recommend <a href="https://resources.rstudio.com/webinars/teaching-r-online-with-rstudio-cloud">my webinar</a> on teaching with RStudio Cloud.</p>
+</div>
+<div id="working-together-remotely" class="section level2">
+<h2>Working together, remotely</h2>
+<p>We met on Zoom and my sister shared her screen with me so that I could see what she was doing and where she needed help. This made more sense than me sharing my screen (and her having to follow along). Seeing her screen allowed me to be a lot more direct with my help/instructions, e.g. I could easily say things like <em>“now look at line 17, starting with <code>geom</code>”</em>. Over the past year, even prior to the COVID lockdown, I’ve experimented quite a bit with online “office hours” and have really enjoyed being able to see my students’ screen up close and also to share my screen with them</p>
+<p><br></p>
+<div class="figure">
+<img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/virtual-setup.jpg" style="width:90.0%" alt="" />
+<p class="caption">Setup for Zoom meeting with screen sharing</p>
+</div>
+<p>We started by working through Danielle’s blog post titled <a href="https://djnavarro.net/post/unpredictable-paintings/">Unpredictable paintings</a>. After a mini-lesson on what a tibble is and what it means to generate random numbers from a normal distribution, we were able to reproduce all of the pieces from the blog post. We then moved on to the examples on the README for the <a href="https://jasmines.djnavarro.net/"><strong>jasmines</strong></a> package. Along the way we used the chat in Zoom to share resources.</p>
+<p>We didn’t spend a whole lot of time trying to understand the function code (that’s something I might delve into at a later time) but we modified the examples slightly by changing input parameter and colour palettes.</p>
+<p>Here is what my sister came up with:</p>
+<pre class="r"><code>library(tidyverse)
+library(jasmines)
+
+use_seed(1106) %&gt;%
+  scene_discs(
+    rings = 3, 
+    points = 4000, 
+    size = 5
+  ) %&gt;%
+  mutate(ind = 1:n()) %&gt;%
+  unfold_warp(
+    iterations = 2,
+    scale = 0.5, 
+    output = &quot;layer&quot; 
+  ) %&gt;%
+  unfold_tempest(
+    iterations = 20,
+    scale = 0.01
+  ) %&gt;%
+  style_ribbon(
+    palette = palette_named(&quot;plasma&quot;),
+    colour = &quot;ind&quot;,
+    alpha = c(0.1, 0.1),
+    background = &quot;#FBE5E240&quot;
+  )</code></pre>
+<p><img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/figure-html/art-muge-1.png" width="672" /></p>
+<p>And here is mine:</p>
+<pre class="r"><code>use_seed(12345) %&gt;%
+  entity_droplet(
+    grain = 500, 
+    shape = 1
+    ) %&gt;%
+  unfold_tempest(
+    iterations = 100, 
+    scale = 0.005, 
+    scatter = FALSE
+    ) %&gt;%
+  style_ribbon(
+    palette = &quot;lapaz&quot;, 
+    colour = &quot;time&quot;, 
+    background = &quot;#CDCAD050&quot;
+    ) %&gt;%
+  # green thick border around droplet
+  # with transparent white fill in
+  style_overlay(
+    border = &quot;olivedrab1&quot;, 
+    linewidth = 0.5, 
+    fill = &quot;#FFFFFF80&quot;
+    ) %&gt;%
+  # purple-ish thin border around droplet
+  style_overlay(
+    border = &quot;4C5991&quot;, 
+    linewidth = 0.2
+    )</code></pre>
+<p><img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/figure-html/art-mine-1.png" width="672" /></p>
+<p>We made a bunch more along the way, but these were my favourites. We wrapped up the session with a plan for what to work on next time (hopefully this coming weekend!). I’ll need to do a bit of prep for it, but it should be fun!</p>
+</div>
+<div id="beginner-friendly-resources-on-generative-art-in-r" class="section level2">
+<h2>Beginner friendly resources on generative art in R</h2>
+<p>By the end of the session we had a list of resources sitting in the Zoom chat. We decided to use a shared <a href="https://www.notion.so/">Notion</a> page (her project organisation / note taking app of choice) to track resources and ideas.</p>
+<p><br></p>
+<div class="figure">
+<img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/notion.png" style="width:90.0%" alt="" />
+<p class="caption">Using Notion to track resources and ideas for our learning</p>
+</div>
+<p>Here is our list of resources so far:</p>
+<ul>
+<li>Blog posts:
+<ul>
+<li><a href="https://djnavarro.net/post/unpredictable-paintings/">Unpredictable paintings</a></li>
+<li><a href="https://www.data-imaginist.com/2020/a-noisy-start/">A noisy start</a></li>
+<li><a href="https://quantixed.org/2019/05/26/turn-a-square-generative-art/">Turn A Square: generative aRt</a></li>
+<li><a href="https://www.williamrchase.com/post/noise-12-months-of-art-august/">Noise</a></li>
+<li><a href="https://www.williamrchase.com/post/strange-attractors-12-months-of-art-february/">Strange Attractors</a></li>
+</ul></li>
+<li>Colours:
+<ul>
+<li><a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">Colours in R</a></li>
+<li><a href="https://github.com/thomasp85/scico">Palettes for R based on the Scientific Colour-Maps</a></li>
+<li><a href="http://colorspace.r-forge.r-project.org/articles/hcl_palettes.html">HCL-Based Color Palettes</a></li>
+</ul></li>
+<li>Packages:
+<ul>
+<li><a href="https://jasmines.djnavarro.net/">jasmines</a></li>
+<li><a href="https://flametree.djnavarro.net/">flametree</a></li>
+<li><a href="https://github.com/cutterkom/generativeart">generativeart</a></li>
+<li><a href="https://github.com/marcusvolz/mathart">mathart</a></li>
+</ul></li>
+<li>Plotting in R:
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/reference/index.html">ggplot2 function reference</a></li>
+</ul></li>
+<li>Inspiration:
+<ul>
+<li><a href="https://www.data-imaginist.com/art">Generative Art by Thomas Lin Pedersen</a></li>
+<li><a href="https://art.djnavarro.net/">Art by Danielle Navarro</a></li>
+<li><a href="https://github.com/will-r-chase/aRt">12 Months of aRt by Will Chase</a></li>
+<li><a href="https://marcusvolz.com/">Mathematical visualisation by Marcus Volz</a></li>
+<li><a href="https://www.reddit.com/r/generative/">r/generative</a></li>
+</ul></li>
+</ul>
+<p>I know there are a lot of other great resources on this topic. What am I missing that we could tackle next? If you have ideas for something that will make us do a bit more than tweaking parameters, but not to the extent of writing our own generative system, let me know here or on <a href="https://twitter.com/minebocek">Twitter</a>.</p>
+</div>
