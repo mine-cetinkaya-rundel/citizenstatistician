@@ -135,7 +135,7 @@ use_seed(12345) %>%
     ) %>%
   # purple-ish thin border around droplet
   style_overlay(
-    border = "4C5991", 
+    border = "#4C5991", 
     linewidth = 0.2
     )
 ```
