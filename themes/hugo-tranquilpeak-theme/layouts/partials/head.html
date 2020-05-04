@@ -29,7 +29,7 @@
     <title>{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
 
     <link rel="icon" href="{{ with .Site.Params.favicon }}{{ . }}{{ else }}/favicon.png{{ end }}">
-    {{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}
+    <!-- {{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }} -->
 
     {{ with .Site.Author.googleplus }}
       <link rel="publisher" href="https://plus.google.com/{{ . | urlize }}">
