@@ -184,6 +184,6 @@ I know there are a lot of other great resources on this topic. What am I missing
 
 - As I mentioned earlier, this wasn't the first time my sister tried out R. I'm not surprised that what finally motivated her is art. But this really goes to show that finding examples in application areas that learners are interested in is really helpful for motivation. 
 
-- Thanks so much to Danielle Navarro for her blog post and packages! Our foray into this domain wouldn't have been so smooth without them.
+- Thanks so much to [Danielle Navarro](https://twitter.com/djnavarro) for her blog post and packages! Our foray into this domain wouldn't have been so smooth without them.
 
 - If you don't like the piece you just generated, change the seed and try again. `r emo::ji("stuck_out_tongue_winking_eye")`
