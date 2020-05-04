@@ -27,9 +27,11 @@ I made two resolutions for 2020:
 
 The first was going okay, until COVID... And since I didn't get to start on the second one until the COVID lockdown, I was thinking there's no way I manage to make time for it before nursery reopens. But then, out of nowhere last week, [my sister](https://www.muge.fr/) DMed me this on Twitter:
 
+<br>
+
 ![Twitter DM conversation with my sister where she asks how Danielle Navarro created a piece of generative art](/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/generative-first-dm.png){width=50%}
 
-For those of you who don't speak Turkish, this translates to *"WOAH so pretty, how did she make [this](https://twitter.com/djnavarro/status/1253919579526422529)?"*. So I linked to Danielle Navarro's [blog post](https://djnavarro.net/post/unpredictable-paintings/) on getting started with generative art, and my sister's response was *"I read this, and really wanted to understand it, but I can't follow it. Should we try it together?"*. I should clarify that my sister doesn't know R. She is a UX/UI designer and an [illustrator](https://dribbble.com/muuuuge) and she's pretty technical, but she's not a programmer. She obviously knows what R is since I won't stop talking about it. She has even tried to learn R once or twice, but never really got too interested (she was one of the many drop outs from my [Coursera courses](https://www.coursera.org/specializations/statistics)). Lately her interest in data visualisation has been growing (a combination of work projects involving data visualisation as well as personal interests), so I was kinda hoping one day she would ask me *"how do you do [X] in R?"*. I was very excited when that *[X]* ended up being something I really wanted to learn as well.
+For those of you who don't speak Turkish, this translates to *"WOAH so pretty, how did she make [this](https://twitter.com/djnavarro/status/1253919579526422529)?"* So I linked to Danielle Navarro's [blog post](https://djnavarro.net/post/unpredictable-paintings/) on getting started with generative art, and my sister's response was *"I read this, and really wanted to understand it, but I can't follow it. Should we try it together?"* I should clarify that my sister doesn't know R. She is a UX/UI designer and an [illustrator](https://dribbble.com/muuuuge), and she's pretty technical, but she's not a programmer. She obviously knows what R is since I won't stop talking about it. She has even tried to learn R once or twice, but never really got too interested (she was one of the many drop outs from my [Coursera courses](https://www.coursera.org/specializations/statistics)). Lately her interest in data visualisation has been growing (a combination of work projects involving data visualisation as well as personal interests), so I've been hoping that one day she would ask me *"how do you do [X] in R?"* I was very excited when that *[X]* ended up being something I really wanted to learn as well.
 
 So we made a virtual *(duh!)* date to meet up on Saturday and get started with generative art in R. I decided to blog about this for three reasons:
 
@@ -74,7 +76,7 @@ We met on Zoom and my sister shared her screen with me so that I could see what 
 
 We started by working through Danielle's blog post titled [Unpredictable paintings](https://djnavarro.net/post/unpredictable-paintings/). After a mini-lesson on what a tibble is and what it means to generate random numbers from a normal distribution, we were able to reproduce all of the pieces from the blog post. We then moved on to the examples on the README for the [**jasmines**](https://jasmines.djnavarro.net/) package. Along the way we used the chat in Zoom to share resources.
 
-We didn't spend a whole lot of time trying to understand the function code (that's something I might delve into at a later time) but we modified the examples slightly by changing input parameter and colour palettes.
+We didn't spend a whole lot of time trying to understand the function code (that's something I'll delve into at a later time) but we modified the examples slightly by changing input parameter and colour palettes.
 
 Here is what my sister came up with:
 
@@ -175,3 +177,11 @@ Here is our list of resources so far:
   - [r/generative](https://www.reddit.com/r/generative/)
   
 I know there are a lot of other great resources on this topic. What am I missing that we could tackle next? If you have ideas for something that will make us do a bit more than tweaking parameters, but not to the extent of writing our own generative system, let me know here or on [Twitter](https://twitter.com/minebocek).
+
+## Closing thoughts
+
+- I teach regularly, but I almost always teach things that I know. It was a fun experience to teach as I learn. I'm glad I didn't spend additional time before our session to get myself acquainted with the examples; it felt a lot more natural to discover things together.
+
+- As I mentioned earlier, this wasn't the first time my sister tried out R. I'm not surprised that what finally motivated her is art. But this really goes to show that finding examples in application areas that learners are interested in is really helpful for motivation. 
+
+- Thanks so much to Danielle Navarro for her blog post and packages! Our foray into this domain wouldn't have been so smooth without them.

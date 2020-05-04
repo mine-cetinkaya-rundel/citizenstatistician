@@ -26,11 +26,12 @@ keywords:
 <li>Learn about generative art in R.</li>
 </ol>
 <p>The first was going okay, until COVID… And since I didn’t get to start on the second one until the COVID lockdown, I was thinking there’s no way I manage to make time for it before nursery reopens. But then, out of nowhere last week, <a href="https://www.muge.fr/">my sister</a> DMed me this on Twitter:</p>
+<p><br></p>
 <div class="figure">
 <img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/generative-first-dm.png" style="width:50.0%" alt="" />
 <p class="caption">Twitter DM conversation with my sister where she asks how Danielle Navarro created a piece of generative art</p>
 </div>
-<p>For those of you who don’t speak Turkish, this translates to <em>“WOAH so pretty, how did she make <a href="https://twitter.com/djnavarro/status/1253919579526422529">this</a>?”</em>. So I linked to Danielle Navarro’s <a href="https://djnavarro.net/post/unpredictable-paintings/">blog post</a> on getting started with generative art, and my sister’s response was <em>“I read this, and really wanted to understand it, but I can’t follow it. Should we try it together?”</em>. I should clarify that my sister doesn’t know R. She is a UX/UI designer and an <a href="https://dribbble.com/muuuuge">illustrator</a> and she’s pretty technical, but she’s not a programmer. She obviously knows what R is since I won’t stop talking about it. She has even tried to learn R once or twice, but never really got too interested (she was one of the many drop outs from my <a href="https://www.coursera.org/specializations/statistics">Coursera courses</a>). Lately her interest in data visualisation has been growing (a combination of work projects involving data visualisation as well as personal interests), so I was kinda hoping one day she would ask me <em>“how do you do [X] in R?”</em>. I was very excited when that <em>[X]</em> ended up being something I really wanted to learn as well.</p>
+<p>For those of you who don’t speak Turkish, this translates to <em>“WOAH so pretty, how did she make <a href="https://twitter.com/djnavarro/status/1253919579526422529">this</a>?”</em> So I linked to Danielle Navarro’s <a href="https://djnavarro.net/post/unpredictable-paintings/">blog post</a> on getting started with generative art, and my sister’s response was <em>“I read this, and really wanted to understand it, but I can’t follow it. Should we try it together?”</em> I should clarify that my sister doesn’t know R. She is a UX/UI designer and an <a href="https://dribbble.com/muuuuge">illustrator</a>, and she’s pretty technical, but she’s not a programmer. She obviously knows what R is since I won’t stop talking about it. She has even tried to learn R once or twice, but never really got too interested (she was one of the many drop outs from my <a href="https://www.coursera.org/specializations/statistics">Coursera courses</a>). Lately her interest in data visualisation has been growing (a combination of work projects involving data visualisation as well as personal interests), so I’ve been hoping that one day she would ask me <em>“how do you do [X] in R?”</em> I was very excited when that <em>[X]</em> ended up being something I really wanted to learn as well.</p>
 <p>So we made a virtual <em>(duh!)</em> date to meet up on Saturday and get started with generative art in R. I decided to blog about this for three reasons:</p>
 <ol style="list-style-type: decimal">
 <li>To demonstrate how we used RStudio Cloud to get someone who is totally new to R and programming to make some pretty pictures, quickly (we were under the time pressure of my 3 year old refusing to nap)</li>
@@ -69,7 +70,7 @@ devtools::install_github(&quot;cutterkom/generativeart&quot;)       # Create gen
 <p class="caption">Setup for Zoom meeting with screen sharing</p>
 </div>
 <p>We started by working through Danielle’s blog post titled <a href="https://djnavarro.net/post/unpredictable-paintings/">Unpredictable paintings</a>. After a mini-lesson on what a tibble is and what it means to generate random numbers from a normal distribution, we were able to reproduce all of the pieces from the blog post. We then moved on to the examples on the README for the <a href="https://jasmines.djnavarro.net/"><strong>jasmines</strong></a> package. Along the way we used the chat in Zoom to share resources.</p>
-<p>We didn’t spend a whole lot of time trying to understand the function code (that’s something I might delve into at a later time) but we modified the examples slightly by changing input parameter and colour palettes.</p>
+<p>We didn’t spend a whole lot of time trying to understand the function code (that’s something I’ll delve into at a later time) but we modified the examples slightly by changing input parameter and colour palettes.</p>
 <p>Here is what my sister came up with:</p>
 <pre class="r"><code>library(tidyverse)
 library(jasmines)
@@ -173,4 +174,12 @@ use_seed(1106) %&gt;%
 </ul></li>
 </ul>
 <p>I know there are a lot of other great resources on this topic. What am I missing that we could tackle next? If you have ideas for something that will make us do a bit more than tweaking parameters, but not to the extent of writing our own generative system, let me know here or on <a href="https://twitter.com/minebocek">Twitter</a>.</p>
+</div>
+<div id="closing-thoughts" class="section level2">
+<h2>Closing thoughts</h2>
+<ul>
+<li><p>I teach regularly, but I almost always teach things that I know. It was a fun experience to teach as I learn. I’m glad I didn’t spend additional time before our session to get myself acquainted with the examples; it felt a lot more natural to discover things together.</p></li>
+<li><p>As I mentioned earlier, this wasn’t the first time my sister tried out R. I’m not surprised that what finally motivated her is art. But this really goes to show that finding examples in application areas that learners are interested in is really helpful for motivation.</p></li>
+<li><p>Thanks so much to Danielle Navarro for her blog post and packages! Our foray into this domain wouldn’t have been so smooth without them.</p></li>
+</ul>
 </div>
