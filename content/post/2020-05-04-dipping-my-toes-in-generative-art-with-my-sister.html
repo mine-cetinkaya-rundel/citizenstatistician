@@ -1,7 +1,7 @@
 ---
 title: Dipping my toes in generative art, with my sister
 author: mine
-date: '2020-05-03'
+date: '2020-05-04'
 slug: dipping-my-toes-in-generative-art-with-my-sister
 categories:
   - rstats
@@ -28,7 +28,7 @@ thumbnailImagePosition: left
 <p>The first was going okay, until COVID… And since I didn’t get to start on the second one until the COVID lockdown, I was thinking there’s no way I manage to make time for it before nursery reopens. But then, out of nowhere last week, <a href="https://www.muge.fr/">my sister</a> DMed me this on Twitter:</p>
 <p><br></p>
 <div class="figure">
-<img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/generative-first-dm.png" style="width:50.0%" alt="" />
+<img src="/post/2020-05-04-dipping-my-toes-in-generative-art-with-my-sister_files/generative-first-dm.png" style="width:50.0%" alt="" />
 <p class="caption">Twitter DM conversation with my sister where she asks how Danielle Navarro created a piece of generative art</p>
 </div>
 <p>For those of you who don’t speak Turkish, this translates to <em>“WOAH so pretty, how did she make <a href="https://twitter.com/djnavarro/status/1253919579526422529">this</a>?”</em> So I linked to Danielle Navarro’s <a href="https://djnavarro.net/post/unpredictable-paintings/">blog post</a> on getting started with generative art, and my sister’s response was <em>“I read this, and really wanted to understand it, but I can’t follow it. Should we try it together?”</em> I should clarify that my sister doesn’t know R. She is a UX/UI designer and an <a href="https://dribbble.com/muuuuge">illustrator</a>, and she’s pretty technical, but she’s not a programmer. She obviously knows what R is since I won’t stop talking about it. She has even tried to learn R once or twice, but never really got too interested (she was one of the many drop outs from my <a href="https://www.coursera.org/specializations/statistics">Coursera courses</a>). Lately her interest in data visualisation has been growing (a combination of work projects involving data visualisation as well as personal interests), so I’ve been hoping that one day she would ask me <em>“how do you do [X] in R?”</em> I was very excited when that <em>[X]</em> ended up being something I really wanted to learn as well.</p>
@@ -55,7 +55,7 @@ devtools::install_github(&quot;djnavarro/flametree&quot;)           # Generate p
 devtools::install_github(&quot;cutterkom/generativeart&quot;)       # Create generative art with R</code></pre>
 <p>Then, I messaged her the sharing link for the workspace and asked her to create a new project in it. No installation needed! And, to be perfectly honest, it wouldn’t have been so difficult to walk her through installing R and RStudio on her computer, but some of these packages that need to be installed from GitHub use C++ code, which would require that she install Xcode, and who knows whether we could be up and running before my son completely gave up on his nap…</p>
 <div class="figure">
-<img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/rstudio-cloud.png" alt="" />
+<img src="/post/2020-05-04-dipping-my-toes-in-generative-art-with-my-sister_files/rstudio-cloud.png" alt="" />
 <p class="caption">RStudio Cloud workspace with two projects</p>
 </div>
 <p>You can tell she’s a lot more creative than me based on her project name alone!</p>
@@ -66,7 +66,7 @@ devtools::install_github(&quot;cutterkom/generativeart&quot;)       # Create gen
 <p>We met on Zoom and my sister shared her screen with me so that I could see what she was doing and where she needed help. This made more sense than me sharing my screen (and her having to follow along). Seeing her screen allowed me to be a lot more direct with my help/instructions, e.g. I could easily say things like <em>“now look at line 17, starting with <code>geom</code>”</em>. Over the past year, even prior to the COVID lockdown, I’ve experimented quite a bit with online “office hours” and have really enjoyed being able to see my students’ screen up close and also to share my screen with them</p>
 <p><br></p>
 <div class="figure">
-<img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/virtual-setup.jpg" style="width:90.0%" alt="" />
+<img src="/post/2020-05-04-dipping-my-toes-in-generative-art-with-my-sister_files/virtual-setup.jpg" style="width:90.0%" alt="" />
 <p class="caption">Setup for Zoom meeting with screen sharing</p>
 </div>
 <p>We started by working through Danielle’s blog post titled <a href="https://djnavarro.net/post/unpredictable-paintings/">Unpredictable paintings</a>. After a mini-lesson on what a tibble is and what it means to generate random numbers from a normal distribution, we were able to reproduce all of the pieces from the blog post. We then moved on to the examples on the README for the <a href="https://jasmines.djnavarro.net/"><strong>jasmines</strong></a> package. Along the way we used the chat in Zoom to share resources.</p>
@@ -97,7 +97,7 @@ use_seed(1106) %&gt;%
     alpha = c(0.1, 0.1),
     background = &quot;#FBE5E240&quot;
   )</code></pre>
-<p><img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/figure-html/art-muge-1.png" width="672" /></p>
+<p><img src="/post/2020-05-04-dipping-my-toes-in-generative-art-with-my-sister_files/figure-html/art-muge-1.png" width="672" /></p>
 <p>And here is mine:</p>
 <pre class="r"><code>use_seed(12345) %&gt;%
   entity_droplet(
@@ -126,7 +126,7 @@ use_seed(1106) %&gt;%
     border = &quot;4C5991&quot;, 
     linewidth = 0.2
     )</code></pre>
-<p><img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/figure-html/art-mine-1.png" width="672" /></p>
+<p><img src="/post/2020-05-04-dipping-my-toes-in-generative-art-with-my-sister_files/figure-html/art-mine-1.png" width="672" /></p>
 <p>We made a bunch more along the way, but these were my favourites. We wrapped up the session with a plan for what to work on next time (hopefully this coming weekend!). I’ll need to do a bit of prep for it, but it should be fun!</p>
 </div>
 <div id="beginner-friendly-resources-on-generative-art-in-r" class="section level2">
@@ -134,7 +134,7 @@ use_seed(1106) %&gt;%
 <p>By the end of the session we had a list of resources sitting in the Zoom chat. We decided to use a shared <a href="https://www.notion.so/">Notion</a> page (her project organisation / note taking app of choice) to track resources and ideas.</p>
 <p><br></p>
 <div class="figure">
-<img src="/post/2020-05-03-dipping-my-toes-in-generative-art-with-my-sister_files/notion.png" style="width:90.0%" alt="" />
+<img src="/post/2020-05-04-dipping-my-toes-in-generative-art-with-my-sister_files/notion.png" style="width:90.0%" alt="" />
 <p class="caption">Using Notion to track resources and ideas for our learning</p>
 </div>
 <p>Here is our list of resources so far:</p>
