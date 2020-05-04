@@ -84,11 +84,11 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   url = "https://github.com/mine-cetinkaya-rundel/citizenstatistician"
 
 [[menu.misc]]
-  weight = 1
+  weight = 2
   identifier = "rss"
   name = "RSS"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
-  url = "/index.xml"
+  url = "/post/index.xml"
 
 [params]
   # Customize date format use to render blog post date, categories and other
