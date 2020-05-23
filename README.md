@@ -43,7 +43,7 @@ blogdown::serve_site()
 
 5. Initiate a pull request.
 
-```
+```r
 usethis::pr_init("shorthand-for-blog-title")
 ```
 
