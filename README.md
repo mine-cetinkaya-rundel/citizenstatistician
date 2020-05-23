@@ -41,13 +41,13 @@ library(usethis)
 blogdown::serve_site()
 ```
 
-3. Initiate a pull request.
+5. Initiate a pull request.
 
 ```
 usethis::pr_init("shorthand-for-blog-title")
 ```
 
-4. Add a new post using the **New Post** Addin (recommended) or via
+6. Add a new post using the **New Post** Addin (recommended) or via
 
 ```r
 blogdown::new_post("Your Post Title")
@@ -56,11 +56,25 @@ blogdown::new_post("Your Post Title")
 
 RStudio will automatically open the post, and you can edit/preview it.
 
-5. Commit your changes.
+7. Commit your changes.
 
-6. Push your changes with `usethis::pr_push()` and complete the pull request on GitHub. 
+8. Push your changes with `usethis::pr_push()` and complete the pull request on GitHub. 
 
-7. Once checks are completed, view the Netlify deploy preview to make sure all looks as intended. If yes, merge away! If not, come back to RStudio and make changes, commit, push, and view your changes on the Netlify deploy preview agian.
+If when you run `usethis::pr_push()` you get an error saying (an error that probably says `"Push errored, Check that the PR branch is editable, then check your git2r config"`, go to the Terminal window instead and type
+
+```
+git push
+```
+
+which will suggest that you alter that command a bit and run it again. It should make a recommendation for how you should alter it, and it should look like
+
+```
+git push --set-upstream origin [NAME OF YOUR BRANCH]
+```
+
+where `[NAME OF YOUR BRANCH]` is the name you gave to your branch when you ran `pr_init()` at the very beginning of this saga.
+
+9. Once checks are completed, view the Netlify deploy preview to make sure all looks as intended. If yes, merge away! If not, come back to RStudio and make changes, commit, push, and view your changes on the Netlify deploy preview agian.
 
 
 ##  Acknowledgements
