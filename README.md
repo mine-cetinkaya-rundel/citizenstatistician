@@ -60,7 +60,7 @@ RStudio will automatically open the post, and you can edit/preview it.
 
 8. Push your changes with `usethis::pr_push()` and complete the pull request on GitHub. 
 
-If when you run `usethis::pr_push()` you get an error saying (an error that probably says `"Push errored, Check that the PR branch is editable, then check your git2r config"`, go to the Terminal window instead and type
+**Note:** If when you run `usethis::pr_push()` you get an error saying (an error that probably says `"Push errored, Check that the PR branch is editable, then check your git2r config"`, go to the Terminal window instead and type
 
 ```
 git push
@@ -72,7 +72,7 @@ which will suggest that you alter that command a bit and run it again. It should
 git push --set-upstream origin [NAME OF YOUR BRANCH]
 ```
 
-where `[NAME OF YOUR BRANCH]` is the name you gave to your branch when you ran `pr_init()` at the very beginning of this saga.
+where `[NAME OF YOUR BRANCH]` is the name you gave to your branch when you ran `pr_init()` at the very beginning of this saga. This should result in a successful push. Then, come back to this repo and you should see a prompt (in a yellow banner towards the top of the page) for initiating a pull request. Click on "Compare and pull request". This will land you in the same window `pr_push()` would have landed you if it worked in the first place.
 
 9. Once checks are completed, view the Netlify deploy preview to make sure all looks as intended. If yes, merge away! If not, come back to RStudio and make changes, commit, push, and view your changes on the Netlify deploy preview agian.
 
