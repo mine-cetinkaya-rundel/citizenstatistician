@@ -9,9 +9,9 @@ keywords:
   - tech
 ---
 
-In this post I'll outline some tips I took away from each session.
+On May 15th and 20th the third Preparing for Careers in Teaching Statistics and Data Science Workshop was held. 27 graduate students and recent PhDs gathered (remotely of course) to learn from Allan Rossman (Cal Poly), Mine Çetinkaya-Rundel (University of Edinburgh, Duke, RStudio), Jo Hardin (Pomona), Beth Chance (Cal Poly), Lucy D’Agostino McGowan (Wake Forest), and Ulrike Genschel (Iowa State). 
 
-Want more comprehensive info? Slides and video recordings from each session can be found [here](https://preparingtoteach.org/agenda/).
+I was one of these lucky students! In this post I'll outline some tips I took away from each session. Want more comprehensive info? Slides and video recordings from each session can be found [here](https://preparingtoteach.org/agenda/).
 
 <!--more-->
 
@@ -46,13 +46,13 @@ NSF Improving Undergraduate STEM Education grants support "curricular innovation
 
 Get to know the norms about both your university as a whole and your department in particular. What meetings are usually attended? What service roles do new professors usually take on? What type of visibility matters?
 
-Aim for harmony (as opposed to elusive "balance") between teaching, research, and service. Block out time in your calendar for each and don't let one bleed into the other. 
+Aim for harmony (as opposed to elusive "balance") between teaching, research, and service. Block out time in your calendar for each and stay accountable to that time. 
 
 Find peers and mentors within and outside your new department and institution to support you in your transition from student to peer.
 
 ### Teaching remotely - Mine Çetinkaya-Rundel
 
-There is a tradeoff between the benefit of building community synchronously and the potential unfairnes and inequitability of syncrhonicity.
+There is a tradeoff between the benefit of building community synchronously and the potential unfairness and inequitability of syncrhonicity.
 
 Be consistent and judicious in your choice of online tools. Just because a tool is free to use doesn't mean it is free to learn. 
 
@@ -60,14 +60,22 @@ Even if your lectures are pre-recorded ahead of time, record a "state of the uni
 
 ### Teaching intro statistics - Ulrike Genschel
 
-critical consumers - when can statistics be misleading?
+We want students to become "critical consumers" of statistics. Throughout the course, we can show them the common ways that statistics can be misleading.
 
-The level you teach at should be the same as the level you assess at. 
+There are two parts to problem solving: the research question level and the data level. Both parts can be taught as part of the investigative process stressed in the GAISE report.
 
-
+The level you teach at should be the same as the level you assess at. Consult Bloom's (revised) taxonomy when thinking about how to assess learning.
 
 ### Teaching intro data science - Mine Çetinkaya-Rundel
 
+Taking advantage of [peer review](https://rundel.github.io/ghclass/articles/instructions_students.html) can help scale a large class. 
 
+Break material into modules with different case studies. This adds variety and also ensures that if a student doesn't connect with a particular dataset's context, they get another opportunity to engage later on. 
+
+Consider incorporating discussions of ethics in each module rather than just in its own (e.g. ethics of scraping, what gets "counted" as a country in maps). 
+
+### In conclusion...
+
+Thank you to the speakers and organizers! I think I can speak for the group and say we all learned a lot. Thanks to the combination of this workshop and the accompanying [eCOTS conference](https://www.causeweb.org/cause/ecots/ecots20) I certainly feel much more prepared to teach. 
 
 
