@@ -32,6 +32,6 @@ As recent, current, and future chairs of the American Statistical Association (A
 > Paul Roback (2016-2018)  
  
 
-In this letter we urge the COPSS leadership to move expeditiously to rename the Fisher Lecture and Award. For context, please see the work of Daniela Witten [[thread]](https://twitter.com/daniela_witten/status/1268392721275744256?s=20) and Maryclare Griffin [[thread]](https://twitter.com/mcmcgriffin/status/1270376448407343104). 
+For context, please see the work of Daniela Witten [[thread]](https://twitter.com/daniela_witten/status/1268392721275744256?s=20) and Maryclare Griffin [[thread]](https://twitter.com/mcmcgriffin/status/1270376448407343104). 
 
 The COPSS leadership has requested feedback on renaming this prestigious lecture and award  [via this form](https://docs.google.com/forms/d/e/1FAIpQLScVWuYPffhToVpYV8kIYZ4ZFUcsvepiZnl-esngKC4jT23htg/viewform). We invite all members of the statistics and data science communities to voice their opinions directly to the committee **by 15 June 2020**. You can also participate in the petition to Rename The Fisher Lecture after David Blackwell [here](https://www.change.org/p/american-statistical-association-rename-the-fisher-lecture-after-david-blackwell).
