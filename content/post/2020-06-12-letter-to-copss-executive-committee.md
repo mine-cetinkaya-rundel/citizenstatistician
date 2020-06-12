@@ -1,5 +1,5 @@
 ---
-title: Letter to COPSS Executive Committee
+title: Letter to the COPSS Executive Committee
 author: Mine Cetinkaya-Rundel
 date: '2020-06-12'
 slug: letter-to-copss-executive-committee
