@@ -1,7 +1,7 @@
 ---
 title: 'Preparing to Teach 2020: What did we learn?'
 author: Sara Stoudt
-date: '2020-05-31'
+date: '2020-06-25'
 slug: preparing-to-teach-2020-what-did-we-learn
 categories: []
 tags: []
@@ -9,11 +9,13 @@ keywords:
   - tech
 ---
 
-On May 15th and 20th the third Preparing for Careers in Teaching Statistics and Data Science Workshop was held. 27 graduate students and recent PhDs gathered (remotely of course) to learn from Allan Rossman (Cal Poly), Mine Çetinkaya-Rundel (University of Edinburgh, Duke, RStudio), Jo Hardin (Pomona), Beth Chance (Cal Poly), Lucy D’Agostino McGowan (Wake Forest), and Ulrike Genschel (Iowa State). 
+On May 15th and 20th the third [Preparing for Careers in Teaching Statistics and Data Science Workshop](https://preparingtoteach.org/![Preparing to Teach 2020 participants](/post/2020-05-31-preparing-to-teach-2020-what-did-we-learn_files/ptt-2020-05-15.png)) was held. 37 graduate students and recent PhDs gathered (remotely of course) to learn from Allan Rossman (Cal Poly), Mine Çetinkaya-Rundel (University of Edinburgh, Duke, RStudio), Jo Hardin (Pomona), Beth Chance (Cal Poly), Lucy D’Agostino McGowan (Wake Forest), and Ulrike Genschel (Iowa State). 
 
 I was one of these lucky students, so I want to share the wealth. In this post I'll outline some tips I took away from each session. Want more info? Slides and video recordings from each session can be found [here](https://preparingtoteach.org/agenda/).
 
 <!--more-->
+
+<img src="/post/2020-05-31-preparing-to-teach-2020-what-did-we-learn_files/ptt-2020-05-15.png" alt="Preparing to Teach 2020 participants" width="400"/>
 
 ### Implementing GAISE recommendations - Allan Rossman
 
