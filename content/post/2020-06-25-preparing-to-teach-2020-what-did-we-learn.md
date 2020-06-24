@@ -11,6 +11,8 @@ thumbnailImage: "/post/2020-06-25-preparing-to-teach-2020-what-did-we-learn_file
 thumbnailImagePosition: left
 ---
 
+*This post was contributed by [Sara Stoudt](https://sastoudt.github.io/) ([@sastoudt](https://twitter.com/sastoudt)). Thank you Sara!*
+
 On May 15th and 20th the third [Preparing for Careers in Teaching Statistics and Data Science Workshop](https://preparingtoteach.org/) was held. 37 graduate students and recent PhDs gathered (remotely of course) to learn from Allan Rossman (Cal Poly), Mine Çetinkaya-Rundel (University of Edinburgh, Duke, RStudio), Jo Hardin (Pomona), Beth Chance (Cal Poly), Lucy D’Agostino McGowan (Wake Forest), and Ulrike Genschel (Iowa State). 
 
 <!--more-->
