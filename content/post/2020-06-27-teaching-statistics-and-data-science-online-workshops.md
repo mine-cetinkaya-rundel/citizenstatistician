@@ -2,7 +2,7 @@
 title: Teaching statistics and data science online workshops
 author: Mine Çetinkaya-Rundel
 date: '2020-06-27'
-slug: teaching-statistics-and-data-science-online-workshops.en-us
+slug: teaching-statistics-and-data-science-online-workshops
 categories:
   - teaching
 tags:
