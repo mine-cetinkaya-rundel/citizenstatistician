@@ -17,7 +17,12 @@ Over the university summer break (which was slightly longer than usual - thanks 
 
 Even without the existence of a certain pandemic virus (not naming names of course), moving course delivery online and to more automated marking has definite advantages. For one, feedback can be instant and significantly more informative than R's sometimes cryptic errors: for example, what on earth does `"object of type 'closure' is not subsettable"` mean? For two, this method is much more scalable. Courses are growing, which *should* be a good thing, but manual marking is not scalable unless your human resources are growing at the same rate as class sizes.
 
-The solution then? Interactive tutorials, with help from the `shiny`, `learnr` and `gradethis`.
+The solution then? Interactive tutorials, with help from the `shiny`, `learnr` and `gradethis`. In our case, we were converting written homeworks (the very ones we'd both completed on our time on the course last year!) into the auto-graded tutorials.
 
 
 ### Work(flow)ing 9 to 5
+
+Behind every successful project is a successful workflow, so that is where we start. Our base is, of course, Github. Then, whisk in a handful of Pull Requests, two cups of peer reviews, and a few Issues if necessary, and mix to form a smooth batter. Bake in an RStudio environment for 20-25 minutes and add Merge Conflicts to taste.
+
+Our first task was to familiarise oursevles with the particular packages - `learnr` and `gradethis` (more on these two below). Having done this, our workflow involved writing the tutorials two at a time - one person writing each - then reviewing the other person's work. After as many cycles of implementing and reviewing changes, a final review was carried out by the course organiser Dr. Çetinkaya-Rundel, who is naturally also the creator of Citizen Statistician.
+
