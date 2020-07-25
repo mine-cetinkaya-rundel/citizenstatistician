@@ -24,5 +24,12 @@ The solution then? Interactive tutorials, with help from the `shiny`, `learnr` a
 
 Behind every successful project is a successful workflow, so that is where we start. Our base is, of course, Github. Then, whisk in a handful of Pull Requests, two cups of peer reviews, and a few Issues if necessary, and mix to form a smooth batter. Bake in an RStudio environment for 20-25 minutes and add Merge Conflicts to taste.
 
-Our first task was to familiarise oursevles with the particular packages - `learnr` and `gradethis` (more on these two below). Having done this, our workflow involved writing the tutorials two at a time - one person writing each - then reviewing the other person's work. After as many cycles of implementing and reviewing changes, a final review was carried out by the course organiser Dr. Çetinkaya-Rundel, who is naturally also the creator of Citizen Statistician.
+Our first task was to familiarise oursevles with the particular packages - `learnr` and `gradethis` (more on these two below). Having done this, our workflow involved writing the tutorials two at a time - one person writing each - then reviewing the other person's work. After as many cycles of implementing and reviewing changes, a final review was carried out by the course organiser Dr. Çetinkaya-Rundel, who is also the creator of Citizen Statistician.
 
+
+### learnr
+
+`learnr` is an R package designed to make it easy to build interactive tutorials in R markdown documents. These tutorials can contain all manner of objects, including text, graphics and figures, sections and subsections, code exercises that students can execute, multiple choice questions, even YouTube videos!
+
+
+One of our tutorials was slightly adapted for use the Teach R Online workshop series. You can see it [here](https://gallery.shinyapps.io/lego-sales/)
