@@ -36,11 +36,12 @@ One of our tutorials was slightly adapted for use the Teach R Online workshop se
 
 ### Challenges
 
-We quickly learned that converting the homework assignments wouldn't be as straightforward as just replicating the questions in a `shiny` document. Since some tasks like interpreting visualisations can't easily be graded automatically, we had to make certain trade-offs. Usually, either meant replacing an open-ended question with a series of multiple-choice questions while trying to preserve a questions essential lesson. 
 Another question we had to ask ourselves frequently was whether the students code itself or the output it produced. Here's an example of this conundrum: 
 
-![](https://imgur.com/sVa8ehy.jpg)
+<img src="https://imgur.com/sVa8ehy.jpg" width="499" height="95" />
 
 There are many ways to answer this question in R, and since we wanted students to be awarded points whichever correct way they chose, we implemented result grading on this question, so that every answer that produced the correct output would be marked as correct. 
 With visualisations and code that doesn't produce any output, however, this becomes a bit trickier. 
-In those situations, we decided to grade the code itself, which has the disadvantage that the code has to be exactly the same as in the solution, even though it would have the same effect if two lines were interchanged. We tried to circumvent the problem by giving the students more hints and providing a structure where fewer mistakes would be possible. 
+In those situations, we decided to grade the code itself, which has the disadvantage that the code has to be exactly the same as in the solution, even though it would have the same effect if two lines were interchanged. We tried to circumvent the problem by giving the students more hints and providing a structure where fewer mistakes would be possible. The following image is an example of how we dealt with visualisation exercises:
+
+<img src="https://imgur.com/qYIvTx1.jpg" width="500" height="211" />
