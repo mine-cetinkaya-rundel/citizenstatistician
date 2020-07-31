@@ -374,7 +374,7 @@ summary {
 <p>Over the university summer break (which was slightly longer than usual - thanks COVID!), we (Zeno and Lee) were busy making preparations for moving more of our Introduction to Data Science course from being human-graded to computer-graded.</p>
 <!--more-->
 <p>Even without the existence of a certain pandemic virus (not naming names of course), moving course delivery online and to more automated marking has definite advantages. For one, feedback can be instant and significantly more informative than R’s sometimes cryptic errors: for example, what on earth does <code>&quot;object of type &#39;closure&#39; is not subsettable&quot;</code> mean? For two, this method is much more scalable. Courses are growing, which <em>should</em> be a good thing, but manual marking is not scalable unless your human resources are growing at the same rate as class sizes.</p>
-<p>The solution then? Interactive tutorials, with help from the <code>shiny</code>, <code>learnr</code> and <code>gradethis</code>. In our case, we were converting written homeworks (the very ones we’d both completed on our time on the course last year!) into the auto-graded tutorials.</p>
+<p>The solution then? Interactive tutorials, with help from the <code>shiny</code>, <code>learnr</code> and <code>gradethis</code>. In our case, we were converting written homeworks (the very ones we’d both completed on our time on the course last fall!) into the auto-graded tutorials.</p>
 <div id="workflowing-9-to-5" class="section level3">
 <h3>Work(flow)ing 9 to 5</h3>
 <p>Behind every successful project is a successful workflow, so that is where we start. Our base is, of course, Github. Then, whisk in a handful of Pull Requests, two cups of peer reviews, and a few Issues if necessary, and mix to form a smooth batter. Bake in an RStudio environment for 20-25 minutes and add Merge Conflicts to taste.</p>
@@ -383,7 +383,12 @@ summary {
 <div id="learnr" class="section level3">
 <h3>learnr</h3>
 <p><code>learnr</code> is an R package designed to make it easy to build interactive tutorials in R markdown documents. These tutorials can contain all manner of objects, including text, graphics and figures, sections and subsections, code exercises that students can execute, multiple choice questions, even YouTube videos!</p>
-<p>One of our tutorials was slightly adapted for use the Teach R Online workshop series. You can see it <a href="https://gallery.shinyapps.io/lego-sales/">here</a></p>
+<p>If you’re interested in using (or just playing about with) the package yourself, it’s available on CRAN.</p>
+</div>
+<div id="gradethis" class="section level3">
+<h3>gradethis</h3>
+<p><code>gradethis</code> is a companion to the <code>learnr</code> package, and provides multiple different functions for grading learnr exercises. Code can either be graded against a certain solution, where we check that the student’s answer exactly matches the solution, or the result can be checked against a set of conditions. With the gradethis package, it’s also easy to give helpful feedback if a student gets a foreseen wrong answer, so we can nudge them in the right direction.</p>
+<p>This package is not yet on CRAN, but you can install it from the Github repository <a href="https://github.com/rstudio-education/gradethis">here</a>.</p>
 </div>
 <div id="challenges" class="section level3">
 <h3>Challenges</h3>
@@ -396,6 +401,7 @@ summary {
 <div id="conclusion" class="section level3">
 <h3>Conclusion</h3>
 <p>We hope that our converted assignments will help scale the course and deliver something very close to the experience we had last fall. Both of us learned a lot through this project and we are very eager to hear what next years students have to say about the course! We would like to thank Dr. Çetinkaya-Rundel for the giving us the opportunity to be part of IDS and her neverending patience for us!</p>
+<p>If you’re interested, one of our tutorials was slightly adapted for use the Teach R Online workshop series. You can see it <a href="https://gallery.shinyapps.io/lego-sales/">here</a></p>
 </div>
 
 

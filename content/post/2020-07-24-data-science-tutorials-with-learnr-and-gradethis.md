@@ -3,7 +3,10 @@ title: Data Science Tutorials with Learnr and Gradethis
 author: Lee Suddaby, Zeno Kujawa
 date: '2020-07-24'
 slug: data-science-tutorials-with-learnr-and-gradethis
-categories: []
+categories: 
+  - teaching
+  - shiny
+  - rstats
 tags: []
 keywords:
   - tech
@@ -17,7 +20,7 @@ Over the university summer break (which was slightly longer than usual - thanks 
 
 Even without the existence of a certain pandemic virus (not naming names of course), moving course delivery online and to more automated marking has definite advantages. For one, feedback can be instant and significantly more informative than R's sometimes cryptic errors: for example, what on earth does `"object of type 'closure' is not subsettable"` mean? For two, this method is much more scalable. Courses are growing, which *should* be a good thing, but manual marking is not scalable unless your human resources are growing at the same rate as class sizes.
 
-The solution then? Interactive tutorials, with help from the `shiny`, `learnr` and `gradethis`. In our case, we were converting written homeworks (the very ones we'd both completed on our time on the course last year!) into the auto-graded tutorials.
+The solution then? Interactive tutorials, with help from the `shiny`, `learnr` and `gradethis`. In our case, we were converting written homeworks (the very ones we'd both completed on our time on the course last fall!) into the auto-graded tutorials.
 
 
 ### Work(flow)ing 9 to 5
@@ -31,8 +34,16 @@ Our first task was to familiarise oursevles with the particular packages - `lear
 
 `learnr` is an R package designed to make it easy to build interactive tutorials in R markdown documents. These tutorials can contain all manner of objects, including text, graphics and figures, sections and subsections, code exercises that students can execute, multiple choice questions, even YouTube videos!
 
+If you're interested in using (or just playing about with) the package yourself, it's available on CRAN.
 
-One of our tutorials was slightly adapted for use the Teach R Online workshop series. You can see it [here](https://gallery.shinyapps.io/lego-sales/)
+
+### gradethis
+
+`gradethis` is a companion to the `learnr` package, and provides multiple different functions for grading learnr exercises. Code can either be graded against a certain solution, where we check that the student's answer exactly matches the solution, or the result can be checked against a set of conditions.
+With the gradethis package, it's also easy to give helpful feedback if a student gets a foreseen wrong answer, so we can nudge them in the right direction.
+
+This package is not yet on CRAN, but you can install it from the Github repository [here](https://github.com/rstudio-education/gradethis).
+
 
 ### Challenges
 
@@ -48,7 +59,10 @@ In those situations, we decided to grade the code itself, which has the disadvan
 
 <img src="https://imgur.com/qYIvTx1.jpg" width="500" height="211" />
 
+
 ### Conclusion
 
 We hope that our converted assignments will help scale the course and deliver something very close to the experience we had last fall. 
 Both of us learned a lot through this project and we are very eager to hear what next years students have to say about the course! We would like to thank Dr. Çetinkaya-Rundel for the giving us the opportunity to be part of IDS and her neverending patience for us! 
+
+If you're interested, one of our tutorials was slightly adapted for use the Teach R Online workshop series. You can see it [here](https://gallery.shinyapps.io/lego-sales/).
