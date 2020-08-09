@@ -1,5 +1,5 @@
 ---
-title: Data Science Tutorials with Learnr and Gradethis
+title: Data Science Tutorials with learnr and gradethis
 author: Lee Suddaby, Zeno Kujawa
 date: '2020-07-24'
 slug: data-science-tutorials-with-learnr-and-gradethis
