@@ -23,7 +23,7 @@ Over the university summer break, we (Zeno and Lee) were busy making preparation
 
 Moving course delivery online and to more automated marking has definite advantages. For one, feedback can be instant and significantly more informative than R's sometimes cryptic errors: for example, what on earth does `"object of type 'closure' is not subsettable"` mean? For two, this method is much more scalable. Courses are growing, which *should* be a good thing, but manual marking is not scalable unless your human resources are growing at the same rate as class sizes.
 
-The solution then? Interactive tutorials, with help from the `shiny`, `learnr` and `gradethis`. In our case, we were converting written homeworks (the very ones we'd both completed on our time on the course last fall!) into the auto-graded tutorials.
+The solution then? Interactive tutorials, with help from the [**learnr**](https://rstudio.github.io/learnr/) and [**gradethis**](https://github.com/rstudio-education/gradethis) packages. In our case, we were converting written homeworks (the very ones we'd both completed on our time on the course last fall!) into the auto-graded tutorials.
 
 
 ### Work(flow)ing 9 to 5
