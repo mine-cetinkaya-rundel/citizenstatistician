@@ -52,7 +52,7 @@ This package is not yet on CRAN, but you can install it from the Github reposito
 
 We quickly learned that converting the homework assignments wouldn't be as straightforward as just replicating the questions in a learnr tutorial. Since some tasks like interpreting visualisations can't easily be graded automatically, we had to make certain trade-offs. Usually, this either meant replacing an open-ended question with a series of multiple-choice questions while trying to preserve a questions essential lesson. 
 
-Another question we had to ask ourselves frequently was whether the students code itself or the output it produced should be evaluated. Here's an example of this conundrum: 
+Another question we had to ask ourselves frequently was whether the student's code itself or the output it produced should be evaluated. Here's an example of this conundrum: 
 
 <img src="https://imgur.com/sVa8ehy.jpg" width="499" height="95" />
 
