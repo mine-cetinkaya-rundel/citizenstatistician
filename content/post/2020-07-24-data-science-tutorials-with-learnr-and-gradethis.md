@@ -17,7 +17,7 @@ keywords:
 
 *This post was contributed by [Lee Suddaby](https://github.com/lee-suddaby) and [Zeno Kujawa](https://github.com/ZenoMK).*
 
-Over the university summer break, we (Zeno and Lee) were busy making preparations for moving more of our Introduction to Data Science course from being human-graded to computer-graded. 
+Over the university summer break, we (Zeno and Lee) were busy making preparations for moving more of our [Introduction to Data Science](https://introds.org/) course from being human-graded to computer-graded. We both took this course in the Fall of 2019, as part of our first-year studies at the University of Edinburgh, and this is where we first learned R.
 
 <!--more-->
 
@@ -30,19 +30,19 @@ The solution then? Interactive tutorials, with help from the [**learnr**](https:
 
 Behind every successful project is a successful workflow, so that is where we start. Our base is, of course, Github. Then, whisk in a handful of pull requests, two cups of peer reviews, and a few issues if necessary, and mix to form a smooth batter. Bake in an RStudio environment for 20-25 minutes and add merge conflicts to taste.
 
-Our first task was to familiarise ourselves with the particular packages - `learnr` and `gradethis` (more on these two below). Having done this, our workflow involved writing the tutorials two at a time - one person writing each - then reviewing the other person's work. After as many cycles of implementing and reviewing changes, a final review was carried out by the course organiser Dr. Çetinkaya-Rundel, who is also the creator of Citizen Statistician.
+Our first task was to familiarise ourselves with the particular packages - learnr and gradethis (more on these two below). Having done this, our workflow involved writing the tutorials two at a time - one person writing each - then reviewing the other person's work. After as many cycles of implementing and reviewing changes, a final review was carried out by the course organiser Dr. Çetinkaya-Rundel, who is also the creator of Citizen Statistician.
 
 
 ### learnr
 
-`learnr` is an R package designed to make it easy to build interactive tutorials in R markdown documents. These tutorials can contain all manner of objects, including text, graphics and figures, sections and subsections, code exercises that students can execute, multiple choice questions, even YouTube videos!
+learnr is an R package designed to make it easy to build interactive tutorials in R markdown documents. These tutorials can contain all manner of objects, including text, graphics and figures, sections and subsections, code exercises that students can execute, multiple choice questions, even YouTube videos!
 
-If you're interested in using (or just playing about with) the package yourself, it's available on CRAN.
+If you're interested in using (or just playing about with) the package yourself, it's available on CRAN, and you can learn about it [here](https://rstudio.github.io/learnr/).
 
 
 ### gradethis
 
-`gradethis` is a companion to the `learnr` package, and provides multiple different functions for grading learnr exercises. Code can either be graded against a certain solution, where we check that the student's answer exactly matches the solution, or the result can be checked against a set of conditions.
+gradethis is a companion to the learnr package, and provides multiple different functions for grading learnr exercises. Code can either be graded against a certain solution, where we check that the student's answer exactly matches the solution, or the result can be checked against a set of conditions.
 With the gradethis package, it's also easy to give helpful feedback if a student gets a foreseen wrong answer, so we can nudge them in the right direction.
 
 This package is not yet on CRAN, but you can install it from the Github repository [here](https://github.com/rstudio-education/gradethis).
