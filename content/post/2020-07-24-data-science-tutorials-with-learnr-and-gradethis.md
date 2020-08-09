@@ -54,13 +54,13 @@ We quickly learned that converting the homework assignments wouldn't be as strai
 
 Another question we had to ask ourselves frequently was whether the student's code itself or the output it produced should be evaluated. Here's an example of this conundrum: 
 
-<img src="https://imgur.com/sVa8ehy.jpg" width="499" height="95" />
+![Learnr tutorial code block example](/post/2020-07-24-data-science-tutorials-with-learnr-and-gradethis_files/sVa8ehy.png)
 
 There are many ways to answer this question in R, and since we wanted students to be awarded points whichever correct way they chose, we implemented result grading on this question, so that every answer that produced the correct output would be marked as correct. 
 With visualisations and code that doesn't produce any output, however, this becomes a bit trickier. 
 In those situations, we decided to grade the code itself, which has the disadvantage that the code has to be exactly the same as in the solution, even though it would have the same effect if two lines were interchanged. We tried to circumvent the problem by giving the students more hints and providing a structure where fewer mistakes would be possible. The following image is an example of how we dealt with visualisation exercises:
 
-<img src="https://imgur.com/qYIvTx1.jpg" width="500" height="211" />
+![Learnr tutorial code block showing visualisation exercise example](/post/2020-07-24-data-science-tutorials-with-learnr-and-gradethis_files/qYIvTx1.png)
 
 
 ### Conclusion
