@@ -7,7 +7,10 @@ categories:
   - teaching
   - shiny
   - rstats
-tags: []
+tags: 
+  - learnr
+  - gradethis
+  - tidyverse
 keywords:
   - tech
 ---
