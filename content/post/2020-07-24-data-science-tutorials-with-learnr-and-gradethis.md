@@ -28,7 +28,7 @@ The solution then? Interactive tutorials, with help from the [**learnr**](https:
 
 ### Work(flow)ing 9 to 5
 
-Behind every successful project is a successful workflow, so that is where we start. Our base is, of course, Github. Then, whisk in a handful of Pull Requests, two cups of peer reviews, and a few Issues if necessary, and mix to form a smooth batter. Bake in an RStudio environment for 20-25 minutes and add Merge Conflicts to taste.
+Behind every successful project is a successful workflow, so that is where we start. Our base is, of course, Github. Then, whisk in a handful of pull requests, two cups of peer reviews, and a few issues if necessary, and mix to form a smooth batter. Bake in an RStudio environment for 20-25 minutes and add merge conflicts to taste.
 
 Our first task was to familiarise ourselves with the particular packages - `learnr` and `gradethis` (more on these two below). Having done this, our workflow involved writing the tutorials two at a time - one person writing each - then reviewing the other person's work. After as many cycles of implementing and reviewing changes, a final review was carried out by the course organiser Dr. Çetinkaya-Rundel, who is also the creator of Citizen Statistician.
 
