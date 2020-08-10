@@ -68,4 +68,6 @@ In those situations, we decided to grade the code itself, which has the disadvan
 We hope that our converted assignments will help scale the course and deliver something very close to the experience we had last fall. 
 Both of us learned a lot through this project and we are very eager to hear what next years students have to say about the course! We would like to thank Dr. Çetinkaya-Rundel for the giving us the opportunity to be part of IDS and her neverending patience for us! 
 
-If you're interested, one of our tutorials was slightly adapted for use the Teach R Online workshop series. You can see it [here](https://gallery.shinyapps.io/lego-sales/).
+For students to access the tutorials, we're placing them in the [**dsbox**](https://www.github.com/rstudio-education/dsbox) package. They can then be run directly from the *Tutorials* pane in RStudio, like so:
+
+![Tutorials pane in RStudio](/post/2020-07-24-data-science-tutorials-with-learnr-and-gradethis_files/tutorials-pane.PNG)
