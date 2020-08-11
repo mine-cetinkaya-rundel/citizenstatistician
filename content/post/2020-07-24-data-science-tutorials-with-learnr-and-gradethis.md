@@ -15,7 +15,7 @@ keywords:
   - tech
 ---
 
-*This post was contributed by [Lee Suddaby](https://github.com/lee-suddaby) and [Zeno Kujawa](https://github.com/ZenoMK).*
+*This post was contributed by [Lee Suddaby](https://github.com/lee-suddaby) and [Zeno Kujawa](https://github.com/ZenoMK), second year students at the University of Edinburgh majoring in Mathematics and Data Science, respectively.*
 
 Over the university summer break, we (Zeno and Lee) were busy making preparations for moving more of our [Introduction to Data Science](https://introds.org/) course from being human-graded to computer-graded. We both took this course in the Fall of 2019, as part of our first-year studies at the University of Edinburgh, and this is where we first learned R.
 
