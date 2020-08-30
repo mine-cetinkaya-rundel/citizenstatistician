@@ -1,7 +1,7 @@
 ---
 title: Data Science Tutorials with learnr and gradethis
 author: Lee Suddaby, Zeno Kujawa
-date: '2020-07-24'
+date: '2020-08-31'
 slug: data-science-tutorials-with-learnr-and-gradethis
 categories: 
   - teaching
@@ -68,6 +68,6 @@ In those situations, we decided to grade the code itself, which has the disadvan
 We hope that our converted assignments will help scale the course and deliver something very close to the experience we had last fall. 
 Both of us learned a lot through this project and we are very eager to hear what next years students have to say about the course! We would like to thank Dr. Çetinkaya-Rundel for the giving us the opportunity to be part of IDS and her neverending patience for us! 
 
-For students to access the tutorials, we're placing them in the [**dsbox**](https://www.github.com/rstudio-education/dsbox) package. They can then be run directly from the *Tutorials* pane in RStudio, like so:
+For students to access the tutorials, we're placing them in the [**dsbox**](https://rstudio-education.github.io/dsbox) package. They can then be run directly from the *Tutorials* pane in RStudio, like so:
 
 ![Tutorials pane in RStudio](/post/2020-07-24-data-science-tutorials-with-learnr-and-gradethis_files/tutorials-pane.PNG)
