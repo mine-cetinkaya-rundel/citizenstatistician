@@ -101,9 +101,31 @@ I use issue templates for providing feedback for all assignments in the course -
 
 When reviewing proposals, I like being as constructive as possible with my comments as students will be working on their projects for the remainder of the course and the project makes up 20% of their overall marks (so it's no small deal for them). The last thing I want is for students to assume they were on the right track, only to find out at the end that they weren't. 
 
-I also want to make sure students actually review the feedback and feel motivated to improve their projects based on the feedback. To address both of these goals, we also have a re-proposal stage. In this stage students are asked to address each of the issues on their proposal, close them with specific commits, and finally tag me on their repos to say they're ready for another look at their work. This stage is optional, so teams who feel happy with the score they got can just take the feedback and not put in the work right away to improve their projects. But for teams who want to improve their score, it gives them an opportunity to do so. Their final proposal score is the average of the scores they receive in the two phases. Based on past experience, most teams get close to a 10/10 at the re-proposal stage. 
+I also want to make sure students actually review the feedback and feel motivated to improve their projects based on the feedback. To address both of these goals, we also have a re-proposal stage. In this stage students are asked to address each of the issues on their proposal, close them with specific commits, and finally tag me on their repos to say they're ready for another look at their work.
 
-From the instructor's perspective it's very fulfilling to see students deliberately work on specific improvements to their projects. And while I don't have student feedback on this (yet, I'll ask students about it at the end of the semester), students' commit messages suggest that they enjoy the experience as well. Students closing these issues one-by-one (roughly 5 issues per repo) generates a lot of emails for me, but that was honestly a nice distraction from election doomscrolling!
+<br>
+
+```{r echo=FALSE, fig.cap = "Anonimized issue where the team lets me know their proposal is ready for another look."}
+knitr::include_graphics("tagged.png")
+```
+
+This stage is optional, so teams who feel happy with the score they got can just take the feedback and not put in the work right away to improve their projects. But for teams who want to improve their score, it gives them an opportunity to do so. Their final proposal score is the average of the scores they receive in the two phases. Based on past experience, most teams get close to a 10/10 at the re-proposal stage. 
+
+From the instructor's perspective it's very fulfilling to see students deliberately work on specific improvements to their projects. And while I don't have student feedback on this (yet, I'll ask students about it at the end of the semester), students' commit messages suggest that they're, at least, not frustrated by the experience.
+
+<br>
+
+```{r echo=FALSE, fig.cap = "Anonimized student commits, each color represents a different student in the team.", out.width="80%"}
+knitr::include_graphics("commits.png")
+```
+
+Students closing these issues one-by-one (roughly 5 issues per repo) generates a lot of emails for me, but that was honestly a nice distraction from election doomscrolling!
+
+<br>
+
+```{r echo=FALSE, fig.cap = "Anonimized issues, each color represents a different team's repo."}
+knitr::include_graphics("issues.png")
+```
 
 I also used this week's code-along session to go over some of the common issues I observed in the proposals as well as to demo how to close issues with commits. Even though I wrote out instructions for this, it seemed worthwhile to demo the process since they hadn't done this before. I also demoed how to use [`here::here()`](https://here.r-lib.org/reference/here.html) to define the path to data. So far in the class we didn't really need to use this approach because student assignments were always structured with the `data/` folder at the same level as the R Markdown file they write in. The folder structure I outlined above created challenges when knitting the R Markdown document vs. running the code in the console. You can find a recording of the code-along session [here](https://youtu.be/ZQke97ewn8Q).^[I [tweeted before](https://twitter.com/minebocek/status/1308714732950630404?s=20) that fake student account is named Florence Nightingale. The fake student team is called Florence and the Machine. I'm pretty proud of this, and it gets a chuckle from the students 😃.]
 
