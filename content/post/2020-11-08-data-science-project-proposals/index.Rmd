@@ -1,15 +1,13 @@
 ---
 title: GitHub workflow for data science project proposals
 author: Mine Cetinkaya-Rundel
-date: '2020-11-07'
+date: '2020-11-08'
 slug: index
 categories:
   - teaching
 tags:
   - rstats
   - github
-keywords:
-  - tech
 ---
 
 Over the past few years I've been working on moving from a mindset of end-of-semester project to semester-long project. Inevitably students end up doing lots of work as the deadline approaches at the end of the semester (and I can't blame them, that's how I work around deadlines too, and how just about anyone I know works), but creating opportunities for them to get started on their projects earlier in the semester is very important.
