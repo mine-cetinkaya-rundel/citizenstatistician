@@ -2,7 +2,7 @@
 title: GitHub workflow for data science project proposals
 author: Mine Cetinkaya-Rundel
 date: '2020-11-08'
-slug: index
+slug: github-workflow-for-data-science-project-proposals
 categories:
   - teaching
 tags:
