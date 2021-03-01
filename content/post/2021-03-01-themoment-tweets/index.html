@@ -222,7 +222,7 @@ themoment</code></pre>
     y = 205,
     label = &quot;March 13&quot;
   )</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-1.png" title="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," alt="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," width="100%" /></p>
 </div>
 <div id="what-happened-on-march-13-2020" class="section level2">
 <h2>What happened on March 13, 2020?</h2>
@@ -266,11 +266,11 @@ march_13_regex &lt;- glue_collapse(march_13_text, sep = &quot;|&quot;)</code></p
 <pre class="r"><code>march_13_words %&gt;%
   count(word) %&gt;%
   filter(!(word %in% c(&quot;3&quot;, &quot;2020&quot;, &quot;amp&quot;, &quot;https&quot;, &quot;t.co&quot;))) %&gt;%
-  with(wordcloud(word, n, max.words = 30, colors = viridis::viridis(n = 30)))</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+  with(wordcloud(word, n, max.words = 50, colors = viridis::viridis(n = 50)))</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-18-1.png" title="Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words." alt="Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words." width="50%" /></p>
 </div>
-<div id="tom-hanks-spring-and-the-nba" class="section level2">
-<h2>Tom Hanks, spring and the NBA</h2>
+<div id="tom-hanks-the-nba-and-spring-break" class="section level2">
+<h2>Tom Hanks, the NBA, and spring break</h2>
 <p>As I was perusing the data throughout this analysis, mentions of Tom Hanks and NBA seemed quite frequent. This was surprising to be since the NBA is rarely on my radar (and less so now that I’m in the UK) and I was not expecting the Tom Hanks celebrity effect! Another phrase that stood out was spring break, which is not too unexpected.</p>
 <p>Let’s take a look at how many tweets mention these, out of the 5969 total.</p>
 <pre class="r"><code>replies %&gt;%

@@ -194,7 +194,7 @@ As expected based on previous results, I see lots of March dates, but March 13 s
 
 Let's also visualise these data over time.
 
-```{r}
+```{r out.width = "100%", fig.asp = 0.4, fig.alt = "Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13,"}
 ggplot(themoment, aes(x = date, y = n_total)) +
   geom_point() +
   geom_line() +
@@ -254,14 +254,14 @@ It's not straightforward to get anything meaningful from this output. I think th
 
 I'm not a huge fan of [wordclouds](https://www.tidytextmining.com/sentiment.html?q=word%20cloud#wordclouds) but I think it might be a helpful visualisation here, so I'll give that a try.
 
-```{r}
+```{r out.width = "50%", fig.alt = "Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words."}
 march_13_words %>%
   count(word) %>%
   filter(!(word %in% c("3", "2020", "amp", "https", "t.co"))) %>%
-  with(wordcloud(word, n, max.words = 30, colors = viridis::viridis(n = 30)))
+  with(wordcloud(word, n, max.words = 50, colors = viridis::viridis(n = 50)))
 ```
 
-## Tom Hanks, spring  and the NBA
+## Tom Hanks, the NBA, and spring break
 
 As I was perusing the data throughout this analysis, mentions of Tom Hanks and NBA seemed quite frequent. This was surprising to be since the NBA is rarely on my radar (and less so now that I'm in the UK) and I was not expecting the Tom Hanks celebrity effect! Another phrase that stood out was spring break, which is not too unexpected.
 
