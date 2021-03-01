@@ -196,7 +196,7 @@ As expected based on previous results, I see lots of March dates, but March 13 s
 
 Let's also visualise these data over time.
 
-```{r out.width = "100%", fig.asp = 0.5, fig.alt = "Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13,"}
+```{r out.width = "100%", fig.asp = 0.6, fig.alt = "Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13,"}
 ggplot(themoment, aes(x = date, y = n_total)) +
   geom_line(color = "gray") +
   geom_point(aes(color = log(n_total)), show.legend = FALSE) +
