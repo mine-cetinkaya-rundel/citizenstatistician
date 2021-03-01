@@ -286,10 +286,10 @@ march_13_regex &lt;- glue_collapse(march_13_text, sep = &quot;|&quot;)</code></p
 ##   tom_hanks   nba spring_break p_tom_hanks  p_nba p_spring_break
 ##       &lt;int&gt; &lt;int&gt;        &lt;int&gt;       &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;
 ## 1        67   218          190      0.0112 0.0365         0.0318</code></pre>
-<p>Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected for especially Tom Hanks.</p>
+<p>Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected, especially for Tom Hanks.</p>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
 <p>Perhaps the most unexpected thing about the results of this analysis is how clearly March 13 stands out as a date people mentioned. The other surprising result was people mentioning dates as late as end of May!</p>
-<p>There are certainly some holes in this analysis. My regular expressions could be more precise and relying on <code>readr::parse_number()</code> solely to get dates is likely not bullet proof.</p>
+<p>There are certainly some holes in this analysis. Text strings I used (both for capturing replies to the original tweet and for including/excluding tweets from the analysis) as well as my regular expressions could be more robust. Additionally, relying on <code>readr::parse_number()</code> solely to get dates is likely not bullet proof.</p>
 </div>

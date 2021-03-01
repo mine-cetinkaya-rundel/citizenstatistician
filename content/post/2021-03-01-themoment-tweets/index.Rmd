@@ -279,10 +279,10 @@ replies %>%
   mutate(across(tom_hanks:spring_break, ~ . / nrow(replies), .names = "p_{.col}"))
 ```
 
-Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected for especially Tom Hanks.
+Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected, especially for Tom Hanks. 
 
 ## Conclusion
 
 Perhaps the most unexpected thing about the results of this analysis is how clearly March 13 stands out as a date people mentioned. The other surprising result was people mentioning dates as late as end of May!
 
-There are certainly some holes in this analysis. My regular expressions could be more precise and relying on `readr::parse_number()` solely to get dates is likely not bullet proof. 
+There are certainly some holes in this analysis. Text strings I used (both for capturing replies to the original tweet and for including/excluding tweets from the analysis) as well as my regular expressions could be more robust. Additionally, relying on `readr::parse_number()` solely to get dates is likely not bullet proof. 
