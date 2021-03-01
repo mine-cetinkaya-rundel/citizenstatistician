@@ -9,12 +9,13 @@ tags:
   - twitter
 ---
 
-<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
-<script src="{{< blogdown/postref >}}index_files/twitter-widget/widgets.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/twitter-widget/widgets.js"></script>
 
 
-<p>On Sunday morning I came across a tweet by NPR’s <a href="https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862">Lulu Garcia-Navarro</a> morning asking people when they knew things were going to be different due to COVID.</p>
+<p>On Sunday morning I came across a tweet by NPR’s <a href="https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862">Lulu Garcia-Navarro</a> morning asking people when they knew things were going to be different due to COVID. Whenever I read replies to a tweet like this I’m always tempted to scrape all the replies and take a look at the data to see if anything interesting emerges.</p>
 <!--more-->
+<p>On Sunday morning I came across a tweet by NPR’s <a href="https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862">Lulu Garcia-Navarro</a> morning asking people when they knew things were going to be different due to COVID.</p>
 <blockquote class="twitter-tweet" data-width="550" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">We all have <a href="https://twitter.com/hashtag/TheMoment?src=hash&amp;ref_src=twsrc%5Etfw">#TheMoment</a> when we knew things were going to be different. Where were you and what were you thinking a year ago? We are one year into this pandemic. Tell us <a href="https://twitter.com/NPR?ref_src=twsrc%5Etfw">@NPR</a> <a href="https://twitter.com/NPRWeekend?ref_src=twsrc%5Etfw">@NPRWeekend</a></p>&mdash; Lulu (@lourdesgnavarro) <a href="https://twitter.com/lourdesgnavarro/status/1365844493434572801?ref_src=twsrc%5Etfw">February 28, 2021</a></blockquote>
 
 <p>Whenever I read replies to a tweet like this I’m always tempted to scrape all the replies and take a look at the data to see if anything interesting emerges. So I go ahead and load the awesome <a href="https://docs.ropensci.org/rtweet/index.html">rtweet</a> package and then I remember that the task of getting all replies to a tweet is not super straightforward – there is even an <a href="https://github.com/ropensci/rtweet/issues/363">open issue</a> about this on the package repo. I feel like over the years I’ve seen more than one write up about solving this problem, and one that came to mind was Jenny Bryan’s, which you can find <a href="https://github.com/jennybc/scream">here</a>. But this solution uses the <a href="https://cran.r-project.org/web/packages/twitteR/">twitteR</a> package which predates rtweet and hasn’t been updated for a while. It looked like it should be possible to update the code to use rtweet, but I had limited time on a weekend with family responsibilities, so I decided to take the short cut.</p>
@@ -222,11 +223,11 @@ themoment</code></pre>
     y = 205,
     label = &quot;March 13&quot;
   )</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-1.png" title="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," alt="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," width="100%" /></p>
+<p><img src="/post/2021-03-01-themoment-tweets_files/figure-html/unnamed-chunk-14-1.png" title="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," alt="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," width="100%" /></p>
 </div>
 <div id="what-happened-on-march-13-2020" class="section level2">
 <h2>What happened on March 13, 2020?</h2>
-<p>March 13, 2020 was a Friday, almost a year ago from today. I’d like to first acknowledge that March 13, 2020 is an incredibly sad day in history, the day <a href="https://en.wikipedia.org/wiki/Shooting_of_Breonna_Taylor">Breonna Taylor was fatally shot</a> in her apartment. I encourage you to read the <a href="https://blacklivesmatter.com/statement-by-black-lives-matter-global-network-foundation-in-response-to-grand-jury-verdict-in-the-breonna-taylor-case/">powerful statement</a> by Black Lives Matter Global Network Foundation in response to Grand Jury verdict in the Breonna Taylor case.</p>
+<p>I’d like to first acknowledge that March 13, 2020 is an incredibly sad day in history, the day <a href="https://en.wikipedia.org/wiki/Shooting_of_Breonna_Taylor">Breonna Taylor was fatally shot</a> in her apartment. I encourage you to read the <a href="https://blacklivesmatter.com/statement-by-black-lives-matter-global-network-foundation-in-response-to-grand-jury-verdict-in-the-breonna-taylor-case/">powerful statement</a> by Black Lives Matter Global Network Foundation in response to Grand Jury verdict in the Breonna Taylor case.</p>
 <p>I wanted to see why this date stood out in the replies. This is an opportunity to fix a simplifying assumption I made earlier as well. Some dates are spelled out as “March 13” or “13 March” in the tweets, but some are written as “3/13” or “3-13” or “Mar 13” and various versions of these.</p>
 <pre class="r"><code>march_13_text &lt;- c(
   &quot;march 13&quot;, &quot;13 march&quot;,
@@ -267,7 +268,7 @@ march_13_regex &lt;- glue_collapse(march_13_text, sep = &quot;|&quot;)</code></p
   count(word) %&gt;%
   filter(!(word %in% c(&quot;3&quot;, &quot;2020&quot;, &quot;amp&quot;, &quot;https&quot;, &quot;t.co&quot;))) %&gt;%
   with(wordcloud(word, n, max.words = 50, colors = viridis::viridis(n = 50)))</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-18-1.png" title="Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words." alt="Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words." width="50%" /></p>
+<p><img src="/post/2021-03-01-themoment-tweets_files/figure-html/unnamed-chunk-18-1.png" title="Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words." alt="Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words." width="50%" /></p>
 </div>
 <div id="tom-hanks-the-nba-and-spring-break" class="section level2">
 <h2>Tom Hanks, the NBA, and spring break</h2>

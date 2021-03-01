@@ -1,6 +1,9 @@
 base
 rtweet
 tweetrmd
+glue
+lubridate
+tidytext
 tidyverse
 ggplot2
 tibble
@@ -10,4 +13,7 @@ purrr
 dplyr
 stringr
 forcats
-tidytext
+viridisLite
+viridis
+RColorBrewer
+wordcloud

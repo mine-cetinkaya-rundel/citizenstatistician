@@ -15,9 +15,11 @@ library(tweetrmd)
 ```
 
 
-On Sunday morning I came across a tweet by NPR's [Lulu Garcia-Navarro](https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862) morning asking people when they knew things were going to be different due to COVID. 
+On Sunday morning I came across a tweet by NPR's [Lulu Garcia-Navarro](https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862) morning asking people when they knew things were going to be different due to COVID. Whenever I read replies to a tweet like this I'm always tempted to scrape all the replies and take a look at the data to see if anything interesting emerges. 
 
 <!--more-->
+
+On Sunday morning I came across a tweet by NPR's [Lulu Garcia-Navarro](https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862) morning asking people when they knew things were going to be different due to COVID. 
 
 ```{r echo = FALSE, cache = TRUE}
 tweetrmd::include_tweet("https://twitter.com/lourdesgnavarro/status/1365844493434572801")
@@ -68,7 +70,7 @@ replies_raw <- search_tweets(
 ```
 
 ```{r include = FALSE}
-replies_raw <- read_rds(here::here("content/post/2021-03-01-themoment-tweets/data/replies.rds"))
+replies_raw <- read_rds("../../static/post/2021-03-01-themoment-tweets/replies.rds")
 ```
 
 Note that this code isn't running in real time, so these are replies as of around 10am GMT on the morning of Monday, 1 March. There are `r nrow(replies_raw)` replies in the result.
@@ -215,7 +217,7 @@ ggplot(themoment, aes(x = date, y = n_total)) +
 
 ## What happened on March 13, 2020?
 
-March 13, 2020 was a Friday, almost a year ago from today. I'd like to first acknowledge that March 13, 2020 is an incredibly sad day in history, the day [Breonna Taylor was fatally shot](https://en.wikipedia.org/wiki/Shooting_of_Breonna_Taylor) in her apartment. I encourage you to read the [powerful statement](https://blacklivesmatter.com/statement-by-black-lives-matter-global-network-foundation-in-response-to-grand-jury-verdict-in-the-breonna-taylor-case/) by Black Lives Matter Global Network Foundation in response to Grand Jury verdict in the Breonna Taylor case.
+I'd like to first acknowledge that March 13, 2020 is an incredibly sad day in history, the day [Breonna Taylor was fatally shot](https://en.wikipedia.org/wiki/Shooting_of_Breonna_Taylor) in her apartment. I encourage you to read the [powerful statement](https://blacklivesmatter.com/statement-by-black-lives-matter-global-network-foundation-in-response-to-grand-jury-verdict-in-the-breonna-taylor-case/) by Black Lives Matter Global Network Foundation in response to Grand Jury verdict in the Breonna Taylor case.
 
 I wanted to see why this date stood out in the replies. This is an opportunity to fix a simplifying assumption I made earlier as well. Some dates are spelled out as "March 13" or "13 March" in the tweets, but some are written as "3/13" or "3-13" or "Mar 13" and various versions of these.
 
