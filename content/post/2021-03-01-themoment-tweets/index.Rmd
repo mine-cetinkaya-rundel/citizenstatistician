@@ -1,7 +1,7 @@
 ---
 title: '#TheMoment tweets'
 author: R package build
-date: '2021-02-28'
+date: '2021-03-01'
 slug: themoment-tweets
 categories:
   - rstats
@@ -68,7 +68,7 @@ replies_raw <- search_tweets(
 ```
 
 ```{r include = FALSE}
-replies_raw <- read_rds(here::here("content/post/2021-02-28-themoment-tweets/data/replies.rds"))
+replies_raw <- read_rds(here::here("content/post/2021-03-01-themoment-tweets/data/replies.rds"))
 ```
 
 Note that this code isn't running in real time, so these are replies as of around 10am GMT on the morning of Monday, 1 March. There are `r nrow(replies_raw)` replies in the result.
