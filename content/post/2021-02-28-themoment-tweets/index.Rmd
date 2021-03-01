@@ -1,0 +1,294 @@
+---
+title: '#TheMoment tweets'
+author: R package build
+date: '2021-02-28'
+slug: themoment-tweets
+categories:
+  - rstats
+tags:
+  - twitter
+---
+
+```{r include = FALSE}
+library(rtweet)
+library(tweetrmd)
+```
+
+
+On Sunday morning I came across a tweet by NPR's [Lulu Garcia-Navarro](https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862) morning asking people when they knew things were going to be different due to COVID. 
+
+<!--more-->
+
+```{r echo = FALSE, cache = TRUE}
+tweetrmd::include_tweet("https://twitter.com/lourdesgnavarro/status/1365844493434572801")
+```
+
+Whenever I read replies to a tweet like this I'm always tempted to scrape all the replies and take a look at the data to see if anything interesting emerges. So I go ahead and load the awesome [rtweet](https://docs.ropensci.org/rtweet/index.html) package and then I remember that the task of getting all replies to a tweet is not super straightforward -- there is even an [open issue](https://github.com/ropensci/rtweet/issues/363) about this on the package repo. I feel like over the years I've seen more than one write up about solving this problem, and one that came to mind was Jenny Bryan's, which you can find [here](https://github.com/jennybc/scream). But this solution uses the [twitteR](https://cran.r-project.org/web/packages/twitteR/) package which predates rtweet and hasn't been updated for a while. It looked like it should be possible to update the code to use rtweet, but I had limited time on a weekend with family responsibilities, so I decided to take the short cut.
+
+Let's start by loading all the packages I'll use for this mini analysis:
+
+```{r message = FALSE}
+library(glue)       # for constructing text strings
+library(lubridate)  # for working with dates
+library(rtweet)     # for getting Twitter data
+library(tidytext)   # for working with text data
+library(tidyverse)  # for data wrangling and visualisation
+library(viridis)    # for colors
+library(wordcloud)  # for making a word cloud
+```
+
+## Getting replies to the original tweet, kinda...
+
+First, I took a look at the original tweet. The text of the tweet is stored in the `text` column of the result -- I'll refer to the `text` column repeatedly throughout this post.
+
+```{r message = FALSE, cache = TRUE}
+original_tweet <- lookup_tweets("1365844493434572801")
+original_tweet$text
+```
+
+The original tweet mentions two screen names: `@NPR` and `@NPRWeekend`. 
+Then, I picked just [one reply](https://twitter.com/chelleinchicago/status/1365864066460377088) to the original tweet and took a look at its text:
+
+```{r message = FALSE, cache = TRUE}
+reply_tweet <- lookup_tweets("1365864066460377088")
+reply_tweet$text
+```
+
+It contains the original mentions (`@NPR` and `@NPRWeekend`) as well as `@lourdesgnavarro` since it's a reply to @lourdesgnavarro.
+
+As a short cut, I decided to define replies roughly as "tweets that mention these three screen names, in that order". I realize that this might be missing some replies as Twitter allows you to deselect mentions when replying to a tweet. It's also possible this catches some tweets that are not replies to the original tweet but just happens to have these three mentions, in this order. This is why this section is called *"getting replies to the original tweet, kinda"* and not *"getting all replies to the original tweet"*.
+
+I set the number of tweets to download (`n`) to 18000, which is the maximum allowed, though based on the engagement on the original tweet, I didn't expect there would be that many replies.
+
+```{r eval = FALSE}
+replies_raw <- search_tweets(
+  q = "@lourdesgnavarro @NPR @NPRWeekend",
+  n = 18000
+  )
+```
+
+```{r include = FALSE}
+replies_raw <- read_rds(here::here("content/post/2021-02-28-themoment-tweets/data/replies.rds"))
+```
+
+Note that this code isn't running in real time, so these are replies as of around 10am GMT on the morning of Monday, 1 March. There are `r nrow(replies_raw)` replies in the result.
+
+## Cleaning replies
+
+Based on a bit of interactive investigation of the data, I decided to do some data cleaning before analysing it further.
+
+- Remove original tweet: The original tweet is in `replies_raw` as well as retweets of that original tweet. Since I want the replies, I'll filter those out.
+- Keep only one of each tweet: Some tweets in `replies_raw` are retweets of each other, so I'll use `distinct()` to make sure each unique tweet text appears once in the data. 
+  - Note that the output from the `search_tweets()` call has metadata about the tweets, and one of these pieces of information is whether the tweet is a retweet or not. But I wanted to make sure I omit retweets but not quote tweets (as some people put their reply in a quote tweet), so I took the `distinct()` approach. It might be possible to get the same, or perhaps a more accurate, result using features from the tweet metadata.
+  - With my approach, if two people tweet the exact same reply, I'll lose this, but that seems unlikely. 
+- Remove words from tweets: Each of these tweets include the mentions `@lourdesgnavarro`, `@NPRWeekend`, and `@NPR` and many also include `#TheMoment`. I don't want these appearing on top of the common words I extract from the tweets, so I'll remove them (along with their lowercase variants)
+
+```{r}
+replies <- replies_raw %>%
+  # remove original tweet
+  filter(text != original_tweet$text) %>%
+  # keep only one of each tweet
+  distinct(text, .keep_all = TRUE) %>%
+  # remove words from tweets
+  mutate(
+    text = str_remove_all(text, "@lourdesgnavarro"),
+    text = str_remove_all(text, "@NPRWeekend"),
+    text = str_remove_all(text, "@nprweekend"),
+    text = str_remove_all(text, "@NPR"),
+    text = str_remove_all(text, "@npr"),
+    text = str_remove_all(text, "#TheMoment")
+  )
+```
+
+## Common words
+
+Using the [tidytext](https://juliasilge.github.io/tidytext) package, I took a look at the most common words in the replies, excluding any [stop words](https://en.wikipedia.org/wiki/Stop_word).
+
+```{r warning = FALSE, message = FALSE}
+words <- replies %>%
+  unnest_tokens(word, text, "tweets") %>%
+  anti_join(stop_words) %>%
+  count(word, sort = TRUE)
+words
+```
+
+This result isn't super interesting, but it looks like for most people their "moment" was in March and I was surprised to see February ranked as low as 25th in the list of common words.
+
+```{r}
+words %>%
+  rowid_to_column(var = "rank") %>%
+  filter(word == "february")
+```
+
+## Common bigrams
+
+Next I explored common [bigrams](https://en.wikipedia.org/wiki/Bigram), which took a bit more fiddling. I am not aware of a predefined list of stop words for bigrams, so I decided to exclude any bigrams where both words are stop words, e.g. "in the". I also excluded the bigram "https t.co", which contains URL fragments.
+
+```{r}
+bigrams <- replies %>%
+  unnest_tokens(ngram, text, "ngrams", n = 2) %>%
+  count(ngram, sort = TRUE) %>%
+  # fiddle with stop words
+  separate(ngram, into = c("temp_word1", "temp_word2"), remove = FALSE, sep = " ") %>%
+  mutate(
+    temp_word1_stop = if_else(temp_word1 %in% stop_words$word, TRUE, FALSE),
+    temp_word2_stop = if_else(temp_word2 %in% stop_words$word, TRUE, FALSE),
+    temp_stop       = temp_word1_stop + temp_word2_stop
+  ) %>%
+  filter(temp_stop != 2) %>%
+  select(!contains("temp")) %>%
+  # exclude URL fragments
+  filter(ngram != "https t.co")
+
+bigrams
+```
+
+March comes up again! 
+
+## When was #TheMoment?
+
+After the initial exploration of common words and bigrams I decided that interesting feature of these data might be the dates mentioned in the tweets. After interactively filtering for various months in the RStudio data viewer to see what sorts of results I get, I decided to focus on bigrams that include the months December through May. And I used `readr::parse_number()` to do the heavy lifting of extracting numbers from the bigrams.
+
+```{r warning = FALSE}
+themoment <- bigrams %>%
+  # filter for certain months
+  filter(str_detect(ngram, "december|january|february|march|april|may")) %>%
+  # add month and day variables
+  mutate(
+    month = case_when(
+      str_detect(ngram, "december") ~ "December",
+      str_detect(ngram, "january")  ~ "January",
+      str_detect(ngram, "february") ~ "February",
+      str_detect(ngram, "march")    ~ "March",
+      str_detect(ngram, "april")    ~ "April",
+      str_detect(ngram, "may")      ~ "May"
+    ),
+    day = parse_number(ngram)
+    ) %>%
+  # only keep actual dates
+  filter(!is.na(day), !is.na(month), day <= 31) %>%
+  # calculate number of tweets that mention a certain date
+  group_by(month, day) %>%
+  summarise(n_total = sum(n), .groups = "drop") %>%
+  # construct date variable
+  mutate(
+    date = if_else(month == "December",
+                   glue("{month} {day} 2019"),
+                   glue("{month} {day} 2020")),
+    date = mdy(date)
+    ) %>%
+  # arrange results by date
+  arrange(date)
+
+themoment
+```
+
+Let's take a look at which dates were most commonly mentioned.
+
+```{r}
+themoment %>%
+  arrange(desc(n_total))
+```
+
+As expected based on previous results, I see lots of March dates, but March 13 seems to really stand out.
+
+Let's also visualise these data over time.
+
+```{r}
+ggplot(themoment, aes(x = date, y = n_total)) +
+  geom_point() +
+  geom_line() +
+  labs(
+    x = "Date",
+    y = "Number of tweets",
+    title = "#TheMoment dates reported on Twitter",
+    subtitle = "In replies to @lourdesgnavarro's tweet",
+    caption = "Data: Twitter | Graph @minebocek"
+  ) +
+  annotate(
+    "text",
+    x = mdy("March 13 2020") + 10,
+    y = 205,
+    label = "March 13"
+  )
+```
+
+## What happened on March 13, 2020?
+
+March 13, 2020 was a Friday, almost a year ago from today. I'd like to first acknowledge that March 13, 2020 is an incredibly sad day in history, the day [Breonna Taylor was fatally shot](https://en.wikipedia.org/wiki/Shooting_of_Breonna_Taylor) in her apartment. I encourage you to read the [powerful statement](https://blacklivesmatter.com/statement-by-black-lives-matter-global-network-foundation-in-response-to-grand-jury-verdict-in-the-breonna-taylor-case/) by Black Lives Matter Global Network Foundation in response to Grand Jury verdict in the Breonna Taylor case.
+
+I wanted to see why this date stood out in the replies. This is an opportunity to fix a simplifying assumption I made earlier as well. Some dates are spelled out as "March 13" or "13 March" in the tweets, but some are written as "3/13" or "3-13" or "Mar 13" and various versions of these.
+
+```{r}
+march_13_text <- c(
+  "march 13", "13 march",
+  "3/13", "3-13",
+  "mar 13", "13 mar"
+)
+march_13_regex <- glue_collapse(march_13_text, sep = "|")
+```
+
+I can now go back to the tweets and filter them for any of these text strings to get all mentions of this date.
+
+```{r}
+march_13_tweets <- replies %>%
+  mutate(text = str_to_lower(text)) %>%
+  filter(str_detect(text, march_13_regex))
+```
+
+There are `r nrow(march_13_tweets)` such tweets, which is more than what's shown in the earlier visualisation.
+
+To get a sense of what's in these tweets, I can again take a look at common words in them. But first, I'll remove the text strings I searched for, since they will obviously be very common.
+
+```{r}
+march_13_words <- march_13_tweets %>%
+  mutate(text = str_remove_all(text, march_13_regex)) %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words)
+
+march_13_words %>%
+  count(word, sort = TRUE)
+```
+
+It's not straightforward to get anything meaningful from this output. I think the "3" comes from mentioning other dates in March (e.g. "3/12"), "2020" is the year and doesn't tell us anything additional in this context, and "amp" is "&" when tokenized. So I'll remove these.
+
+I'm not a huge fan of [wordclouds](https://www.tidytextmining.com/sentiment.html?q=word%20cloud#wordclouds) but I think it might be a helpful visualisation here, so I'll give that a try.
+
+```{r}
+march_13_words %>%
+  count(word) %>%
+  filter(!(word %in% c("3", "2020", "amp", "https", "t.co"))) %>%
+  with(wordcloud(word, n, max.words = 30, colors = viridis::viridis(n = 30)))
+```
+
+## Tom Hanks and the NBA
+
+As I was perusing the data throughout this analysis, mentions of Tom Hanks and NBA seemed quite frequent. This was surprising to be since the NBA is rarely on my radar (and less so now that I'm in the UK) and I was not expecting the Tom Hanks celebrity effect! Another phrase that stood out was spring break, which is not too unexpected.
+
+Let's take a look at how many tweets mention these, out of the `r nrow(replies)` total.
+
+```{r}
+replies %>%
+  transmute(
+    text         = str_to_lower(text),
+    tom_hanks    = str_detect(text, "^tom hanks| tom hanks"),
+    nba          = str_detect(text, "^nba| nba"),
+    spring_break = str_detect(text, "^spring break| spring break")
+    ) %>%
+  summarise(
+    n_tom_hanks    = sum(tom_hanks),
+    p_tom_hanks    = n_tom_hanks / nrow(replies),
+    n_nba          = sum(nba),
+    p_nba          = n_nba / nrow(replies),
+    n_spring_break = sum(spring_break),
+    p_spring_break = n_spring_break / nrow(replies)
+  )
+```
+
+Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected for especially Tom Hanks.
+
+## Conclusion
+
+Perhaps the most unexpected thing about the results of this analysis is how clearly March 13 stands out as a date people mentioned. The other surprising result was people mentioning dates as late as end of May!
+
+There are certainly some holes in this analysis. My regular expressions could be more precise and relying on `readr::parse_number()` solely to get dates is likely not bullet proof. 
