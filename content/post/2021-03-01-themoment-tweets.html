@@ -1,0 +1,301 @@
+---
+title: '#TheMoment tweets'
+author: R package build
+date: '2021-03-01'
+slug: themoment-tweets
+categories:
+  - rstats
+tags:
+  - twitter
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/twitter-widget/widgets.js"></script>
+
+
+<p>On Sunday morning I came across a tweet by NPR’s <a href="https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862">Lulu Garcia-Navarro</a> morning asking people when they knew things were going to be different due to COVID. Whenever I read replies to a tweet like this I’m always tempted to scrape all the replies and take a look at the data to see if anything interesting emerges.</p>
+<!--more-->
+<p>On Sunday morning I came across a tweet by NPR’s <a href="https://www.npr.org/people/4462099/lourdes-garcia-navarro?t=1614556725862">Lulu Garcia-Navarro</a> morning asking people when they knew things were going to be different due to COVID.</p>
+<blockquote class="twitter-tweet" data-width="550" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">We all have <a href="https://twitter.com/hashtag/TheMoment?src=hash&amp;ref_src=twsrc%5Etfw">#TheMoment</a> when we knew things were going to be different. Where were you and what were you thinking a year ago? We are one year into this pandemic. Tell us <a href="https://twitter.com/NPR?ref_src=twsrc%5Etfw">@NPR</a> <a href="https://twitter.com/NPRWeekend?ref_src=twsrc%5Etfw">@NPRWeekend</a></p>&mdash; Lulu (@lourdesgnavarro) <a href="https://twitter.com/lourdesgnavarro/status/1365844493434572801?ref_src=twsrc%5Etfw">February 28, 2021</a></blockquote>
+
+<p>Whenever I read replies to a tweet like this I’m always tempted to scrape all the replies and take a look at the data to see if anything interesting emerges. So I go ahead and load the awesome <a href="https://docs.ropensci.org/rtweet/index.html">rtweet</a> package and then I remember that the task of getting all replies to a tweet is not super straightforward – there is even an <a href="https://github.com/ropensci/rtweet/issues/363">open issue</a> about this on the package repo. I feel like over the years I’ve seen more than one write up about solving this problem, and one that came to mind was Jenny Bryan’s, which you can find <a href="https://github.com/jennybc/scream">here</a>. But this solution uses the <a href="https://cran.r-project.org/web/packages/twitteR/">twitteR</a> package which predates rtweet and hasn’t been updated for a while. It looked like it should be possible to update the code to use rtweet, but I had limited time on a weekend with family responsibilities, so I decided to take the short cut.</p>
+<p>Let’s start by loading all the packages I’ll use for this mini analysis:</p>
+<pre class="r"><code>library(glue)       # for constructing text strings
+library(lubridate)  # for working with dates
+library(rtweet)     # for getting Twitter data
+library(tidytext)   # for working with text data
+library(tidyverse)  # for data wrangling and visualisation
+library(viridis)    # for colors
+library(wordcloud)  # for making a word cloud</code></pre>
+<div id="getting-replies-to-the-original-tweet-kinda" class="section level2">
+<h2>Getting replies to the original tweet, kinda…</h2>
+<p>First, I took a look at the original tweet. The text of the tweet is stored in the <code>text</code> column of the result – I’ll refer to the <code>text</code> column repeatedly throughout this post.</p>
+<pre class="r"><code>original_tweet &lt;- lookup_tweets(&quot;1365844493434572801&quot;)
+original_tweet$text</code></pre>
+<pre><code>## [1] &quot;We all have #TheMoment when we knew things were going to be different. Where were you and what were you thinking a year ago? We are one year into this pandemic. Tell us @NPR @NPRWeekend&quot;</code></pre>
+<p>The original tweet mentions two screen names: <code>@NPR</code> and <code>@NPRWeekend</code>.
+Then, I picked just <a href="https://twitter.com/chelleinchicago/status/1365864066460377088">one reply</a> to the original tweet and took a look at its text:</p>
+<pre class="r"><code>reply_tweet &lt;- lookup_tweets(&quot;1365864066460377088&quot;)
+reply_tweet$text</code></pre>
+<pre><code>## [1] &quot;@lourdesgnavarro @NPR @NPRWeekend On Friday, March 6th (I believe) I saw a tweet with a video from Harvard where @juliettekayyem was saying we should be prepared for our lives to change...and it scared the shit out of me. Hit Costco in the morning but the sadness took a few weeks to kick in. #TheMoment&quot;</code></pre>
+<p>It contains the original mentions (<code>@NPR</code> and <code>@NPRWeekend</code>) as well as <code>@lourdesgnavarro</code> since it’s a reply to <span class="citation">@lourdesgnavarro</span>.</p>
+<p>As a short cut, I decided to define replies roughly as “tweets that mention these three screen names, in that order”. I realize that this might be missing some replies as Twitter allows you to deselect mentions when replying to a tweet. It’s also possible this catches some tweets that are not replies to the original tweet but just happens to have these three mentions, in this order. This is why this section is called <em>“getting replies to the original tweet, kinda”</em> and not <em>“getting all replies to the original tweet”</em>.</p>
+<p>I set the number of tweets to download (<code>n</code>) to 18000, which is the maximum allowed, though based on the engagement on the original tweet, I didn’t expect there would be that many replies.</p>
+<pre class="r"><code>replies_raw &lt;- search_tweets(
+  q = &quot;@lourdesgnavarro @NPR @NPRWeekend&quot;,
+  n = 18000
+  )</code></pre>
+<p>Note that this code isn’t running in real time, so these are replies as of around 10am GMT on the morning of Monday, 1 March. There are 7572 replies in the result.</p>
+</div>
+<div id="cleaning-replies" class="section level2">
+<h2>Cleaning replies</h2>
+<p>Based on a bit of interactive investigation of the data, I decided to do some data cleaning before analysing it further.</p>
+<ul>
+<li>Remove original tweet: The original tweet is in <code>replies_raw</code> as well as retweets of that original tweet. Since I want the replies, I’ll filter those out.</li>
+<li>Keep only one of each tweet: Some tweets in <code>replies_raw</code> are retweets of each other, so I’ll use <code>distinct()</code> to make sure each unique tweet text appears once in the data.
+<ul>
+<li>Note that the output from the <code>search_tweets()</code> call has metadata about the tweets, and one of these pieces of information is whether the tweet is a retweet or not. But I wanted to make sure I omit retweets but not quote tweets (as some people put their reply in a quote tweet), so I took the <code>distinct()</code> approach. It might be possible to get the same, or perhaps a more accurate, result using features from the tweet metadata.</li>
+<li>With my approach, if two people tweet the exact same reply, I’ll lose this, but that seems unlikely.</li>
+</ul></li>
+<li>Remove words from tweets: Each of these tweets include the mentions <code>@lourdesgnavarro</code>, <code>@NPRWeekend</code>, and <code>@NPR</code> and many also include <code>#TheMoment</code>. I don’t want these appearing on top of the common words I extract from the tweets, so I’ll remove them (along with their lowercase variants)</li>
+</ul>
+<pre class="r"><code>replies &lt;- replies_raw %&gt;%
+  # remove original tweet
+  filter(text != original_tweet$text) %&gt;%
+  # keep only one of each tweet
+  distinct(text, .keep_all = TRUE) %&gt;%
+  # remove words from tweets
+  mutate(
+    text = str_remove_all(text, &quot;@lourdesgnavarro&quot;),
+    text = str_remove_all(text, &quot;@NPRWeekend&quot;),
+    text = str_remove_all(text, &quot;@nprweekend&quot;),
+    text = str_remove_all(text, &quot;@NPR&quot;),
+    text = str_remove_all(text, &quot;@npr&quot;),
+    text = str_remove_all(text, &quot;#TheMoment&quot;)
+  )</code></pre>
+</div>
+<div id="common-words" class="section level2">
+<h2>Common words</h2>
+<p>Using the <a href="https://juliasilge.github.io/tidytext">tidytext</a> package, I took a look at the most common words in the replies, excluding any <a href="https://en.wikipedia.org/wiki/Stop_word">stop words</a>.</p>
+<pre class="r"><code>words &lt;- replies %&gt;%
+  unnest_tokens(word, text, &quot;tweets&quot;) %&gt;%
+  anti_join(stop_words) %&gt;%
+  count(word, sort = TRUE)
+words</code></pre>
+<pre><code>## # A tibble: 13,121 x 2
+##    word        n
+##    &lt;chr&gt;   &lt;int&gt;
+##  1 march    1451
+##  2 home     1145
+##  3 day       839
+##  4 amp       800
+##  5 time      603
+##  6 week      537
+##  7 school    517
+##  8 weeks     511
+##  9 started   495
+## 10 2020      478
+## # … with 13,111 more rows</code></pre>
+<p>This result isn’t super interesting, but it looks like for most people their “moment” was in March and I was surprised to see February ranked as low as 25th in the list of common words.</p>
+<pre class="r"><code>words %&gt;%
+  rowid_to_column(var = &quot;rank&quot;) %&gt;%
+  filter(word == &quot;february&quot;)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##    rank word         n
+##   &lt;int&gt; &lt;chr&gt;    &lt;int&gt;
+## 1    25 february   283</code></pre>
+</div>
+<div id="common-bigrams" class="section level2">
+<h2>Common bigrams</h2>
+<p>Next I explored common <a href="https://en.wikipedia.org/wiki/Bigram">bigrams</a>, which took a bit more fiddling. I am not aware of a predefined list of stop words for bigrams, so I decided to exclude any bigrams where both words are stop words, e.g. “in the”. I also excluded the bigram “https t.co”, which contains URL fragments.</p>
+<pre class="r"><code>bigrams &lt;- replies %&gt;%
+  unnest_tokens(ngram, text, &quot;ngrams&quot;, n = 2) %&gt;%
+  count(ngram, sort = TRUE) %&gt;%
+  # fiddle with stop words
+  separate(ngram, into = c(&quot;temp_word1&quot;, &quot;temp_word2&quot;), remove = FALSE, sep = &quot; &quot;) %&gt;%
+  mutate(
+    temp_word1_stop = if_else(temp_word1 %in% stop_words$word, TRUE, FALSE),
+    temp_word2_stop = if_else(temp_word2 %in% stop_words$word, TRUE, FALSE),
+    temp_stop       = temp_word1_stop + temp_word2_stop
+  ) %&gt;%
+  filter(temp_stop != 2) %&gt;%
+  select(!contains(&quot;temp&quot;)) %&gt;%
+  # exclude URL fragments
+  filter(ngram != &quot;https t.co&quot;)
+
+bigrams</code></pre>
+<pre><code>## # A tibble: 75,521 x 2
+##    ngram            n
+##    &lt;chr&gt;        &lt;int&gt;
+##  1 shut down      296
+##  2 on march       287
+##  3 i remember     220
+##  4 year ago       207
+##  5 spring break   199
+##  6 my husband     176
+##  7 next day       166
+##  8 from home      165
+##  9 the nba        162
+## 10 a week         160
+## # … with 75,511 more rows</code></pre>
+<p>March comes up again!</p>
+</div>
+<div id="when-was-themoment" class="section level2">
+<h2>When was #TheMoment?</h2>
+<p>After the initial exploration of common words and bigrams I decided that interesting feature of these data might be the dates mentioned in the tweets. After interactively filtering for various months in the RStudio data viewer to see what sorts of results I get, I decided to focus on bigrams that include the months December through May. And I used <code>readr::parse_number()</code> to do the heavy lifting of extracting numbers from the bigrams.</p>
+<pre class="r"><code>themoment &lt;- bigrams %&gt;%
+  # filter for certain months
+  filter(str_detect(ngram, &quot;december|january|february|march|april|may&quot;)) %&gt;%
+  # add month and day variables
+  mutate(
+    month = case_when(
+      str_detect(ngram, &quot;december&quot;) ~ &quot;December&quot;,
+      str_detect(ngram, &quot;january&quot;)  ~ &quot;January&quot;,
+      str_detect(ngram, &quot;february&quot;) ~ &quot;February&quot;,
+      str_detect(ngram, &quot;march&quot;)    ~ &quot;March&quot;,
+      str_detect(ngram, &quot;april&quot;)    ~ &quot;April&quot;,
+      str_detect(ngram, &quot;may&quot;)      ~ &quot;May&quot;
+    ),
+    day = parse_number(ngram)
+    ) %&gt;%
+  # only keep actual dates
+  filter(!is.na(day), !is.na(month), day &lt;= 31) %&gt;%
+  # calculate number of tweets that mention a certain date
+  group_by(month, day) %&gt;%
+  summarise(n_total = sum(n), .groups = &quot;drop&quot;) %&gt;%
+  # construct date variable
+  mutate(
+    date = if_else(month == &quot;December&quot;,
+                   glue(&quot;{month} {day} 2019&quot;),
+                   glue(&quot;{month} {day} 2020&quot;)),
+    date = mdy(date)
+    ) %&gt;%
+  # arrange results by date
+  arrange(date)
+
+themoment</code></pre>
+<pre><code>## # A tibble: 90 x 4
+##    month      day n_total date      
+##    &lt;chr&gt;    &lt;dbl&gt;   &lt;int&gt; &lt;date&gt;    
+##  1 December    14       1 2019-12-14
+##  2 December    28       1 2019-12-28
+##  3 December    31       2 2019-12-31
+##  4 January      3       1 2020-01-03
+##  5 January      6       1 2020-01-06
+##  6 January     10       1 2020-01-10
+##  7 January     11       1 2020-01-11
+##  8 January     16       1 2020-01-16
+##  9 January     19       1 2020-01-19
+## 10 January     20       3 2020-01-20
+## # … with 80 more rows</code></pre>
+<p>Let’s take a look at which dates were most commonly mentioned.</p>
+<pre class="r"><code>themoment %&gt;%
+  arrange(desc(n_total))</code></pre>
+<pre><code>## # A tibble: 90 x 4
+##    month   day n_total date      
+##    &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt; &lt;date&gt;    
+##  1 March    13     205 2020-03-13
+##  2 March    11     140 2020-03-11
+##  3 March    12     128 2020-03-12
+##  4 March     9      63 2020-03-09
+##  5 March    10      58 2020-03-10
+##  6 March    14      48 2020-03-14
+##  7 March     6      47 2020-03-06
+##  8 March     7      46 2020-03-07
+##  9 March    16      46 2020-03-16
+## 10 March    15      44 2020-03-15
+## # … with 80 more rows</code></pre>
+<p>As expected based on previous results, I see lots of March dates, but March 13 seems to really stand out.</p>
+<p>Let’s also visualise these data over time.</p>
+<pre class="r"><code>ggplot(themoment, aes(x = date, y = n_total)) +
+  geom_line(color = &quot;gray&quot;) +
+  geom_point(aes(color = log(n_total)), show.legend = FALSE) +
+  labs(
+    x = &quot;Date&quot;,
+    y = &quot;Number of tweets&quot;,
+    title = &quot;#TheMoment dates reported on Twitter&quot;,
+    subtitle = &quot;In replies to @lourdesgnavarro&#39;s tweet&quot;,
+    caption = &quot;Data: Twitter | Graph @minebocek&quot;
+  ) +
+  annotate(
+    &quot;text&quot;,
+    x = mdy(&quot;March 13 2020&quot;) + 10,
+    y = 205,
+    label = &quot;March 13&quot;
+  ) +
+  theme_minimal()</code></pre>
+<p><img src="/post/2021-03-01-themoment-tweets_files/figure-html/unnamed-chunk-14-1.png" title="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," alt="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," width="100%" /></p>
+</div>
+<div id="what-happened-on-march-13-2020" class="section level2">
+<h2>What happened on March 13, 2020?</h2>
+<p>I’d like to first acknowledge that March 13, 2020 is an incredibly sad day in history, the day <a href="https://en.wikipedia.org/wiki/Shooting_of_Breonna_Taylor">Breonna Taylor was fatally shot</a> in her apartment. I encourage you to read the <a href="https://blacklivesmatter.com/statement-by-black-lives-matter-global-network-foundation-in-response-to-grand-jury-verdict-in-the-breonna-taylor-case/">powerful statement</a> by Black Lives Matter Global Network Foundation in response to Grand Jury verdict in the Breonna Taylor case.</p>
+<p>I wanted to see why this date stood out in the replies. This is an opportunity to fix a simplifying assumption I made earlier as well. Some dates are spelled out as “March 13” or “13 March” in the tweets, but some are written as “3/13” or “3-13” or “Mar 13” and various versions of these.</p>
+<pre class="r"><code>march_13_text &lt;- c(
+  &quot;march 13&quot;, &quot;13 march&quot;,
+  &quot;3/13&quot;, &quot;3-13&quot;,
+  &quot;mar 13&quot;, &quot;13 mar&quot;
+)
+march_13_regex &lt;- glue_collapse(march_13_text, sep = &quot;|&quot;)</code></pre>
+<p>I can now go back to the tweets and filter them for any of these text strings to get all mentions of this date.</p>
+<pre class="r"><code>march_13_tweets &lt;- replies %&gt;%
+  mutate(text = str_to_lower(text)) %&gt;%
+  filter(str_detect(text, march_13_regex))</code></pre>
+<p>There are 295 such tweets, which is more than what’s shown in the earlier visualisation.</p>
+<p>To get a sense of what’s in these tweets, I can again take a look at common words in them. But first, I’ll remove the text strings I searched for, since they will obviously be very common.</p>
+<pre class="r"><code>march_13_words &lt;- march_13_tweets %&gt;%
+  mutate(text = str_remove_all(text, march_13_regex)) %&gt;%
+  unnest_tokens(word, text) %&gt;%
+  anti_join(stop_words)</code></pre>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<pre class="r"><code>march_13_words %&gt;%
+  count(word, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 1,917 x 2
+##    word       n
+##    &lt;chr&gt;  &lt;int&gt;
+##  1 home     102
+##  2 school    89
+##  3 day       82
+##  4 3         73
+##  5 2020      54
+##  6 friday    54
+##  7 weeks     50
+##  8 march     44
+##  9 amp       40
+## 10 closed    39
+## # … with 1,907 more rows</code></pre>
+<p>It’s not straightforward to get anything meaningful from this output. I think the “3” comes from mentioning other dates in March (e.g. “3/12”), “2020” is the year and doesn’t tell us anything additional in this context, and “amp” is “&amp;” when tokenized. So I’ll remove these.</p>
+<p>I’m not a huge fan of <a href="https://www.tidytextmining.com/sentiment.html?q=word%20cloud#wordclouds">wordclouds</a> but I think it might be a helpful visualisation here, so I’ll give that a try.</p>
+<pre class="r"><code>march_13_words %&gt;%
+  count(word) %&gt;%
+  filter(!(word %in% c(&quot;3&quot;, &quot;2020&quot;, &quot;amp&quot;, &quot;https&quot;, &quot;t.co&quot;))) %&gt;%
+  with(wordcloud(word, n, max.words = 50, colors = viridis::viridis(n = 50)))</code></pre>
+<p><img src="/post/2021-03-01-themoment-tweets_files/figure-html/unnamed-chunk-18-1.png" title="Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words." alt="Wordcloud that shows the 50 most common words in tweets that mention March 13 in their text. Home, school, day, friday, and week are prominently bigger than other words." width="50%" /></p>
+</div>
+<div id="tom-hanks-the-nba-and-spring-break" class="section level2">
+<h2>Tom Hanks, the NBA, and spring break</h2>
+<p>As I was perusing the data throughout this analysis, mentions of Tom Hanks and NBA seemed quite frequent. This was surprising to be since the NBA is rarely on my radar (and less so now that I’m in the UK) and I was not expecting the Tom Hanks celebrity effect! Another phrase that stood out was spring break, which is not too unexpected.</p>
+<p>Let’s take a look at how many tweets mention these, out of the 5969 total.</p>
+<pre class="r"><code>replies %&gt;%
+  transmute(
+    text         = str_to_lower(text),
+    tom_hanks    = str_detect(text, &quot;\\btom hanks\\b&quot;),
+    nba          = str_detect(text, &quot;\\bnba\\b&quot;),
+    spring_break = str_detect(text, &quot;\\bspring break\\b&quot;)
+    ) %&gt;%
+  summarise(
+    across(tom_hanks:spring_break, sum)
+    ) %&gt;%
+  mutate(
+    across(tom_hanks:spring_break, ~ . / nrow(replies), .names = &quot;p_{.col}&quot;)
+    )</code></pre>
+<pre><code>## # A tibble: 1 x 6
+##   tom_hanks   nba spring_break p_tom_hanks  p_nba p_spring_break
+##       &lt;int&gt; &lt;int&gt;        &lt;int&gt;       &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;
+## 1        67   218          190      0.0112 0.0365         0.0318</code></pre>
+<p>Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected, especially for Tom Hanks.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Perhaps the most unexpected thing about the results of this analysis is how clearly March 13 stands out as a date people mentioned. The other surprising result was people mentioning dates as late as end of May!</p>
+<p>There are certainly some holes in this analysis. Text strings I used (both for capturing replies to the original tweet and for including/excluding tweets from the analysis) as well as my regular expressions could be more robust. Additionally, relying on <code>readr::parse_number()</code> solely to get dates is likely not bullet proof.</p>
+</div>
