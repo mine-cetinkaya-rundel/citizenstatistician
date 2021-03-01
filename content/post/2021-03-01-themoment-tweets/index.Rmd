@@ -275,8 +275,8 @@ replies %>%
     nba          = str_detect(text, "\\bnba\\b"),
     spring_break = str_detect(text, "\\bspring break\\b")
     ) %>%
-  summarise(across(tom_hanks:spring_break, sum, .names = "n_{.col}")) %>%
-  mutate(across(n_tom_hanks:n_spring_break, ~ . / nrow(replies), .names = "p_{.col}"))
+  summarise(across(tom_hanks:spring_break, sum)) %>%
+  mutate(across(tom_hanks:spring_break, ~ . / nrow(replies), .names = "p_{.col}"))
 ```
 
 Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected for especially Tom Hanks.

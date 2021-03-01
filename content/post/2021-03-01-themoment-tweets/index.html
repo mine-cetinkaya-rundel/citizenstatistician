@@ -280,12 +280,12 @@ march_13_regex &lt;- glue_collapse(march_13_text, sep = &quot;|&quot;)</code></p
     nba          = str_detect(text, &quot;\\bnba\\b&quot;),
     spring_break = str_detect(text, &quot;\\bspring break\\b&quot;)
     ) %&gt;%
-  summarise(across(tom_hanks:spring_break, sum, .names = &quot;n_{.col}&quot;)) %&gt;%
-  mutate(across(n_tom_hanks:n_spring_break, ~ . / nrow(replies), .names = &quot;p_{.col}&quot;))</code></pre>
+  summarise(across(tom_hanks:spring_break, sum)) %&gt;%
+  mutate(across(tom_hanks:spring_break, ~ . / nrow(replies), .names = &quot;p_{.col}&quot;))</code></pre>
 <pre><code>## # A tibble: 1 x 6
-##   n_tom_hanks n_nba n_spring_break p_n_tom_hanks p_n_nba p_n_spring_break
-##         &lt;int&gt; &lt;int&gt;          &lt;int&gt;         &lt;dbl&gt;   &lt;dbl&gt;            &lt;dbl&gt;
-## 1          67   218            190        0.0112  0.0365           0.0318</code></pre>
+##   tom_hanks   nba spring_break p_tom_hanks  p_nba p_spring_break
+##       &lt;int&gt; &lt;int&gt;        &lt;int&gt;       &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;
+## 1        67   218          190      0.0112 0.0365         0.0318</code></pre>
 <p>Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected for especially Tom Hanks.</p>
 </div>
 <div id="conclusion" class="section level2">
