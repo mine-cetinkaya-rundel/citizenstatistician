@@ -198,8 +198,8 @@ Let's also visualise these data over time.
 
 ```{r out.width = "100%", fig.asp = 0.5, fig.alt = "Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13,"}
 ggplot(themoment, aes(x = date, y = n_total)) +
-  geom_point() +
-  geom_line() +
+  geom_line(color = "gray") +
+  geom_point(aes(color = log(n_total)), show.legend = FALSE) +
   labs(
     x = "Date",
     y = "Number of tweets",
@@ -212,7 +212,8 @@ ggplot(themoment, aes(x = date, y = n_total)) +
     x = mdy("March 13 2020") + 10,
     y = 205,
     label = "March 13"
-  )
+  ) +
+  theme_minimal()
 ```
 
 ## What happened on March 13, 2020?
@@ -277,8 +278,12 @@ replies %>%
     nba          = str_detect(text, "\\bnba\\b"),
     spring_break = str_detect(text, "\\bspring break\\b")
     ) %>%
-  summarise(across(tom_hanks:spring_break, sum)) %>%
-  mutate(across(tom_hanks:spring_break, ~ . / nrow(replies), .names = "p_{.col}"))
+  summarise(
+    across(tom_hanks:spring_break, sum)
+    ) %>%
+  mutate(
+    across(tom_hanks:spring_break, ~ . / nrow(replies), .names = "p_{.col}")
+    )
 ```
 
 Only about 1% of tweets for Tom Hanks and roughly 3% of tweets for NBA and spring break. Not too many actually, but still more than I expected, especially for Tom Hanks. 

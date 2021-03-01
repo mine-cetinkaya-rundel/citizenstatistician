@@ -208,8 +208,8 @@ themoment</code></pre>
 <p>As expected based on previous results, I see lots of March dates, but March 13 seems to really stand out.</p>
 <p>Let’s also visualise these data over time.</p>
 <pre class="r"><code>ggplot(themoment, aes(x = date, y = n_total)) +
-  geom_point() +
-  geom_line() +
+  geom_line(color = &quot;gray&quot;) +
+  geom_point(aes(color = log(n_total)), show.legend = FALSE) +
   labs(
     x = &quot;Date&quot;,
     y = &quot;Number of tweets&quot;,
@@ -222,7 +222,8 @@ themoment</code></pre>
     x = mdy(&quot;March 13 2020&quot;) + 10,
     y = 205,
     label = &quot;March 13&quot;
-  )</code></pre>
+  ) +
+  theme_minimal()</code></pre>
 <p><img src="/post/2021-03-01-themoment-tweets_files/figure-html/unnamed-chunk-14-1.png" title="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," alt="Very few tweets mentioning dates December through March, then a steady increase until a peak on March 13, and then a decline with a tail extending all the way to the end of May. There were over 200 tweets mentioning March 13," width="100%" /></p>
 </div>
 <div id="what-happened-on-march-13-2020" class="section level2">
@@ -281,8 +282,12 @@ march_13_regex &lt;- glue_collapse(march_13_text, sep = &quot;|&quot;)</code></p
     nba          = str_detect(text, &quot;\\bnba\\b&quot;),
     spring_break = str_detect(text, &quot;\\bspring break\\b&quot;)
     ) %&gt;%
-  summarise(across(tom_hanks:spring_break, sum)) %&gt;%
-  mutate(across(tom_hanks:spring_break, ~ . / nrow(replies), .names = &quot;p_{.col}&quot;))</code></pre>
+  summarise(
+    across(tom_hanks:spring_break, sum)
+    ) %&gt;%
+  mutate(
+    across(tom_hanks:spring_break, ~ . / nrow(replies), .names = &quot;p_{.col}&quot;)
+    )</code></pre>
 <pre><code>## # A tibble: 1 x 6
 ##   tom_hanks   nba spring_break p_tom_hanks  p_nba p_spring_break
 ##       &lt;int&gt; &lt;int&gt;        &lt;int&gt;       &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;
