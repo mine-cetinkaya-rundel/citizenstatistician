@@ -1,6 +1,6 @@
 ---
 title: In the beginning was R Markdown
-author: Mine Cetinkaya-Rundel
+author: mine
 date: '2021-03-03'
 slug: in-the-beginning-was-r-markdown
 categories:
