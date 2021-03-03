@@ -47,6 +47,8 @@ ggkeyboard(
 )
 ```
 
+Once I got the keyboard layout working I searched around for color inspiration on [same.energy](http://same.energy/) where I stumbled upon [this gorgeous design](https://www.instagram.com/p/CFcKz89nWE0) and used the Digital Color Meter app on my Mac to create a palette for the cover image and the talk. 
+
 If you'd like to do something similar yourself, all it takes is to edit the CSV files in the `data-raw` folder for your desired output. You can then update the package data with `usethis::use_data()` and use the new keyboard style you created in one of the functions provided by the package. If you want to give this a try I recommend starting from Sharla's package and using my fork in case you're curious how I went about it.
 
 Finally, in case you only read this and don't get a chance to watch the video or look through the slides, the talk ends with
