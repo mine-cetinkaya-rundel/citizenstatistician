@@ -1,0 +1,58 @@
+---
+title: TikTok, lockdown, and introduction to R
+author: Mine Cetinkaya-Rundel
+date: '2021-03-15'
+slug: tiktok-lockdown-and-introduction-to-r
+categories:
+  - teaching
+tags:
+  - rstats
+  - learnr
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Last weekend <a href="https://www.mariatackett.net/">Maria Tackett</a> and I gave an introduction to R workshop as part of the <a href="https://www.enar.org/meetings/FosteringDiversity/">2021 ENAR Fostering Diversity in Biostatistics Workshop</a> for high school and undergraduate students. Our goal was to give them a taster for exploring and visualizing data with R and, hopefully, leave them wanting to learn more.</p>
+<p>We only had 75 minutes for the workshop and a totally beginner crowd. We knew that they would be a mix of undergraduate and high school students, but didn’t know much else about them as we prepared for the workshop.</p>
+<p>I am often asked what I think about teaching R using only <a href="https://rstudio.github.io/learnr/">learnr</a> tutorials and my answer is often “nope”. Don’t get me wrong, I love the learnr package and use it heavily in my teaching! But when I’m teaching a semester-long introduction to data science course, I think students need to learn the data science workflow as much as R syntax, which means working in the RStudio IDE and writing R Markdown documents and being aware of folder structures, projects, etc. For such courses I use learnr tutorials as a supplement, for practicing R syntax and interpretation of results, as opposed to getting the whole picture.</p>
+<p>However, I think learnr tutorials are perfectly suited for an introduction to R workshop where you have a very limited time and especially with a beginner-level audience.</p>
+<p>We designed two activities for this workshop: one on lyrics of songs that make an appearance in viral TikTok videos (mostly in dance challenges) and the other on data collected from the students.</p>
+<div id="activity-1-tiktok-lyrics" class="section level2">
+<h2>Activity 1: TikTok lyrics</h2>
+<p>To prepare this activity we first needed to pick a few songs. We decided on nine songs so that a plot faceted by song could fit in a 3x3 grid. The next task was to pick the songs, which I feel like I spent just as much time on as writing up the tutorial! I had no idea what some of the songs I am so used to hearing on TikTok videos are called. It was also challenging to find songs with limited profanity in them.</p>
+<p>We then used the <a href="https://github.com/JosiahParry/genius">genius</a> package to get their lyrics and the <a href="https://juliasilge.github.io/tidytext/">tidytext</a> package to unnest the lyric data into words. At this stage we also removed things like stop words and profanity so that the workshop could focus on data visualization as opposed to data cleaning.</p>
+<p>We started the activity with the following visualization and asked students to guess what the data might be.</p>
+<p><img src="tik-tok-lyrics-unannotated.png" title="Faceted bar plot of common words in lyrics from nine songs associated with viral TikTok videos, without any axis or plot labels." alt="Faceted bar plot of common words in lyrics from nine songs associated with viral TikTok videos, without any axis or plot labels." width="960" /></p>
+<p>Then worked through steps to reproduce this visualization, this time complete with labels.</p>
+<p><img src="tik-tok-lyrics-annotated.png" title="Faceted bar plot of common words in lyrics from nine songs associated with viral TikTok videos. Same visualization as above, this time with axis and plot labels." alt="Faceted bar plot of common words in lyrics from nine songs associated with viral TikTok videos. Same visualization as above, this time with axis and plot labels." width="960" /></p>
+<p>You can find the learnr tutorial for this activity <a href="https://minecr.shinyapps.io/tiktok_lyrics">here</a>.</p>
+<p>If you’re interested in designing a similar learnr tutorial you might be interested in the source code for this one – you can find it <a href="https://github.com/mine-cetinkaya-rundel/enar-2021/tree/main/tiktok-lyrics">here</a>. A couple notes on the source code:</p>
+<ul>
+<li><p>We used a <a href="https://github.com/mine-cetinkaya-rundel/enar-2021/blob/main/tiktok-lyrics/css/app-style.css">custom CSS</a> for the two tutorials. Aside from a custom color scheme, this CSS file also increases the font size for the body text of the tutorial, which feels too small by default.</p></li>
+<li><p>We also used a <a href="https://github.com/mine-cetinkaya-rundel/enar-2021/blob/main/tiktok-lyrics/js/exercise-font-size.js">bit of JavaScript</a> to increase the font size of the code in the interactive exercise boxes. You can include this in the tutorial with some raw HTML code that loads the script with <code>&lt;script language="JavaScript" src="js/exercise-font-size.js"&gt;&lt;/script&gt;</code>, as shown <a href="https://github.com/mine-cetinkaya-rundel/enar-2021/blob/bcb33d2140316d8dc336b96e6caa1050116b7922/tiktok-lyrics/tiktok-lyrics.Rmd#L13">here</a>.</p></li>
+<li><p>We used learnr <code>question()</code>s with <code>type = "text"</code> to get students interacting with the document early. These types of questions are notoriously not very easy to check the answers for, but in a live session, you can get away with not really checking the answers!</p></li>
+</ul>
+<p><img src="question-text.png" title="Text entry question for learnr where the feedback says 'You'll find out shortly whether your guess is correct!'" alt="Text entry question for learnr where the feedback says 'You'll find out shortly whether your guess is correct!'" width="931" /></p>
+</div>
+<div id="activity-2-all-about-you" class="section level2">
+<h2>Activity 2: All about you!</h2>
+<p>For this activity we created a Google form asking students about their screen time (school/work related vs. leisure) and social media usage during the lockdown. We designed the questions such that we could get usable numerical data to display on a scatterplot, coloring the points by a categorical variable.</p>
+<p>The learnr tutorial reads directly from the spreadsheet where Google forms collects the data, using the <a href="https://googlesheets4.tidyverse.org/">googlesheets4</a> package. We created the tutorial and tested it with fake data. During the first five minutes of the workshop (during the introductions) students filled out the form and we redeployed the tutorial during the first activity so by the time they got to it, they had their own data available to them.</p>
+<p>You can find the learnr tutorial for this activity <a href="https://minecr.shinyapps.io/https://minecr.shinyapps.io/all_about_you/">here</a>.</p>
+<p>The source code for the learnr tutorial <a href="https://github.com/mine-cetinkaya-rundel/enar-2021/tree/main/all-about-you">here</a>. A tip for reading in data from a Google sheet in a learnr tutorial: use <a href="https://googlesheets4.tidyverse.org/reference/gs4_deauth.html"><code>gs4_deauth()</code></a> to access public resources for which no Google sign-in is required and to suspend authorization for making requests in a non-interactive that do not require a token.</p>
+</div>
+<div id="everything-in-one-place" class="section level2">
+<h2>Everything in one place</h2>
+<p>This is a useful tip for <em>any</em> workshop or course, but I think especially true for very short workshops: put everything on one page and make a short link for it.</p>
+<p>We organized all workshop materials at <a href="http://bit.ly/enar2021">bit.ly/enar2021</a> and put this link in the Zoom chat. Remember that some Zoom setups don’t allow the user to copy and paste from the chat or even click on a link on the chat, so making shortlinks is super helpful for these cases.</p>
+</div>
+<div id="schedule" class="section level2">
+<h2>Schedule</h2>
+<p>We spent about five minutes on introduction and data collection. Then we split the time evenly between the first and second activities.</p>
+<p>I’ll be honest, it did feel a bit rushed, so if I were to do this again I might cut down on it a little bit. But the nice things is that the learnr tutorials will live on so we were able to tell the students that they can keep playing with them after the workshop.</p>
+</div>
+<div id="feedback" class="section level2">
+<h2>Feedback</h2>
+<p>We had a small group for this workshop but I think they got something out of it and the feedback at the end was quite positive! Huge thanks to the ENAR Fostering Diversity in Biostatistics Workshop organizers for inviting us to be a part of this!</p>
+</div>
