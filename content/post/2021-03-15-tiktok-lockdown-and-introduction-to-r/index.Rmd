@@ -8,6 +8,8 @@ categories:
 tags:
   - rstats
   - learnr
+thumbnailImage: "https://i.imgur.com/sbVzeDH.png"
+thumbnailImagePosition: left
 ---
 
 Last weekend [Maria Tackett](https://www.mariatackett.net/) and I gave an introduction to R workshop as part of the [2021 ENAR Fostering Diversity in Biostatistics Workshop](https://www.enar.org/meetings/FosteringDiversity/) for high school and undergraduate students. Our goal was to give them a taster for exploring and visualizing data with R and, hopefully, leave them wanting to learn more.
