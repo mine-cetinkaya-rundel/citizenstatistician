@@ -56,7 +56,7 @@ But first, I should give a little bit of background on what students did (and di
 - Students in my Introduction to Data Science course learn R using RStudio.
 - They do most of their work in R Markdown documents but they also learn to use R scripts, particularly to scrape and clean data and write it out to a csv to be used subsequently in an analysis completed in an R Markdown document.
 - They learn what R packages are but not how to make them, or what their internals look like.
-- They learn to work with Git and GitHub, specifically commiting, pushing, pulling, and resolving merge conflicts. They don't learn about branches or pull requests. 
+- They learn to work with Git and GitHub, specifically committing, pushing, pulling, and resolving merge conflicts. They don't learn about branches or pull requests. 
 - They don't learn to write tests.
 - They are aware of GitHub actions as this is how they get immediate feedback on their work. They know where to go to view the log for an action that failed, but can't always figure out what the next steps should be for resolving the issue. (Frankly, my success rate on that is not 100% either...)
 
@@ -64,13 +64,13 @@ With this background in mind, here is how we structured the project. Note that w
 
 ### Step 1. Assess feasibility
 
-The first "homework" was to figure out if it's even feasible to update the package, which would mean finding more recent data on United Nationa voting history. 
+The first "homework" was to figure out if it's even feasible to update the package, which would mean finding more recent data on United Nations voting history. 
 
 The package GitHub repo included a [`data-raw` folder](https://github.com/dgrtwo/unvotes/tree/master/data-raw), and linked to the data source on the `README` of that folder. This was super helpful as a starting point. We were able to locate more updated data [at the same location](https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/12379), so we didn't need to do much digging.
 
 ### Step 2. Assess interest
 
-I am not the maintainer of the unvotes package, so I couldn't really just decide that we were going to update the data on the original package. So we [opened an issue](https://github.com/dgrtwo/unvotes/issues/1) on the package repo asking if the package maintainer, [David Robinson](http://varianceexplained.org/), would be interested in a pull request. He responded favourably, so that was our green light!
+I am not the maintainer of the unvotes package, so I couldn't really just decide that we were going to update the data on the original package. So we [opened an issue](https://github.com/dgrtwo/unvotes/issues/1) on the package repo asking if the package maintainer, [David Robinson](http://varianceexplained.org/), would be interested in a pull request. He responded favorably, so that was our green light!
 
 As an aside, my backup plan was to fork the repo and update my fork only and use that in future teaching, but I was secretly really hoping that this would be a welcome update as I really didn't want to use a version of a package for teaching different than its CRAN version. 
 
@@ -86,7 +86,7 @@ At this point I exclusively use a workflow that involves functions from [the use
 
 Since I don't maintain the unvotes package, I thought it would be better for my student's first pull request to one of my repositories. I also wanted the practice experience to be as close to the real task as possible, which meant making a pull request to an R package.
 
-One of the packages I maintain is [openintro](http://openintrostat.github.io/openintro) and we had a [documentation related issue](https://github.com/OpenIntroStat/openintro/issues/15) sitting there for a while. So I asked Nicholas to work on that issue following the workflows he recently learned about and to make a [pull request](https://github.com/OpenIntroStat/openintro/pull/37). Then, in our next meeting, I reviewed the pull request while sharing my screen and talking through my feedback as I put it in. After our meeting Nicholas took another few days to work through the review comments and we succesfully merged the pull request and closed the issue.
+One of the packages I maintain is [openintro](http://openintrostat.github.io/openintro) and we had a [documentation related issue](https://github.com/OpenIntroStat/openintro/issues/15) sitting there for a while. So I asked Nicholas to work on that issue following the workflows he recently learned about and to make a [pull request](https://github.com/OpenIntroStat/openintro/pull/37). Then, in our next meeting, I reviewed the pull request while sharing my screen and talking through my feedback as I put it in. After our meeting Nicholas took another few days to work through the review comments and we successfully merged the pull request and closed the issue.
 
 I think this step was very productive for both of us. It gave me a good idea of the concepts that were clear from the reading and those that needed more explanation and it allowed my student to submit a pull request without too much worry since I assured him numerous times that we can always start over together. 
 
@@ -94,7 +94,7 @@ I think this step was very productive for both of us. It gave me a good idea of 
 
 Well, kinda...
 
-The next step was to work on the actuall problem (updating the data) but we weren't quite ready to make the actual pull request yet.
+The next step was to work on the actual problem (updating the data) but we weren't quite ready to make the actual pull request yet.
 
 Nicholas forked the unvotes repo and worked on the data update on a branch, documenting his steps in the `data-raw` folder. Once done, he put in a pull request to his own repo's main branch. And on our weekly call we worked through this pull request together, identifying any potential changes that needed to me made before issuing the actual pull request. We also ran some tests on the data to figure out whether any of the historical data had changed -- and indeed it had! So we made a note of that to mention in the package pull request so that the package maintainer could decide how they wanted to proceed with that.
 
@@ -106,7 +106,7 @@ The updated is package is now on CRAN. You can install it with `install.packages
 
 ## Reflection
 
-This project was very fun for me to work on for a variety of reasons. I love working with students and, as someone who tends to teach larger courses, don't end up having many opportunities to work one-on-one with them. I also had been meaning to work on this for a while, but it kept dropping off my priority list, and finally it got done! Not only was this an opportunity to contribute back to an open-source project that I benefitted so much from, it was also a great way to turn this into an educational project! 
+This project was very fun for me to work on for a variety of reasons. I love working with students and, as someone who tends to teach larger courses, don't end up having many opportunities to work one-on-one with them. I also had been meaning to work on this for a while, but it kept dropping off my priority list, and finally it got done! Not only was this an opportunity to contribute back to an open-source project that I benefited so much from, it was also a great way to turn this into an educational project! 
 
 And it sounds like Nicholas enjoyed the experience too! Here is his reflection in his own words:
 
