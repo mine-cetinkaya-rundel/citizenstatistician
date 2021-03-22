@@ -2,7 +2,7 @@
 title: "Open-source contribution as a student project"
 author: mine
 date: '2021-03-22'
-slug: index.en-us
+slug: open-source-contribution-as-a-student-project
 categories:
   - rstats
 tags:
