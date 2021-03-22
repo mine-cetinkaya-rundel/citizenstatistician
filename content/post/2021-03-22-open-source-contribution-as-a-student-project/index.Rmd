@@ -8,6 +8,7 @@ categories:
 tags:
   - teaching
   - package
+  - rstats
 ---
 
 An opportunity to teach, an opportunity to give back...
