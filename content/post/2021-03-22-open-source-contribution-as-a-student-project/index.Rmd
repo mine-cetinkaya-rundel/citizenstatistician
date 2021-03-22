@@ -106,7 +106,7 @@ Nicholas forked the unvotes repo and worked on the data update on a branch, docu
 
 ### Step 7. Make the actual pull request, for real
 
-Finally, Nicholas put in the [pull request to the original unvotes repo](https://github.com/dgrtwo/unvotes/pull/2) and after a round of review, the package was ready to go!
+Finally, Nicholas put in the [pull request to the original unvotes repo](https://github.com/dgrtwo/unvotes/pull/2) and after a round of review and some edits by David, the package was ready to go!
 
 The updated is package is now on CRAN. You can install it with `install.packages(unvotes)` and play with United Nations voting data up to 2019. In fact, thanks to [David's initiative](https://github.com/rfordatascience/tidytuesday/issues/326), it's going to be the [#TidyTuesday dataset for this week](https://github.com/rfordatascience/tidytuesday)!
 
