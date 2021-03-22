@@ -1,0 +1,87 @@
+---
+title: "Open-source contribution as a student project"
+author: mine
+date: '2021-03-22'
+slug: index.en-us
+categories:
+  - rstats
+tags:
+  - teaching
+  - package
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>An opportunity to teach, an opportunity to give back…</p>
+<!-- more -->
+<p>If you’ve seen one of my data science education talks or attended one of my workshops in the last few years, you’ve probably heard me talk about the <a href="https://github.com/dgrtwo/unvotes">unvotes</a> package in R.</p>
+<p>This package provides the voting history of countries in the <a href="https://www.un.org/en/ga/">United Nations General Assembly</a>, along with information such as date, description, and topics for each vote.</p>
+<p>I love using data from this package in my teaching, especially on day one of class, because the data are rich while being accessible. An activity I use on the first day of class is reproducing the following visualization based on an R Markdown document containing the complete code for creating this visualization and then making one change to it (changing one of the countries plotted). If you’d like to try out this activity yourself, you can do so on the RStudio Cloud space for <a href="https://datasciencebox.org/">Data Science in a Box</a> – click <a href="https://rstudio.cloud/spaces/1655/join?access_code=5rdjusfIYF5iI0Gum2vNsBDLdtdnIEELBkf2EivK">here</a> to join the space and start the project titled <code>AE 01a - UN Votes</code>.</p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="864" /></p>
+<p>I’ve had it in the back of my mind to send in a pull request to update this package for over a year now, but somehow I never managed to make time to do that.</p>
+<p>At the end of the last semester, on the last video of my Introduction to Data Science course, I told my students I’d be happy to work with them on a project the following semester. One of the projects I had in mind was updating this package. One of my students, <a href="https://github.com/ngoguened">Nicholas Goguen-Compagnoni</a>, expressed interest in this project and now <a href="https://github.com/dgrtwo/unvotes/blob/7eb7034314ff79c49c9e0785fcd9d216fa04cf14/DESCRIPTION#L6">he’s a contributor to the package</a>!</p>
+<p>This blog post is a story of how we structured this project. I hope it might be helpful to those considering structuring student projects, independent studies, etc. around open-source contributions to R packages.</p>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>But first, I should give a little bit of background on what students did (and did not) learn in my course, so you can have a better sense of the preparation level of the student starting to work on such a project.</p>
+<ul>
+<li>Students in my Introduction to Data Science course learn R using RStudio.</li>
+<li>They do most of their work in R Markdown documents but they also learn to use R scripts, particularly to scrape and clean data and write it out to a csv to be used subsequently in an analysis completed in an R Markdown document.</li>
+<li>They learn what R packages are but not how to make them, or what their internals look like.</li>
+<li>They learn to work with Git and GitHub, specifically committing, pushing, pulling, and resolving merge conflicts. They don’t learn about branches or pull requests.</li>
+<li>They don’t learn to write tests.</li>
+<li>They are aware of GitHub actions as this is how they get immediate feedback on their work. They know where to go to view the log for an action that failed, but can’t always figure out what the next steps should be for resolving the issue. (Frankly, my success rate on that is not 100% either…)</li>
+</ul>
+</div>
+<div id="structuring-the-project" class="section level2">
+<h2>Structuring the project</h2>
+<p>With this background in mind, here is how we structured the project. Note that we did some of these steps simultaneously as we broke the project down into weekly chunks.</p>
+<div id="step-1.-assess-feasibility" class="section level3">
+<h3>Step 1. Assess feasibility</h3>
+<p>The first “homework” was to figure out if it’s even feasible to update the package, which would mean finding more recent data on United Nations voting history.</p>
+<p>The package GitHub repo included a <a href="https://github.com/dgrtwo/unvotes/tree/master/data-raw"><code>data-raw</code> folder</a>, and linked to the data source on the <code>README</code> of that folder. This was super helpful as a starting point. We were able to locate more updated data <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/12379">at the same location</a>, so we didn’t need to do much digging.</p>
+</div>
+<div id="step-2.-assess-interest" class="section level3">
+<h3>Step 2. Assess interest</h3>
+<p>I am not the maintainer of the unvotes package, so I couldn’t really just decide that we were going to update the data on the original package. So we <a href="https://github.com/dgrtwo/unvotes/issues/1">opened an issue</a> on the package repo asking if the package maintainer, <a href="http://varianceexplained.org/">David Robinson</a>, would be interested in a pull request. He responded favorably, so that was our green light!</p>
+<p>As an aside, my backup plan was to fork the repo and update my fork only and use that in future teaching, but I was secretly really hoping that this would be a welcome update as I really didn’t want to use a version of a package for teaching different than its CRAN version.</p>
+</div>
+<div id="step-3.-learn-about-packages" class="section level3">
+<h3>Step 3. Learn about packages</h3>
+<p>I honestly can’t take any credit for this. I asked my Nicholas to read <a href="https://r-pkgs.org/whole-game.html">the Whole Game chapter</a> of the R Packages book by Hadley Wickham and Jenny Bryan. It’s such a great introduction! I highly recommend this chapter to anyone who is just starting off with making R packages or those who might have been doing this for a while but want to try it out using “modern conveniences in the devtools package and the RStudio IDE”.</p>
+</div>
+<div id="step-4.-learn-about-pull-requests" class="section level3">
+<h3>Step 4. Learn about pull requests</h3>
+<p>At this point I exclusively use a workflow that involves functions from <a href="https://usethis.r-lib.org/index.html">the usethis package</a> for pull requests so I also asked Nicholas to read the <a href="https://usethis.r-lib.org/articles/articles/usethis-setup.html">setup</a> instructions for usethis, which helps you set up your GitHub credentials, as well as the <a href="https://usethis.r-lib.org/articles/articles/pr-functions.html">pull request helpers vignette</a>.</p>
+</div>
+<div id="step-5.-practice" class="section level3">
+<h3>Step 5. Practice</h3>
+<p>Since I don’t maintain the unvotes package, I thought it would be better for my student’s first pull request to one of my repositories. I also wanted the practice experience to be as close to the real task as possible, which meant making a pull request to an R package.</p>
+<p>One of the packages I maintain is <a href="http://openintrostat.github.io/openintro">openintro</a> and we had a <a href="https://github.com/OpenIntroStat/openintro/issues/15">documentation related issue</a> sitting there for a while. So I asked Nicholas to work on that issue following the workflows he recently learned about and to make a <a href="https://github.com/OpenIntroStat/openintro/pull/37">pull request</a>. Then, in our next meeting, I reviewed the pull request while sharing my screen and talking through my feedback as I put it in. After our meeting Nicholas took another few days to work through the review comments and we successfully merged the pull request and closed the issue.</p>
+<p>I think this step was very productive for both of us. It gave me a good idea of the concepts that were clear from the reading and those that needed more explanation and it allowed my student to submit a pull request without too much worry since I assured him numerous times that we can always start over together.</p>
+</div>
+<div id="step-6.-make-the-actual-pull-request" class="section level3">
+<h3>Step 6. Make the actual pull request</h3>
+<p>Well, kinda…</p>
+<p>The next step was to work on the actual problem (updating the data) but we weren’t quite ready to make the actual pull request yet.</p>
+<p>Nicholas forked the unvotes repo and worked on the data update on a branch, documenting his steps in the <code>data-raw</code> folder. Once done, he put in a pull request to his own repo’s main branch. And on our weekly call we worked through this pull request together, identifying any potential changes that needed to me made before issuing the actual pull request. We also ran some tests on the data to figure out whether any of the historical data had changed – and indeed it had! So we made a note of that to mention in the package pull request so that the package maintainer could decide how they wanted to proceed with that.</p>
+</div>
+<div id="step-7.-make-the-actual-pull-request-for-real" class="section level3">
+<h3>Step 7. Make the actual pull request, for real</h3>
+<p>Finally, Nicholas put in the <a href="https://github.com/dgrtwo/unvotes/pull/2">pull request to the original unvotes repo</a> and after a round of review and some edits by David, the package was ready to go!</p>
+<p>The updated is package is now on CRAN. You can install it with <code>install.packages(unvotes)</code> and play with United Nations voting data up to 2019. In fact, thanks to <a href="https://github.com/rfordatascience/tidytuesday/issues/326">David’s initiative</a>, it’s going to be the <a href="https://github.com/rfordatascience/tidytuesday">#TidyTuesday dataset for this week</a>!</p>
+</div>
+</div>
+<div id="reflection" class="section level2">
+<h2>Reflection</h2>
+<p>This project was very fun for me to work on for a variety of reasons. I love working with students and, as someone who tends to teach larger courses, don’t end up having many opportunities to work one-on-one with them. I also had been meaning to work on this for a while, but it kept dropping off my priority list, and finally it got done! Not only was this an opportunity to contribute back to an open-source project that I benefited so much from, it was also a great way to turn this into an educational project!</p>
+<p>And it sounds like Nicholas enjoyed the experience too! Here is his reflection in his own words:</p>
+<blockquote>
+<p>It was exciting to help update the unvotes package! First, I practiced updating one of Professor Çetinkaya-Rundel’s repositories. That part of the process let me practice all of the steps of a pull request on GitHub and learn what the CRAN standards for a package were. After the practice, I dove straight into the unvotes package. Professor Çetinkaya-Rundel and I would have a weekly meeting to discuss the specific steps for updating the package, and after the meeting, I would work on that part. Some steps we discussed were finding the updated data, cleaning the data to look like the old data, and briefing the package owner about any significant changes we made to the R script. Having Professor Çetinkaya-Rundel walk me through the steps was very helpful since I had not done very much coding before starting university, and I am grateful that she was kind enough to help me to learn beyond the classroom and give a guided, real world problem for me to help solve.</p>
+</blockquote>
+</div>
+<div id="whats-next" class="section level2">
+<h2>What’s next?</h2>
+<p>Next, we’re working on updating the data in the <a href="https://mine-cetinkaya-rundel.github.io/ukbabynames/">ukbabynames</a> package. Since I maintain this package, we’ll be able to work through the final step of package development (submission to CRAN) together as well.</p>
+</div>
