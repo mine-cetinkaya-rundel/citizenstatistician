@@ -49,11 +49,11 @@ un_votes %>%
 
 I've had it in the back of my mind to send in a pull request to update this package for over a year now, but somehow I never managed to make time to do that.
 
-At the end of the last semester, on the last video of my Introduction to Data Science course, I told my students I'd be happy to work with them on a project the following semester. One of the projects I had in mind was updating this package. One of my students, Nicholas Goguen-Compagnoni, expressed interest in this project and now [he's a contributor to the package](https://github.com/dgrtwo/unvotes/blob/7eb7034314ff79c49c9e0785fcd9d216fa04cf14/DESCRIPTION#L6)! 
-
-## Open-source contribution as a student project 
+At the end of the last semester, on the last video of my Introduction to Data Science course, I told my students I'd be happy to work with them on a project the following semester. One of the projects I had in mind was updating this package. One of my students, [Nicholas Goguen-Compagnoni](https://github.com/ngoguened), expressed interest in this project and now [he's a contributor to the package](https://github.com/dgrtwo/unvotes/blob/7eb7034314ff79c49c9e0785fcd9d216fa04cf14/DESCRIPTION#L6)! 
 
 This blog post is a story of how we structured this project. I hope it might be helpful to those considering structuring student projects, independent studies, etc. around open-source contributions to R packages.
+
+## Background
 
 But first, I should give a little bit of background on what students did (and did not) learn in my course, so you can have a better sense of the preparation level of the student starting to work on such a project. 
 
@@ -63,6 +63,8 @@ But first, I should give a little bit of background on what students did (and di
 - They learn to work with Git and GitHub, specifically committing, pushing, pulling, and resolving merge conflicts. They don't learn about branches or pull requests. 
 - They don't learn to write tests.
 - They are aware of GitHub actions as this is how they get immediate feedback on their work. They know where to go to view the log for an action that failed, but can't always figure out what the next steps should be for resolving the issue. (Frankly, my success rate on that is not 100% either...)
+
+## Structuring the project
 
 With this background in mind, here is how we structured the project. Note that we did some of these steps simultaneously as we broke the project down into weekly chunks.
 

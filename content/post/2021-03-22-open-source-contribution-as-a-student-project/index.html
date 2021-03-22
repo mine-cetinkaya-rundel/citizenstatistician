@@ -20,10 +20,10 @@ tags:
 <p>I love using data from this package in my teaching, especially on day one of class, because the data are rich while being accessible. An activity I use on the first day of class is reproducing the following visualization based on an R Markdown document containing the complete code for creating this visualization and then making one change to it (changing one of the countries plotted). If you’d like to try out this activity yourself, you can do so on the RStudio Cloud space for <a href="https://datasciencebox.org/">Data Science in a Box</a> – click <a href="https://rstudio.cloud/spaces/1655/join?access_code=5rdjusfIYF5iI0Gum2vNsBDLdtdnIEELBkf2EivK">here</a> to join the space and start the project titled <code>AE 01a - UN Votes</code>.</p>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="864" /></p>
 <p>I’ve had it in the back of my mind to send in a pull request to update this package for over a year now, but somehow I never managed to make time to do that.</p>
-<p>At the end of the last semester, on the last video of my Introduction to Data Science course, I told my students I’d be happy to work with them on a project the following semester. One of the projects I had in mind was updating this package. One of my students, Nicholas Goguen-Compagnoni, expressed interest in this project and now <a href="https://github.com/dgrtwo/unvotes/blob/7eb7034314ff79c49c9e0785fcd9d216fa04cf14/DESCRIPTION#L6">he’s a contributor to the package</a>!</p>
-<div id="open-source-contribution-as-a-student-project" class="section level2">
-<h2>Open-source contribution as a student project</h2>
+<p>At the end of the last semester, on the last video of my Introduction to Data Science course, I told my students I’d be happy to work with them on a project the following semester. One of the projects I had in mind was updating this package. One of my students, <a href="https://github.com/ngoguened">Nicholas Goguen-Compagnoni</a>, expressed interest in this project and now <a href="https://github.com/dgrtwo/unvotes/blob/7eb7034314ff79c49c9e0785fcd9d216fa04cf14/DESCRIPTION#L6">he’s a contributor to the package</a>!</p>
 <p>This blog post is a story of how we structured this project. I hope it might be helpful to those considering structuring student projects, independent studies, etc. around open-source contributions to R packages.</p>
+<div id="background" class="section level2">
+<h2>Background</h2>
 <p>But first, I should give a little bit of background on what students did (and did not) learn in my course, so you can have a better sense of the preparation level of the student starting to work on such a project.</p>
 <ul>
 <li>Students in my Introduction to Data Science course learn R using RStudio.</li>
@@ -33,6 +33,9 @@ tags:
 <li>They don’t learn to write tests.</li>
 <li>They are aware of GitHub actions as this is how they get immediate feedback on their work. They know where to go to view the log for an action that failed, but can’t always figure out what the next steps should be for resolving the issue. (Frankly, my success rate on that is not 100% either…)</li>
 </ul>
+</div>
+<div id="structuring-the-project" class="section level2">
+<h2>Structuring the project</h2>
 <p>With this background in mind, here is how we structured the project. Note that we did some of these steps simultaneously as we broke the project down into weekly chunks.</p>
 <div id="step-1.-assess-feasibility" class="section level3">
 <h3>Step 1. Assess feasibility</h3>
