@@ -1,6 +1,6 @@
 ---
-title: 'Open-source contributions: an opportunity to teach, an opportunity to give back'
-author: Mine Cetinkaya-Rundel
+title: "Open-source contribution as a student project"
+author: mine
 date: '2021-03-22'
 slug: index.en-us
 categories:
@@ -9,6 +9,10 @@ tags:
   - teaching
   - package
 ---
+
+An opportunity to teach, an opportunity to give back...
+
+<!-- more -->
 
 If you've seen one of my data science education talks or attended one of my workshops in the last few years, you've probably heard me talk about the [unvotes](https://github.com/dgrtwo/unvotes) package in R.
 
