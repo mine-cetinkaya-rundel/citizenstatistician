@@ -33,7 +33,10 @@ For this plot I calculated the sentiment score of each briefing as the number of
 knitr::include_graphics("sentiment-over-time.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L175-L191).
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L175-L191). Some notes on the code:
+
+- I like using `shape` to distinguish groups along with `colour` by mapping the same variable to both aesthetics.
+- Using custom colours is a low effort/high return way of making your plots unique, for just two colours `scale_colour_manual()` is the simplest way to achieve this.
 
 Early on in the sentiment analysis it was clear that the sentiment assignments didn't work perfectly in this setting. For example, the word "positive" actually carries a negative sentiment in the COVID context, but it's assigned a positive sentiment in the Bing lexicon. I dropped that word from the sentiment analysis, though I realize there are a few others like it that I didn't catch/correct for.
 
@@ -53,7 +56,9 @@ Meanwhile, down in 10 Downing Street, it's still "social distancing"... These da
 knitr::include_graphics("social-physical-uk.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/06-visualise-uk.Rmd#L247-L261).
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/06-visualise-uk.Rmd#L247-L261). 
+
+One note on the code: In order capture "social distance" and "social distancing" (and their "physical" variants), I used `social dist|physical dist` as the regular expression to match on.^[I am now wondering if "socially distanced" or "physically distanced" might also show up, Probably should have checked for that!]
 
 ### Vaccines FTW!
 
@@ -63,7 +68,10 @@ This figure shows the number of times anything related to vaccinations shows up 
 knitr::include_graphics("vaccines.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L295-L307).
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L295-L307). Some notes on the code:
+
+- With [new advancements in graphics](https://www.tidyverse.org/blog/2021/02/modern-text-features/) it's pretty straightforward to create plots that use emojis to represent data with just ggplot2. Whether this is a great use of emojis, I'm not so sure...
+- For this figure to show up in R Markdown, I used `dev = "ragg_png"` as a code chunk option.
 
 ### Still waiting for pubs...
 
@@ -73,7 +81,10 @@ The other thing everyone is talking about nowadays is pubs. Unfortunately, so fa
 knitr::include_graphics("pubs.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L313-L330).
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L313-L330). Some notes on the code: 
+
+- Originally my gray lines covered part of the beer mug. My first instict was to shift the beer mugs (that is, `goem_text()`) up in the y direction. But then I realized I can have the mugs cover the lines simply by switching their order since ggplot2 plots the layers in order.
+- `expand_limits()` might be my new favourite function. Well, it's not new, but new to me, somehow... It allows you to ensure a single value is included in the limits without having to worry about whether it would be included or not automatically. If included, ggplot2 doesn't change anything. If not, it extends the limit to that value. 
 
 ### Scotland vs. UK speeches
 
@@ -88,7 +99,7 @@ Nicola Sturgeon doesn't use slides, so none of that up here.
 knitr::include_graphics("tf-idf.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/08-visualise-compare.Rmd#L91-L102).
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/08-visualise-compare.Rmd#L91-L102). One note on the code: The blue used in the Scotland plot is the blue from the Scottish flag and the red in the UK plot is the red from the UK flag. Again, this is a point about using custom colours, and in this case, contextual colours.
 
 ### Text classification models
 
