@@ -1,0 +1,57 @@
+---
+title: In the beginning was R Markdown
+author: mine
+date: '2021-03-03'
+slug: in-the-beginning-was-r-markdown
+categories:
+  - rstats
+  - teaching
+tags: 
+  - rmarkdown
+thumbnailImage: "https://i.imgur.com/gzUwqdj.jpg"
+thumbnailImagePosition: left
+---
+
+Last week I attended the [Toronto Workshop on Reproducibility](https://rohanalexander.com/reproducibility.html) where I had to the pleasure of giving one of the keynotes. 
+
+When I was asked to give a keynote for this event on teaching, I had the idea of reflecting on almost 9 years of teaching with introductory statistics and data science through the lens of reproducibility. I would have said "teaching with R Markdown", but looking back through my notes, this wasn't true as the [rmarkdown](https://rmarkdown.rstudio.com/docs/) package has not been around for that long -- turns out I started teaching with it when it was just [knitr](https://yihui.org/knitr/). Frankly, some of the details are blurry, but as I explained in my talk, I remember sitting in the audience at useR! 2012 in Nashville where Yihui and JJ introduced knitr [in their keynote](https://slides.yihui.org/2012-knitr-RStudio.html), and literally updating my course labs while I was sitting there to use knitr!
+
+This was also an opportunity to reflect on and discuss what changed (and what didn't) since [my first blog post on Citizen Statistician](http://www.citizen-statistician.org/2012/10/planting-seeds-of-reproducibility-with-knitr-and-markdown/) which was on this topic and [our  paper](https://escholarship.org/uc/item/90b2f5xh) on teaching with R Markdown that is still very relevant today.
+
+Video of the talk and slides are below.
+
+<br>
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/ANH2tv2vkew" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+<br>
+
+<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.1972%;"><iframe width="560" height="315" src="https://speakerdeck.com/player/6319af333f8049dbb98f0153bc53ebc4" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen scrolling="no" allow="encrypted-media"></iframe></div>
+
+<br>
+
+You can find a full set of the videos from this fantastic event at [rohanalexander.com/reproducibility.html](https://rohanalexander.com/reproducibility.html). Thank you Rohan for organizing and inviting me!
+
+I should also say a few words about the title of the talk and the cover slide. As I was brainstorming ideas with [Colin](http://www2.stat.duke.edu/~cr173/), he told me about the essay by Neal Stephenson called [In the Beginning... Was the Command Line](https://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line). I had not read it at the time, but I have now! The title is a loose take on this, even though the content of the talk is not at all based on it. I also really liked the cover of the book and decided to style my talk title slides based on it. 
+
+Given that this is a talk on reproducibility, I didn't have the heart to not generate this image reproducibly, so I forked [Sharla Gelfand](https://sharla.party/)'s [ggkeyboard](https://github.com/sharlagelfand/ggkeyboard) package and altered it a bit to get what I need. You can find my version (that is only useful for generating this image) [here](https://github.com/mine-cetinkaya-rundel/ggkeyboard). 
+
+```{r out.width = "100%", fig.alt = "Keyboard that spells out 'In the beginning was R Markdown' in the keys.", fig.width = 10}
+# devtools::install_github("mine-cetinkaya-rundel/ggkeyboard")
+library(ggkeyboard)
+
+ggkeyboard(
+  in_the_beginning_full, 
+  palette = keyboard_palette("in_the_beginning"), 
+  adjust_text_colour = FALSE
+)
+```
+
+Once I got the keyboard layout working I searched around for color inspiration on [same.energy](http://same.energy/) where I stumbled upon [this gorgeous design](https://www.instagram.com/p/CFcKz89nWE0) and used the Digital Color Meter app on my Mac to create a palette for the cover image and the talk. 
+
+If you'd like to do something similar yourself, all it takes is to edit the CSV files in the `data-raw` folder for your desired output. You can then update the package data with `usethis::use_data()` and use the new keyboard style you created in one of the functions provided by the package. If you want to give this a try I recommend starting from Sharla's package and using my fork in case you're curious how I went about it.
+
+Finally, in case you only read this and don't get a chance to watch the video or look through the slides, the talk ends with
+
+> In the beginning was R Markdown and R Markdown continues to facilitate reproducibility, 
+no matter your scope and experience.
