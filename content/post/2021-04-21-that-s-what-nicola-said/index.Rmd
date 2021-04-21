@@ -33,7 +33,7 @@ For this plot I calculated the sentiment score of each briefing as the number of
 knitr::include_graphics("sentiment-over-time.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L175-L191). Some notes on the code:
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/c18c78ee987ac4e560e7134af1d4596d151b4df1/analysis/03-visualise-scot.Rmd#L174-L189). Some notes on the code:
 
 - I like using `shape` to distinguish groups along with `colour` by mapping the same variable to both aesthetics.
 - Using custom colours is a low effort/high return way of making your plots unique, for just two colours `scale_colour_manual()` is the simplest way to achieve this.
@@ -48,7 +48,7 @@ Earlier in the pandemic Nicola Sturgeon used the phrase "social distancing", the
 knitr::include_graphics("social-physical-scot.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L275-L289).
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/c18c78ee987ac4e560e7134af1d4596d151b4df1/analysis/03-visualise-scot.Rmd#L273-L287).
 
 Meanwhile, down in 10 Downing Street, it's still "social distancing"... These data come from the [UK government website](https://www.gov.uk/search/all?content_purpose_supergroup%5B%5D=news_and_communications&level_one_taxon=5b7b9532-a775-4bd2-a3aa-6ce380184b6c&order=updated-newest&organisations%5B%5D=prime-ministers-office-10-downing-street&page=1&parent=prime-ministers-office-10-downing-street).
 
@@ -68,7 +68,7 @@ This figure shows the number of times anything related to vaccinations shows up 
 knitr::include_graphics("vaccines.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L295-L307). Some notes on the code:
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/c18c78ee987ac4e560e7134af1d4596d151b4df1/analysis/03-visualise-scot.Rmd#L293-L305). Some notes on the code:
 
 - With [new advancements in graphics](https://www.tidyverse.org/blog/2021/02/modern-text-features/) it's pretty straightforward to create plots that use emojis to represent data with just ggplot2. Whether this is a great use of emojis, I'm not so sure...
 - For this figure to show up in R Markdown, I used `dev = "ragg_png"` as a code chunk option.
@@ -81,7 +81,7 @@ The other thing everyone is talking about nowadays is pubs. Unfortunately, so fa
 knitr::include_graphics("pubs.png")
 ```
 
-Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/36dafd85ce8e005c81008452b57f334c8d9da617/analysis/03-visualise-scot.Rmd#L313-L330). Some notes on the code: 
+Code for creating this figure can be found [here](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19/blob/c18c78ee987ac4e560e7134af1d4596d151b4df1/analysis/03-visualise-scot.Rmd#L311-L328). Some notes on the code: 
 
 - Originally my gray lines covered part of the beer mug. My first instict was to shift the beer mugs (that is, `goem_text()`) up in the y direction. But then I realized I can have the mugs cover the lines simply by switching their order since ggplot2 plots the layers in order.
 - `expand_limits()` might be my new favourite function. Well, it's not new, but new to me, somehow... It allows you to ensure a single value is included in the limits without having to worry about whether it would be included or not automatically. If included, ggplot2 doesn't change anything. If not, it extends the limit to that value. 
