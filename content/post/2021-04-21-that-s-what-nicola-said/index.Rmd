@@ -1,0 +1,115 @@
+---
+title: That's what Nicola said
+author: mine
+date: '2021-04-21'
+slug: that-s-what-nicola-said
+categories:
+  - musings
+tags:
+  - text analysis
+  - data science
+---
+
+For the last year, I've watched just about every COVID-19 briefing by the Scottish Government, most of which are delivered by First Minister Nicola Sturgeon. 
+Earlier on in the pandemic these were daily updates, lately it seems like once a week. 
+The more often they happen, the worse you know things are going...
+If I've chatted with you about COVID, you have probably heard me say that I am *very* impressed by the way she delivers these updates.
+I'll be honest, they are almost boring, but in the best possible way.
+The last thing I want from a leader at this time is surprises, showmanship, or claims with no scientific basis.
+
+About a few weeks into the daily updates, I realized that the text for these speeches are published [on the Scottish Government website](https://www.gov.scot/collections/first-ministers-speeches/).
+So, naturally, I downloaded the data and started analyzing it.
+You can find the full analysis at [github.com/mine-cetinkaya-rundel/fm-speeches-covid19](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19).
+  
+It's been fun to keep coming back to this project, scraping a bit more data and looking to see how/if trends are changing. Below are a few figures from the analysis that will give you a glimpse of what it's all about.
+
+## Highlights
+
+### Sentiment over time
+
+For this plot I calculated the sentiment score of each briefing as the number of words associated with a positive sentiment minus the number of words associated with a negative sentiment. Plotting sentiment scores over time shows a steady trend in the negative earlier on in the pandemic, with an upward trend towards positive since March 2021.
+
+```{r fig.alt = "Sentiment score (calculated as number of positive minus negative words) over time. Most briefings have a negative sentiment score, with positive scores increasing in the recent past, with an upward trend since March.", echo = FALSE}
+knitr::include_graphics("sentiment-over-time.png")
+```
+
+Early on in the sentiment analysis it was clear that the sentiment assignments didn't work perfectly in this setting. For example, the word "positive" actually carries a negative sentiment in the COVID context, but it's assigned a positive sentiment in the Bing lexicon. I dropped that word from the sentiment analysis, though I realize there are a few others like it that I didn't catch/correct for.
+
+### Social vs. physical distancing
+
+Earlier in the pandemic Nicola Sturgeon used the phrase "social distancing", then it looks like she experimented with "physical distancing" at the beginning of the summer, and has been using that phrase exclusively ever since.
+
+```{r fig.alt = "Sentiment score (calculated as number of positive minus negative words) over time. Most briefings have a negative sentiment score, with positive scores increasing in the recent past, with an upward trend since March.", echo = FALSE}
+knitr::include_graphics("social-physical-scot.png")
+```
+
+Meanwhile, down in 10 Downing Street, it's still "social distancing"... These data come from the [UK government website](https://www.gov.uk/search/all?content_purpose_supergroup%5B%5D=news_and_communications&level_one_taxon=5b7b9532-a775-4bd2-a3aa-6ce380184b6c&order=updated-newest&organisations%5B%5D=prime-ministers-office-10-downing-street&page=1&parent=prime-ministers-office-10-downing-street).
+
+```{r}
+knitr::include_graphics("social-physical-uk.png")
+```
+
+### Vaccines FTW!
+
+This figure shows the number of times anything related to vaccinations shows up in the Scotland briefings. It ocurred to me today that it's a "jab" not a "vaccine" here so I used `[Vv]accin|\\b[Jj]abs?\\b` as the regular expression string to try to catch all relevant mentions.
+
+```{r}
+knitr::include_graphics("vaccines.png")
+```
+
+### Still waiting for pubs...
+
+The other thing everyone is talking about nowadays is pubs. Unfortunately, so far, mentions of pubs has been more frequently related to outbreaks than happy news.
+
+```{r}
+knitr::include_graphics("pubs.png")
+```
+
+### Scotland vs. UK speeches
+
+The following figure shows the tf-idf (term frequency - inverse document frequency) scores of words in Scotland and UK speeches. 
+Some of the words that show up more in Scotland briefings and much fewer (or no) times in UK briefings are geographic areas in Scotland, which makes sense.
+Some differences are harder to explain. 
+Except "slides", they say "next slide please" a lot in the UK briefings!
+Nicola Sturgeon doesn't use slides, so none of that up here.
+
+```{r}
+knitr::include_graphics("tf-idf.png")
+```
+
+### Text classification models
+
+This case study was a great motivator for me to learn more about tidymodels and also text modeling. 
+I am hugely grateful for the fantastic tidymodels learning resources as well as this tutorial on text modeling by Julia Silge and Emil Hvitfeldt. 
+The details of the model building are in the repo (and in the resources further below) but I'll show one figure here -- the variable importance figure.
+These are text features that have high importance in the classification model. 
+Some of them match findings from the tf-idf plot above, but in the model I also used bigrams and trigrams, so you see some phrases as well as single words as well.
+"Physical distancing" shows up on the Scotland side, which makes sense based on the social vs. physical distancing finding from earlier. 
+I can almost hear in my head Nicola Sturgeon talking about losing a "loved" one, I think she uses this phrasing in every briefing, so that word also makes sense to me.
+On the UK side, we have "slide" again, which makes me think I should have removed all the "next slide please" sentences.
+There is also "livelohoods" and upon closer inspection of the texts I think this is due to phrases like *"we are engaged in a constant struggle to protect lives and livelihoods"* being more common in the UK briefings than in the Scotland briefings.
+If what you know about Scotland is limited to Bravehart, the word "freedom" showing up on the UK side might surprise you.
+Both countries' briefings mention this word, but it shows up a lot more often in the UK briefings, within sentences like *"and i must stress that it is only because of months of sacrifice and effort that we can take this small step to freedom today."*.
+
+```{r}
+knitr::include_graphics("vip.png")
+```
+
+## Venues
+
+What started as a side project ended up being a useful resource for a few more things. 
+I've used this case study in a few other venues:
+
+- For teaching (all materials on Data Science in a Box, videos included):
+  - Writing a function to scrape a page: [Unit 2 - Deck 21](https://datasciencebox.org/exploring-data.html)
+  - Iterating over many pages: [Unit 2 - Deck 22](https://datasciencebox.org/exploring-data.html)
+  - Text analysis: [Unit 5 - Decks 1 and 2](https://datasciencebox.org/looking-forward.html)
+  - Shiny: [Unit 5 - Deck 3](https://datasciencebox.org/looking-forward.html)
+  - Machine learning / text classficiation models: [Unit 5 - Deck 4](https://datasciencebox.org/looking-forward.html)
+- In talks:
+  - TwinCities WIMLDS - Mar 2021 [[slides]](https://mine-cetinkaya-rundel.github.io/fm-speeches-covid19/venues/twincities-wimlds/tidyverse-tidymodels.html#1)
+  - R-Ladies Edinburgh + edinbR - April 2021 [[slides]](https://mine-cetinkaya-rundel.github.io/fm-speeches-covid19/venues/edi-rladies-edinbr/thats-what-nicola-said.html#1)
+  
+## Learn more
+
+If you'd like to dig in to the code yourself, you can find it all in [this GitHub repo](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19).

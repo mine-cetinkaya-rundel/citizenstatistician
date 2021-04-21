@@ -1,0 +1,104 @@
+---
+title: That's what Nicola said
+author: mine
+date: '2021-04-21'
+slug: that-s-what-nicola-said
+categories:
+  - musings
+tags:
+  - text analysis
+  - data science
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>For the last year, I’ve watched just about every COVID-19 briefing by the Scottish Government, most of which are delivered by First Minister Nicola Sturgeon.
+Earlier on in the pandemic these were daily updates, lately it seems like once a week.
+The more often they happen, the worse you know things are going…
+If I’ve chatted with you about COVID, you have probably heard me say that I am <em>very</em> impressed by the way she delivers these updates.
+I’ll be honest, they are almost boring, but in the best possible way.
+The last thing I want from a leader at this time is surprises, showmanship, or claims with no scientific basis.</p>
+<p>About a few weeks into the daily updates, I realized that the text for these speeches are published <a href="https://www.gov.scot/collections/first-ministers-speeches/">on the Scottish Government website</a>.
+So, naturally, I downloaded the data and started analyzing it.
+You can find the full analysis at <a href="https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19">github.com/mine-cetinkaya-rundel/fm-speeches-covid19</a>.</p>
+<p>It’s been fun to keep coming back to this project, scraping a bit more data and looking to see how/if trends are changing. Below are a few figures from the analysis that will give you a glimpse of what it’s all about.</p>
+<div id="highlights" class="section level2">
+<h2>Highlights</h2>
+<div id="sentiment-over-time" class="section level3">
+<h3>Sentiment over time</h3>
+<p>For this plot I calculated the sentiment score of each briefing as the number of words associated with a positive sentiment minus the number of words associated with a negative sentiment. Plotting sentiment scores over time shows a steady trend in the negative earlier on in the pandemic, with an upward trend towards positive since March 2021.</p>
+<p><img src="sentiment-over-time.png" title="Sentiment score (calculated as number of positive minus negative words) over time. Most briefings have a negative sentiment score, with positive scores increasing in the recent past, with an upward trend since March." alt="Sentiment score (calculated as number of positive minus negative words) over time. Most briefings have a negative sentiment score, with positive scores increasing in the recent past, with an upward trend since March." width="3150" /></p>
+<p>Early on in the sentiment analysis it was clear that the sentiment assignments didn’t work perfectly in this setting. For example, the word “positive” actually carries a negative sentiment in the COVID context, but it’s assigned a positive sentiment in the Bing lexicon. I dropped that word from the sentiment analysis, though I realize there are a few others like it that I didn’t catch/correct for.</p>
+</div>
+<div id="social-vs.-physical-distancing" class="section level3">
+<h3>Social vs. physical distancing</h3>
+<p>Earlier in the pandemic Nicola Sturgeon used the phrase “social distancing”, then it looks like she experimented with “physical distancing” at the beginning of the summer, and has been using that phrase exclusively ever since.</p>
+<p><img src="social-physical-scot.png" title="Sentiment score (calculated as number of positive minus negative words) over time. Most briefings have a negative sentiment score, with positive scores increasing in the recent past, with an upward trend since March." alt="Sentiment score (calculated as number of positive minus negative words) over time. Most briefings have a negative sentiment score, with positive scores increasing in the recent past, with an upward trend since March." width="3150" /></p>
+<p>Meanwhile, down in 10 Downing Street, it’s still “social distancing”… These data come from the <a href="https://www.gov.uk/search/all?content_purpose_supergroup%5B%5D=news_and_communications&amp;level_one_taxon=5b7b9532-a775-4bd2-a3aa-6ce380184b6c&amp;order=updated-newest&amp;organisations%5B%5D=prime-ministers-office-10-downing-street&amp;page=1&amp;parent=prime-ministers-office-10-downing-street">UK government website</a>.</p>
+<pre class="r"><code>knitr::include_graphics(&quot;social-physical-uk.png&quot;)</code></pre>
+<p><img src="social-physical-uk.png" width="3150" /></p>
+</div>
+<div id="vaccines-ftw" class="section level3">
+<h3>Vaccines FTW!</h3>
+<p>This figure shows the number of times anything related to vaccinations shows up in the Scotland briefings. It ocurred to me today that it’s a “jab” not a “vaccine” here so I used <code>[Vv]accin|\\b[Jj]abs?\\b</code> as the regular expression string to try to catch all relevant mentions.</p>
+<pre class="r"><code>knitr::include_graphics(&quot;vaccines.png&quot;)</code></pre>
+<p><img src="vaccines.png" width="3150" /></p>
+</div>
+<div id="still-waiting-for-pubs" class="section level3">
+<h3>Still waiting for pubs…</h3>
+<p>The other thing everyone is talking about nowadays is pubs. Unfortunately, so far, mentions of pubs has been more frequently related to outbreaks than happy news.</p>
+<pre class="r"><code>knitr::include_graphics(&quot;pubs.png&quot;)</code></pre>
+<p><img src="pubs.png" width="3150" /></p>
+</div>
+<div id="scotland-vs.-uk-speeches" class="section level3">
+<h3>Scotland vs. UK speeches</h3>
+<p>The following figure shows the tf-idf (term frequency - inverse document frequency) scores of words in Scotland and UK speeches.
+Some of the words that show up more in Scotland briefings and much fewer (or no) times in UK briefings are geographic areas in Scotland, which makes sense.
+Some differences are harder to explain.
+Except “slides”, they say “next slide please” a lot in the UK briefings!
+Nicola Sturgeon doesn’t use slides, so none of that up here.</p>
+<pre class="r"><code>knitr::include_graphics(&quot;tf-idf.png&quot;)</code></pre>
+<p><img src="tf-idf.png" width="3150" /></p>
+</div>
+<div id="text-classification-models" class="section level3">
+<h3>Text classification models</h3>
+<p>This case study was a great motivator for me to learn more about tidymodels and also text modeling.
+I am hugely grateful for the fantastic tidymodels learning resources as well as this tutorial on text modeling by Julia Silge and Emil Hvitfeldt.
+The details of the model building are in the repo (and in the resources further below) but I’ll show one figure here – the variable importance figure.
+These are text features that have high importance in the classification model.
+Some of them match findings from the tf-idf plot above, but in the model I also used bigrams and trigrams, so you see some phrases as well as single words as well.
+“Physical distancing” shows up on the Scotland side, which makes sense based on the social vs. physical distancing finding from earlier.
+I can almost hear in my head Nicola Sturgeon talking about losing a “loved” one, I think she uses this phrasing in every briefing, so that word also makes sense to me.
+On the UK side, we have “slide” again, which makes me think I should have removed all the “next slide please” sentences.
+There is also “livelohoods” and upon closer inspection of the texts I think this is due to phrases like <em>“we are engaged in a constant struggle to protect lives and livelihoods”</em> being more common in the UK briefings than in the Scotland briefings.
+If what you know about Scotland is limited to Bravehart, the word “freedom” showing up on the UK side might surprise you.
+Both countries’ briefings mention this word, but it shows up a lot more often in the UK briefings, within sentences like <em>“and i must stress that it is only because of months of sacrifice and effort that we can take this small step to freedom today.”</em>.</p>
+<pre class="r"><code>knitr::include_graphics(&quot;vip.png&quot;)</code></pre>
+<p><img src="vip.png" width="1500" /></p>
+</div>
+</div>
+<div id="venues" class="section level2">
+<h2>Venues</h2>
+<p>What started as a side project ended up being a useful resource for a few more things.
+I’ve used this case study in a few other venues:</p>
+<ul>
+<li>For teaching (all materials on Data Science in a Box, videos included):
+<ul>
+<li>Writing a function to scrape a page: <a href="https://datasciencebox.org/exploring-data.html">Unit 2 - Deck 21</a></li>
+<li>Iterating over many pages: <a href="https://datasciencebox.org/exploring-data.html">Unit 2 - Deck 22</a></li>
+<li>Text analysis: <a href="https://datasciencebox.org/looking-forward.html">Unit 5 - Decks 1 and 2</a></li>
+<li>Shiny: <a href="https://datasciencebox.org/looking-forward.html">Unit 5 - Deck 3</a></li>
+<li>Machine learning / text classficiation models: <a href="https://datasciencebox.org/looking-forward.html">Unit 5 - Deck 4</a></li>
+</ul></li>
+<li>In talks:
+<ul>
+<li>TwinCities WIMLDS - Mar 2021 <a href="https://mine-cetinkaya-rundel.github.io/fm-speeches-covid19/venues/twincities-wimlds/tidyverse-tidymodels.html#1">[slides]</a></li>
+<li>R-Ladies Edinburgh + edinbR - April 2021 <a href="https://mine-cetinkaya-rundel.github.io/fm-speeches-covid19/venues/edi-rladies-edinbr/thats-what-nicola-said.html#1">[slides]</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="learn-more" class="section level2">
+<h2>Learn more</h2>
+<p>If you’d like to dig in to the code yourself, you can find it all in <a href="https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19">this GitHub repo</a>.</p>
+</div>
