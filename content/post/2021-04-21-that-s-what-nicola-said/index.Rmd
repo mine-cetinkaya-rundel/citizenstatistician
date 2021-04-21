@@ -18,7 +18,7 @@ I'll be honest, they are almost boring, but in the best possible way.
 The last thing I want from a leader at this time is surprises, showmanship, or claims with no scientific basis.
 
 About a few weeks into the daily updates, I realized that the text for these speeches are published [on the Scottish Government website](https://www.gov.scot/collections/first-ministers-speeches/).
-So, naturally, I downloaded the data and started analyzing it.
+So, naturally, I scraped the data and started analyzing it.
 You can find the full analysis at [github.com/mine-cetinkaya-rundel/fm-speeches-covid19](https://github.com/mine-cetinkaya-rundel/fm-speeches-covid19).
   
 It's been fun to keep coming back to this project, scraping a bit more data and looking to see how/if trends are changing. Below are a few figures from the analysis that will give you a glimpse of what it's all about.
